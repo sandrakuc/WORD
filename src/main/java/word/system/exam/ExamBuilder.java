@@ -4,7 +4,7 @@ package word.system.exam;
 import java.util.*;
 
 /* Abstract Builder */
-public abstract class AbstractBuilderExam {
+public abstract class ExamBuilder {
 
     protected Exam exam;
 

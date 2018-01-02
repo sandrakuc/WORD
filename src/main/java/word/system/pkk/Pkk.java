@@ -45,5 +45,11 @@ public class Pkk {
         setBlocked(Boolean.FALSE);
     }
 
+    @Override
+    public String toString()
+    {
+        return "[" + id + " " + name + " " + surname + " " + birthDate + " " + address + " " + "is blocked:" + isBlocked + "]";
+    }
+
 
 }

@@ -13,4 +13,7 @@ abstract public class Machine {
     }
 
     abstract void showInformations();
+
+
+
 }
