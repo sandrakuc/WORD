@@ -1,10 +1,9 @@
 package word.system.exam.approach;
 
 import word.system.common.DriveLicenseType;
-import word.system.exam.PracticExam;
+import word.system.exam.PracticExamBuilder;
 
 import java.io.File;
-import java.util.*;
 
 /**
  * 
@@ -35,7 +34,7 @@ public class PracticApproach {
     /**
      * 
      */
-    public PracticExam practicExam;
+    public PracticExamBuilder practicExam;
 
 
 

@@ -1,6 +1,5 @@
 package word.system.exam;
 
-import word.system.exam.AbstractExam;
 import word.system.exam.approach.TeoreticalApproach;
 
 import java.util.*;
@@ -8,12 +7,12 @@ import java.util.*;
 /**
  * 
  */
-public class TeoreticalExam extends AbstractExam {
+public class TeoreticalExamBuilder extends AbstractBuilderExam {
 
     /**
      * Default constructor
      */
-    public TeoreticalExam() {
+    public TeoreticalExamBuilder() {
     }
 
     /**
@@ -48,4 +47,18 @@ public class TeoreticalExam extends AbstractExam {
         // TODO implement here
     }
 
+    @Override
+    public void addPkkToExam() {
+
+    }
+
+    @Override
+    public void addExaminerToExam() {
+
+    }
+
+    @Override
+    public void addMachineToExam() {
+
+    }
 }

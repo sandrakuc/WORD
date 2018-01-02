@@ -1,11 +1,9 @@
 package word.system.exam.approach;
 
 import word.system.common.DriveLicenseType;
-import word.system.exam.TeoreticalExam;
+import word.system.exam.TeoreticalExamBuilder;
 import word.system.exam.question.Answer;
 import word.system.exam.question.QuestionResult;
-
-import java.util.*;
 
 /**
  * 
@@ -31,7 +29,7 @@ public class TeoreticalApproach {
     /**
      * 
      */
-    public TeoreticalExam teoreticalExam;
+    public TeoreticalExamBuilder teoreticalExam;
 
 
 
