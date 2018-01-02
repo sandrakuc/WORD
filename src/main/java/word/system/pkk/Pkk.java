@@ -8,15 +8,16 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Pkk {
-    private int id;
-    private String name;
-    private String surname;
-    private Date birthDate;
-    private Exam exam;
-    private ArrayList<DrivingLicense> driverLicenseCategoriesList;
-    private Address address;
+    public int id;
+    public String name;
+    public String surname;
+    public String birthDate;
+    public Exam exam;
+    public ArrayList<DrivingLicense> driverLicenseCategoriesList;
+    public String address;
+    private boolean isBlocked;
 
-    Pkk(int id, String name, String surname, Date birthDay, Address address )
+    public Pkk(int id, String name, String surname, String birthDay, String address)
     {
         this.id=id;
         this.name=name;
@@ -25,12 +26,24 @@ public class Pkk {
         this.address=address;
     }
 
-    void blockPkk(){
-
+    public boolean isBlocked() {
+        return isBlocked;
     }
 
-    void unlockPkk()
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
+    }
+
+
+
+    public void blockPkk(){
+        setBlocked(Boolean.TRUE);
+    }
+
+    public void unlockPkk()
     {
-
+        setBlocked(Boolean.FALSE);
     }
+
+
 }

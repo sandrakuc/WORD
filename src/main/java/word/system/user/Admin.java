@@ -5,6 +5,11 @@ import word.system.carfactory.*;
 public class Admin {
     private Machine machine;
 
+    public Machine getMachine() {
+        return machine;
+    }
+
+
     public void createMachine(){
         int type;
         float weight, power;

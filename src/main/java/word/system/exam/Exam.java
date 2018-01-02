@@ -1,5 +1,7 @@
 package word.system.exam;
 
+import word.system.carfactory.Car;
+import word.system.carfactory.Machine;
 import word.system.exam.examiners.PracticalExaminer;
 import word.system.exam.examiners.TeoreticalExaminer;
 import word.system.pkk.Pkk;
@@ -13,6 +15,7 @@ public class Exam {
     private PracticalExaminer practicalExaminer;
     private TeoreticalExaminer teoreticalExaminer;
     private ArrayList<Pkk> pkkList;
+    private Machine machine;
 
     public void setDate(Date examDate) {
         this.examDate=examDate;
@@ -31,5 +34,13 @@ public class Exam {
     public void setPkkList (ArrayList<Pkk> pkkList)
     {
         this.pkkList=pkkList;
+    }
+
+    public void setExamDate(Date examDate) {
+        this.examDate = examDate;
+    }
+
+    public void setMachine(Machine machine) {
+        this.machine = machine;
     }
 }

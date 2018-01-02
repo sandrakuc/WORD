@@ -4,31 +4,16 @@ import word.system.exam.approach.TeoreticalApproach;
 
 import java.util.*;
 
-/**
- * 
- */
+
 public class TeoreticalExamBuilder extends AbstractBuilderExam {
 
-    /**
-     * Default constructor
-     */
+
     public TeoreticalExamBuilder() {
     }
 
-    /**
-     * 
-     */
-    //public List<Pkk> pkk;
-
-
-    /**
-     * 
-     */
     public Set<TeoreticalApproach> TeoreticalExamResults;
 
-    /**
-     * 
-     */
+  
     public void run() {
         // TODO implement here
     }
