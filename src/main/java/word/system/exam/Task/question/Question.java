@@ -1,4 +1,4 @@
-package word.system.exam.question;
+package word.system.exam.Task.question;
 
 import word.system.common.DriveLicenseType;
 

@@ -1,11 +1,10 @@
 package word.system.exam.TasksFactory;
 
 import word.system.common.DriveLicenseType;
-import word.system.exam.TasksFactory.TasksFactory;
-import word.system.exam.maneouver.Maneuver;
-import word.system.exam.maneouver.ManeuverResult;
-import word.system.exam.question.Question;
-import word.system.exam.question.QuestionResult;
+import word.system.exam.Task.maneouver.Maneuver;
+import word.system.exam.Task.ManeuverResult;
+import word.system.exam.Task.question.Question;
+import word.system.exam.Task.QuestionResult;
 
 import java.util.*;
 

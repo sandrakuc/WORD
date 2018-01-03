@@ -1,11 +1,13 @@
-package word.system.exam.maneouver;
+package word.system.exam.Task;
 
-import java.util.*;
+import word.system.exam.Task.maneouver.Maneuver;
 
 /**
  * 
  */
-public class ManeuverResult {
+public class ManeuverResult implements TaskResult {
+
+    boolean result;
 
     /**
      * Default constructor
@@ -61,5 +63,15 @@ public class ManeuverResult {
 
     public void setPositive(boolean positive) {
         this.positive = positive;
+    }
+
+    @Override
+    public boolean getResult() {
+        return false;
+    }
+
+    @Override
+    public void setResult(boolean result) {
+        this.result = result;
     }
 }

@@ -1,7 +1,7 @@
 package word.system.exam.TasksFactory;
 
-import word.system.exam.maneouver.ManeuverResult;
-import word.system.exam.question.QuestionResult;
+import word.system.exam.Task.ManeuverResult;
+import word.system.exam.Task.QuestionResult;
 
 import java.util.*;
 

@@ -1,8 +1,6 @@
-package word.system.exam.maneouver;
+package word.system.exam.Task.maneouver;
 
 import word.system.common.DriveLicenseType;
-
-import java.util.*;
 
 /**
  * 

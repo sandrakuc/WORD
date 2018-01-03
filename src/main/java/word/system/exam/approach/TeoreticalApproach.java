@@ -2,8 +2,8 @@ package word.system.exam.approach;
 
 import word.system.common.DriveLicenseType;
 import word.system.exam.TeoreticalExamBuilder;
-import word.system.exam.question.Answer;
-import word.system.exam.question.QuestionResult;
+import word.system.exam.Task.question.Answer;
+import word.system.exam.Task.QuestionResult;
 
 /**
  * 
