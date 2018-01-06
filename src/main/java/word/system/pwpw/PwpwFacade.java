@@ -13,7 +13,7 @@ public class PwpwFacade {
         simulate(drivingLicense);
     }
 
-
+//Metody wykonywane przez PWPW nie udostepniane na zewnatrz.
     //metoda symulujaca dzialanie PWPW
     private void simulate(DrivingLicense drivingLicense)
     {
@@ -30,10 +30,13 @@ public class PwpwFacade {
         drivingLicense.setStatus(drivingLicenseStatus);
     }
 
+
+    //Metody PWPW udostepniane na zewnatrz (PWPW jako fasada)
     public void checkStatus(){
         drivingLicense.checkStatus();
     }
 
+    //inne
     public Pkk getPkk() {
         return pkk;
     }
