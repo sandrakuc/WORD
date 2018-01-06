@@ -1,6 +1,9 @@
 package word.system.pwpw;
 
+import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 import word.system.pkk.Pkk;
+
+import java.util.Random;
 
 import static word.system.pwpw.DrivingLicenseStatus.InProcecessOfMaking;
 
@@ -25,6 +28,9 @@ public class DrivingLicense {
         return issuingOffice;
     }
 
+
+
+
     public DrivingLicenseStatus getDrivingLicenseStatus() {
         return drivingLicenseStatus;
     }
@@ -33,11 +39,4 @@ public class DrivingLicense {
         this.drivingLicenseStatus = drivingLicenseStatus;
     }
 
-    public void checkStatus() {
-        System.out.println("Driving license status: " + drivingLicenseStatus);
-    }
-
-    public void setStatus(DrivingLicenseStatus drivingLicenseStatus) {
-        this.drivingLicenseStatus=drivingLicenseStatus;
-    }
 }

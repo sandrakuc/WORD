@@ -1,4 +1,4 @@
-package word.system.DriverLicenseApplication;
+package word.system.DrivingLicenseApplication;
 
 public enum ApplicationStatus {
     New,

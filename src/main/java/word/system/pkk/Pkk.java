@@ -1,9 +1,8 @@
 package word.system.pkk;
 
-import word.system.DriverLicenseApplication.DrivingLicenseApplication;
+import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 import word.system.exam.Exam;
 import word.system.pwpw.DrivingLicense;
-import word.system.pwpw.PwpwFacade;
 
 
 import java.util.ArrayList;
@@ -17,6 +16,12 @@ public class Pkk {
     public ArrayList<DrivingLicense> driverLicenseCategoriesList;
     public String address;
     private PkkStatus pkkStatus;
+
+
+    public DrivingLicenseApplication getDrivingLicenseApplication() {
+        return drivingLicenseApplication;
+    }
+
     private DrivingLicenseApplication drivingLicenseApplication;
 
     public Pkk(int id, String name, String surname, String birthDate, String address) {
@@ -27,9 +32,4 @@ public class Pkk {
         this.address = address;
     }
 
-    public static void main(String[] args) {
-
-        PwpwFacade pwpw = new PwpwFacade();
-        pwpw.checkStatus();
-    }
 }
