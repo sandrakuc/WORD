@@ -3,12 +3,12 @@ package word.system.DriverLicenseApplication;
 import word.system.common.DrivingLicense;
 import word.system.pwpw.PwpwFacade;
 
-public class DriverLicenseApplication {
+public class DrivingLicenseApplication {
     private int id;
     private ApplicationStatus applicationStatus;
     private PwpwFacade pwpwFacade;
 
-    public DriverLicenseApplication(int id, ApplicationStatus applicationStatus, PwpwFacade pwpwFacade) {
+    public DrivingLicenseApplication(int id, ApplicationStatus applicationStatus, PwpwFacade pwpwFacade) {
         this.id = id;
         this.applicationStatus = applicationStatus;
         this.pwpwFacade = pwpwFacade;

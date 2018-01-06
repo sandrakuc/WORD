@@ -1,4 +1,4 @@
-package word.system.pwpw;
+package word.system.common;
 
 public enum DrivingLicenseStatus {
     InProcecessOfMaking,

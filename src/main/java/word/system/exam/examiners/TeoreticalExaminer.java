@@ -26,7 +26,7 @@ public class TeoreticalExaminer {
 
     void blockPkk (Pkk pkk)
     {
-        pkk.blockPkk();
+
     }
 
     void runExam(Exam exam)

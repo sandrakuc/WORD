@@ -31,7 +31,7 @@ public class PracticalExaminer {
 
     void blockPkk (Pkk pkk)
     {
-       pkk.blockPkk();
+
     }
 
 }

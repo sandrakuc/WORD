@@ -1,8 +1,8 @@
 package word.system.pkk;
 
+import word.system.DriverLicenseApplication.DrivingLicenseApplication;
 import word.system.common.Address;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class CityDepartamentEmployee {
@@ -11,6 +11,7 @@ public class CityDepartamentEmployee {
     private String surname;
     private Date birthDate;
     private Address address;
+    private DrivingLicenseApplication drivingLicenseApplication;
 
     public CityDepartamentEmployee(int id, String name, String surname, Date birthDate, Address address) {
         this.id = id;
