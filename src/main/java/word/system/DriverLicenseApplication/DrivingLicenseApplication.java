@@ -1,6 +1,5 @@
 package word.system.DriverLicenseApplication;
 
-import word.system.common.DrivingLicense;
 import word.system.pwpw.PwpwFacade;
 
 public class DrivingLicenseApplication {

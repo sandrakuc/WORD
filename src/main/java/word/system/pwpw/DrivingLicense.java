@@ -1,12 +1,14 @@
-package word.system.common;
+package word.system.pwpw;
 
 import word.system.pkk.Pkk;
+
+import static word.system.pwpw.DrivingLicenseStatus.InProcecessOfMaking;
 
 public class DrivingLicense {
     private Pkk pkk;
     private String address;
     private String issuingOffice;
-    private DrivingLicenseStatus drivingLicenseStatus;
+    private DrivingLicenseStatus drivingLicenseStatus =  InProcecessOfMaking;
 
     public DrivingLicense() {
     }

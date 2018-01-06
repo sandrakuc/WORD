@@ -1,7 +1,5 @@
 package word.system.pwpw;
 
-import word.system.common.DrivingLicense;
-import word.system.common.DrivingLicenseStatus;
 import word.system.pkk.Pkk;
 
 
@@ -12,15 +10,20 @@ public class PwpwFacade {
     public PwpwFacade()
     {
         drivingLicense = new DrivingLicense();
+        simulate(drivingLicense);
     }
 
-    public Pkk getPkk() {
-        return pkk;
+
+    //metoda symulujaca dzialanie PWPW
+    private void simulate(DrivingLicense drivingLicense)
+    {
+        //ustawienie rand statusu wniosku
+        DrivingLicenseStatus dls = DrivingLicenseStatus.getRandomDrivingLicenceStatus();
+        setStatus(dls);
+
+
     }
 
-    public void setPkk(Pkk pkk) {
-        this.pkk = pkk;
-    }
 
     protected void setStatus(DrivingLicenseStatus drivingLicenseStatus)
     {
@@ -31,6 +34,12 @@ public class PwpwFacade {
         drivingLicense.checkStatus();
     }
 
+    public Pkk getPkk() {
+        return pkk;
+    }
 
+    public void setPkk(Pkk pkk) {
+        this.pkk = pkk;
+    }
 
 }
