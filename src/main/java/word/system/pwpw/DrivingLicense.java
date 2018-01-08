@@ -8,12 +8,14 @@ import java.util.Random;
 import static word.system.pwpw.DrivingLicenseStatus.InProcecessOfMaking;
 
 public class DrivingLicense {
+    private int id;
     private Pkk pkk;
     private String address;
     private String issuingOffice;
     private DrivingLicenseStatus drivingLicenseStatus =  InProcecessOfMaking;
 
-    public DrivingLicense() {
+    public DrivingLicense(int id) {
+        this.id = id;
     }
 
     public Pkk getPkk() {
@@ -28,8 +30,17 @@ public class DrivingLicense {
         return issuingOffice;
     }
 
+    public void setPkk(Pkk pkk) {
+        this.pkk = pkk;
+    }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
+    public void setIssuingOffice(String issuingOffice) {
+        this.issuingOffice = issuingOffice;
+    }
 
     public DrivingLicenseStatus getDrivingLicenseStatus() {
         return drivingLicenseStatus;

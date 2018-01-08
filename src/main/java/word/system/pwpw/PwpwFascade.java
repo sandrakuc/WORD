@@ -12,12 +12,23 @@ public class PwpwFascade {
 
     public PwpwFascade()
     {
-        drivingLicense = new DrivingLicense();
+        drivingLicense = new DrivingLicense(1);
         simulate(drivingLicense);
     }
 
 //Metody wykonywane przez PWPW nie udostepniane na zewnatrz. (PWPW oprocz bycia fasada samo tez wykonuje prace)
     //metoda symulujaca dzialanie PWPW
+
+    //inne
+    public Pkk getPkk() {
+        return pkk;
+    }
+
+    public void setPkk(Pkk pkk) {
+        this.pkk = pkk;
+    }
+
+    ///klasa symulujaca dzialanie pwpw
     private void simulate(DrivingLicense drivingLicense)
     {
         //ustawienie rand statusu wniosku
@@ -28,7 +39,6 @@ public class PwpwFascade {
 
     protected void markAsReceived(DrivingLicense drivingLicense)
     {
-
         drivingLicense.setDrivingLicenseStatus(DrivingLicenseStatus.Received);
     }
 
@@ -39,30 +49,22 @@ public class PwpwFascade {
 
 
     //Metody PWPW udostepniane na zewnatrz (PWPW jako fasada)
-    public DrivingLicenseStatus getDrivingLicenseStatus(){
-        return drivingLicense.getDrivingLicenseStatus();
-    }
-
     public DrivingLicense getDrivingLicense() {
         return drivingLicense;
     }
 
-    public void checkAvaliable(Pkk pkk)
+    public DrivingLicenseStatus checkAvaliable(Pkk pkk)
     {
-        if(drivingLicense.getDrivingLicenseStatus()==DrivingLicenseStatus.ReadyToGetFromPWPW)
-           System.out.println("Prawo jazdy dostepne do odbioru");
-        else
-            System.out.println("Prawo jazdy niedostepne do odbioru");
+
+        return getDrivingLicense().getDrivingLicenseStatus();
     }
 
+    public boolean verifyApplicationData(Pkk pkk)
+    {
+        return Boolean.TRUE;
+}
 
-    //inne
-    public Pkk getPkk() {
-        return pkk;
-    }
 
-    public void setPkk(Pkk pkk) {
-        this.pkk = pkk;
-    }
+
 
 }
