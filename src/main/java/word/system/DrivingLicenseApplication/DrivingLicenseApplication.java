@@ -44,30 +44,31 @@ public class DrivingLicenseApplication {
         PwpwFascade pwpwFascade = new PwpwFascade();
 
         //sprawdzanie poprawnosci wniosku
-        if( pwpwFascade.verifyApplicationData(pkk)==Boolean.TRUE );
+        if(pwpwFascade.verifyApplicationData(pkk)==Boolean.TRUE);
         {
             System.out.println("PWPW potwierdziło dane z wniosku");
         }
 
         //sprawdzenie statusu wniosku
         drivingLicenseStatus = pwpwFascade.checkAvaliable(dla.getPkk());
+
+        System.out.println("\nStatus prawa jazdy z PWPW: ");
         switch (drivingLicenseStatus)
         {
-
             case InProcecessOfMaking:
-                System.out.println("PWPW tworzy prawo jazdy");
+                System.out.print("PWPW tworzy prawo jazdy");
                 drivingLicenseStatus = DrivingLicenseStatus.InProcecessOfMaking;
                 break;
             case ReadyToGetFromPWPW:
-                System.out.println("PWPW utworzyło prawo jazdy");
+                System.out.print("PWPW utworzyło prawo jazdy");
                 drivingLicenseStatus = DrivingLicenseStatus.ReadyToGetFromPWPW;
                 break;
             case ReadyToGet:
-                System.out.println("Prawo jazdy gotowe do odebrania");
+                System.out.print("Prawo jazdy gotowe do odebrania");
                 drivingLicenseStatus = DrivingLicenseStatus.ReadyToGet;
                 break;
             case Received:
-                System.out.println("Prawo jazdy odebrane");
+                System.out.print("Prawo jazdy odebrane");
                 drivingLicenseStatus = DrivingLicenseStatus.Received;
                 break;
 

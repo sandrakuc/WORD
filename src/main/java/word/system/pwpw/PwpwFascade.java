@@ -17,9 +17,8 @@ public class PwpwFascade {
     }
 
 //Metody wykonywane przez PWPW nie udostepniane na zewnatrz. (PWPW oprocz bycia fasada samo tez wykonuje prace)
-    //metoda symulujaca dzialanie PWPW
 
-    //inne
+
     public Pkk getPkk() {
         return pkk;
     }
@@ -28,18 +27,12 @@ public class PwpwFascade {
         this.pkk = pkk;
     }
 
-    ///klasa symulujaca dzialanie pwpw
+    //metoda symulujaca dzialanie PWPW
     private void simulate(DrivingLicense drivingLicense)
     {
         //ustawienie rand statusu wniosku
         DrivingLicenseStatus dls = DrivingLicenseStatus.getRandomDrivingLicenceStatus();
         setStatus(dls);
-    }
-
-
-    protected void markAsReceived(DrivingLicense drivingLicense)
-    {
-        drivingLicense.setDrivingLicenseStatus(DrivingLicenseStatus.Received);
     }
 
     protected void setStatus(DrivingLicenseStatus drivingLicenseStatus)
@@ -55,16 +48,11 @@ public class PwpwFascade {
 
     public DrivingLicenseStatus checkAvaliable(Pkk pkk)
     {
-
         return getDrivingLicense().getDrivingLicenseStatus();
     }
 
     public boolean verifyApplicationData(Pkk pkk)
     {
         return Boolean.TRUE;
-}
-
-
-
-
+    }
 }
