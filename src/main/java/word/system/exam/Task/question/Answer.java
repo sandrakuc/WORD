@@ -13,6 +13,11 @@ public class Answer {
     public Answer() {
     }
 
+    public Answer(String answer, boolean isCorrect) {
+        this.answer = answer;
+        this.isCorrect = isCorrect;
+    }
+
     /**
      * 
      */
