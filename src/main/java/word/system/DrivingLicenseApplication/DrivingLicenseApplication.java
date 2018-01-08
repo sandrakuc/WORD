@@ -96,5 +96,8 @@ public class DrivingLicenseApplication {
 
         dla.generateApplication(pkk);
         dla.sendToPWPW(dla);
+
+        System.out.println("\n\nStatus prawa jazdy w obiekcie 'DrivingLicenseApplication': " + dla.getDrivingLicenseStatus());
+        System.out.println("Status prawa jazdy zmienil sie w tym obiekcie i mozna o tym fakcie poinformowac obserwatorow przy uzyciu wzorca Observer");
     }
 }
