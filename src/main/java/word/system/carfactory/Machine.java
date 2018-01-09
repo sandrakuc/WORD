@@ -1,8 +1,8 @@
 package word.system.carfactory;
 
 abstract public class Machine {
-    float weight, power;
-    String brand, model, plate;
+    public float weight, power;
+    public String brand, model, plate;
 
     Machine(float weight, float power, String brand, String model, String plate){
         this.weight = weight;
