@@ -1,9 +1,9 @@
 package word.system.DrivingLicenseApplication;
 
 import word.system.pkk.Pkk;
-import word.system.pwpw.DrivingLicense;
 import word.system.pwpw.DrivingLicenseStatus;
-import word.system.pwpw.PwpwFascade;
+import word.system.pwpw.Pwpw;
+import word.system.pwpw.PwpwProxy;
 
 public class DrivingLicenseApplication {
     private int id;
@@ -41,16 +41,16 @@ public class DrivingLicenseApplication {
 
     public void sendToPWPW(DrivingLicenseApplication dla)
     {
-        PwpwFascade pwpwFascade = new PwpwFascade();
+        Pwpw pwpw = new PwpwProxy();
 
         //sprawdzanie poprawnosci wniosku
-        if(pwpwFascade.verifyApplicationData(pkk)==Boolean.TRUE);
+        if(pwpw.verifyApplicationData()==Boolean.TRUE);
         {
             System.out.println("PWPW potwierdziło dane z wniosku");
         }
 
         //sprawdzenie statusu wniosku
-        drivingLicenseStatus = pwpwFascade.checkAvaliable(dla.getPkk());
+        drivingLicenseStatus = pwpw.getDrivingLicenseStatus(dla.getPkk());
 
         System.out.println("\nStatus prawa jazdy z PWPW: ");
         switch (drivingLicenseStatus)
@@ -75,8 +75,6 @@ public class DrivingLicenseApplication {
                 ///status wniosku ustawiony. W innej metodzie mozna uzyc wzorca observer
                //do poinformowania obserwujacych o zmianie stanu obiektu
         }
-
-
     }
 
     public void generateApplication(Pkk pkk)

@@ -7,11 +7,10 @@ import java.util.Random;
 
 import static word.system.pwpw.DrivingLicenseStatus.InProcecessOfMaking;
 
-public class DrivingLicense {
+public class DrivingLicense implements Pwpw {
     private int id;
     private Pkk pkk;
     private String address;
-    private String issuingOffice;
     private DrivingLicenseStatus drivingLicenseStatus =  InProcecessOfMaking;
 
     public DrivingLicense(int id) {
@@ -26,10 +25,6 @@ public class DrivingLicense {
         return address;
     }
 
-    public String getIssuingOffice() {
-        return issuingOffice;
-    }
-
     public void setPkk(Pkk pkk) {
         this.pkk = pkk;
     }
@@ -38,16 +33,25 @@ public class DrivingLicense {
         this.address = address;
     }
 
-    public void setIssuingOffice(String issuingOffice) {
-        this.issuingOffice = issuingOffice;
+    public void simulate() {
+            //ustawienie rand statusu wniosku
+            drivingLicenseStatus  = DrivingLicenseStatus.getRandomDrivingLicenceStatus();
     }
 
-    public DrivingLicenseStatus getDrivingLicenseStatus() {
-        return drivingLicenseStatus;
-    }
-
+    @Override
     public void setDrivingLicenseStatus(DrivingLicenseStatus drivingLicenseStatus) {
         this.drivingLicenseStatus = drivingLicenseStatus;
     }
+
+    @Override
+    public DrivingLicenseStatus getDrivingLicenseStatus(Pkk pkk) {
+        return drivingLicenseStatus;
+    }
+
+    @Override
+    public boolean verifyApplicationData() {
+        return Boolean.TRUE;
+    }
+
 
 }
