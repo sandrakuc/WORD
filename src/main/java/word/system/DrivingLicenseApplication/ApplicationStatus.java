@@ -5,5 +5,6 @@ public enum ApplicationStatus {
     SendToPWPW,
     ReadyInPWPW,
     ReadyToGet,
-    Received
+    Received,
+    SendedToPWPW
 }
