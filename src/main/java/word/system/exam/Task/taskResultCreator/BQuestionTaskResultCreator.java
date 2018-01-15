@@ -18,7 +18,7 @@ public class BQuestionTaskResultCreator  implements TaskResultCreator {
      * @return
      */
     protected List<Question> getRandomQuestion(int number) {
-        ArrayList<Question> questions = new ArrayList<>();
+        ArrayList<Question> questions = new ArrayList<Question>();
 
         Question question = new Question();
         question.setQuestion("testowe pytanie 123");
@@ -31,7 +31,7 @@ public class BQuestionTaskResultCreator  implements TaskResultCreator {
 
     @Override
     public List<TaskResult> createList() {
-        ArrayList<TaskResult> questionResults = new ArrayList<>();
+        ArrayList<TaskResult> questionResults = new ArrayList<TaskResult>();
 
         for(Question question: getRandomQuestion(NUMBER_OF_QUESTION_ON_TEORETICAL_EXAM)) {
             QuestionResult questionResult = new QuestionResult();
