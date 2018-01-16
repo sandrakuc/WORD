@@ -2,10 +2,14 @@ package word.system.user;
 import java.util.Scanner;
 import java.util.ArrayList;
 import word.system.carfactory.*;
+import word.system.exam.*;
 
 public class Admin {
     private Machine machine;
     private MachineDataBaseFascade mdbf;
+    private static PracticExam practicExam;
+    private static TeoreticalExam teoreticalExam;
+    private static ExamCaretaker examCaretaker;
 
     public Machine getMachine() {
         return machine;
@@ -65,47 +69,25 @@ public class Admin {
     }
 
     static public void main(String arg[]){
-        Admin a = new Admin();
-        System.out.println("Witam w panelu administracyjnym");
-        while(true){
-            int x;
-            Scanner s = new Scanner(System.in);
-            System.out.println("Co chcesz zrobić: ");
-            System.out.println("1 - utworzyć pojazd i dodać go do bazy danych");
-            System.out.println("2 - wyszukać pojazd na podstawie tablic rejestracyjnych");
-            System.out.println("3 - wyświetlić listę dostępnych pojazdów");
-            System.out.println("Inna wartość - zakończenie pracy w panelu");
-            x = s.nextInt();
-            switch(x){
-                case 1: {
-                    a.createMachine();
-                    break;
-                }
-                case 2: {
-                    String plate;
-                    System.out.println("Podaj numer rejestracyjny pojazdu");
-                    plate = s.nextLine();
-                    plate = s.nextLine();
-                    if(a.getMachine(plate)!= null)
-                        System.out.println("Marka i model: " + a.getMachine(plate).brand + " " + a.getMachine(plate).model);
-                    else
-                        System.out.println("Błędny numer rejestracyjny lub brak pojazdu");
-                    break;
-                }
-                case 3: {
-                    ArrayList<Machine> machines;
-                    machines = a.getListOfMachine();
-                    for(int i = 0; i<machines.size(); i++){
-                        System.out.println("Pojazd nr " + i);
-                        System.out.println("Marka i model: " + machines.get(i).brand + " " + machines.get(i).model);
-                        System.out.println("Mumer rejestracyjny: " + machines.get(i).plate);
-                    }
-                    break;
-                }
-                default:{
-                    System.exit(0);
-                }
-            }
-        }
+        practicExam = new PracticExam();
+        examCaretaker = new ExamCaretaker(practicExam);
+        practicExam.setState(ExamStatus.Accepted);
+        System.out.println(practicExam);
+        examCaretaker.saveExamState();
+        practicExam.setState(ExamStatus.Rejected);
+        System.out.println(practicExam);
+        examCaretaker.restoreState();
+        System.out.println(practicExam);
+
+        teoreticalExam = new TeoreticalExam();
+        examCaretaker = new ExamCaretaker(teoreticalExam);
+        teoreticalExam.setState(ExamStatus.Accepted);
+        System.out.println(teoreticalExam);
+        examCaretaker.saveExamState();
+        teoreticalExam.setState(ExamStatus.Rejected);
+        System.out.println(teoreticalExam);
+        examCaretaker.restoreState();
+        System.out.println(teoreticalExam);
+
     }
 }

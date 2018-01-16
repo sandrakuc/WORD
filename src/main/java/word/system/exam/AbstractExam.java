@@ -57,6 +57,11 @@ abstract public class AbstractExam {
         }
     }
 
+    @Override
+    public String toString(){
+        return super.toString() + " " + state;
+    }
+
     abstract public void accept(Visitor visitor);
 
     public class Memento{
