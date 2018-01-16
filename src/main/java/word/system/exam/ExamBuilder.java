@@ -1,20 +1,18 @@
 package word.system.exam;
 
 
-import java.util.*;
-
 /* Abstract Builder */
 public abstract class ExamBuilder {
 
-    protected Exam exam;
+    protected AbstractExam abstractExam;
 
-    public Exam getExam() {
-        return exam;
+    public AbstractExam getAbstractExam() {
+        return abstractExam;
     }
 
     public void createNewExam()
     {
-        exam = new Exam();
+        //abstractExam = new AbstractExam(); //tomek - zakomentowałem bo błąd, AbstractExam musi być klasą abstrackyjną
     }
 
     public abstract void addPkkToExam();

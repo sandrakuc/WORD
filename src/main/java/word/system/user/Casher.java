@@ -1,7 +1,7 @@
 package word.system.user;
 
+import word.system.exam.AbstractExam;
 import word.system.exam.ExamBuilder;
-import word.system.exam.Exam;
 import word.system.exam.PracticExamBuilder;
 import word.system.exam.TeoreticalExamBuilder;
 
@@ -28,9 +28,9 @@ public class Casher {
         examBuilder = abe;
     }
 
-    public Exam getExam()
+    public AbstractExam getExam()
     {
-        return examBuilder.getExam();
+        return examBuilder.getAbstractExam();
     }
 
     public void constructExam()
@@ -50,15 +50,15 @@ public class Casher {
         //stworzenie teoretycznego
         casher1.setExamBuilder(teoretical);
         casher1.constructExam();
-        Exam exam_teor = casher1.getExam();
-        exam_teor.print_status();
+        AbstractExam abstractExam_teor = casher1.getExam();
+        abstractExam_teor.print_status();
 
         //stworzenie praktycznego
         System.out.printf("\n\n Tworzenie egzaminu praktycznego. Na tym etapie prac nad projektem trzeba stworzyc pojazd recznie \n");
         casher1.setExamBuilder(practical);
         casher1.constructExam();
-        Exam exam_pract = casher1.getExam();
-        exam_pract.print_status();
+        AbstractExam abstractExam_pract = casher1.getExam();
+        abstractExam_pract.print_status();
 
 
     }

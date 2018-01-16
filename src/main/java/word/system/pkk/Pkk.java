@@ -2,7 +2,7 @@ package word.system.pkk;
 
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 import word.system.DrivingLicenseApplication.ObserverDrivingLicenseApplication;
-import word.system.exam.Exam;
+import word.system.exam.AbstractExam;
 import word.system.pwpw.DrivingLicense;
 import word.system.pwpw.DrivingLicenseStatus;
 
@@ -14,7 +14,7 @@ public class Pkk implements ObserverDrivingLicenseApplication {
     public String name;
     public String surname;
     public String birthDate;
-    public Exam exam;
+    public AbstractExam abstractExam;
     public ArrayList<DrivingLicense> driverLicenseCategoriesList;
     public String address;
     private PkkStatus pkkStatus;

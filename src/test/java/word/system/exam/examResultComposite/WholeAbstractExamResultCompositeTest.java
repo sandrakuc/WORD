@@ -7,7 +7,7 @@ import word.system.exam.Task.question.Question;
 
 import static org.junit.Assert.*;
 
-public class WholeExamResultCompositeTest {
+public class WholeAbstractExamResultCompositeTest {
     @Test
     public void getResultInPercent() throws Exception {
 

@@ -16,14 +16,14 @@ public class PracticExamBuilder extends ExamBuilder {
         ArrayList<Pkk> pkkList = new ArrayList<Pkk>();
         pkkList.add(o1);
 
-        exam.setPkkList(pkkList);
+        abstractExam.setPkkList(pkkList);
     }
 
     @Override
     public void addExaminerToExam() {
         PracticalExaminer pEx1 = new PracticalExaminer(1,"Mateusz","Androlewski","21.12.1970", "Radomska 21");
 
-        exam.setPracticalExaminer(pEx1);
+        //abstractExam.setPracticalExaminer(pEx1); //TOMEK - abstract exam nie może mieć instancji
 
     }
 
@@ -32,7 +32,7 @@ public class PracticExamBuilder extends ExamBuilder {
         Admin admin = new Admin();
         admin.createMachine();
 
-        exam.setMachine(admin.getMachine());
+        //abstractExam.setMachine(admin.getMachine()); //TOMEK - abstract exam nie może mieć instancji
 
     }
 }

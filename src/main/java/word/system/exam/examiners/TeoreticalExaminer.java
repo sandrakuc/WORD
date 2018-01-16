@@ -1,6 +1,6 @@
 package word.system.exam.examiners;
 
-import word.system.exam.Exam;
+import word.system.exam.AbstractExam;
 import word.system.pkk.Pkk;
 
 public class TeoreticalExaminer {
@@ -29,7 +29,7 @@ public class TeoreticalExaminer {
 
     }
 
-    void runExam(Exam exam)
+    void runExam(AbstractExam abstractExam)
     {
 
     }

@@ -1,11 +1,6 @@
 package word.system.exam.examiners;
 
-import word.system.common.Address;
-import word.system.exam.Exam;
 import word.system.pkk.Pkk;
-
-import java.util.ArrayList;
-import java.util.Date;
 
 public class PracticalExaminer {
 

@@ -44,14 +44,14 @@ public class TeoreticalExamBuilder extends ExamBuilder {
         pkkList.add(o1);
         pkkList.add(o2);
 
-        exam.setPkkList(pkkList);
+        abstractExam.setPkkList(pkkList);
     }
 
     @Override
     public void addExaminerToExam() {
         TeoreticalExaminer tEx1 = new TeoreticalExaminer(1,"Mateusz","Androlewski","21.12.1970", "Radomska 21");
 
-        exam.setTeoreticalExaminer(tEx1);
+        //abstractExam.setTeoreticalExaminer(tEx1); //TOMEK - abstract exam nie może mieć instancji
     }
 
     @Override

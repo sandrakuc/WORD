@@ -11,46 +11,25 @@ import java.util.Arrays;
 import java.util.Date;
 
 /* Product */
-public class Exam {
+abstract public class AbstractExam {
     private Date examDate;
-    private PracticalExaminer practicalExaminer;
-    private TeoreticalExaminer teoreticalExaminer;
     private ArrayList<Pkk> pkkList;
-    private Machine machine;
-
-    public void setDate(Date examDate) {
-        this.examDate=examDate;
-    }
-
-    public void setPracticalExaminer (PracticalExaminer practicalExaminer)
-    {
-        this.practicalExaminer=practicalExaminer;
-    }
-
-    public void setTeoreticalExaminer (TeoreticalExaminer teoreticalExaminer)
-    {
-        this.teoreticalExaminer=teoreticalExaminer;
-    }
 
     public void setPkkList (ArrayList<Pkk> pkkList)
     {
         this.pkkList=pkkList;
     }
-
-    public void setExamDate(Date examDate) {
-        this.examDate = examDate;
-    }
-
-    public void setMachine(Machine machine) {
-        this.machine = machine;
-    }
-
-
     public ArrayList<Pkk> getPkkList() {
         return pkkList;
     }
 
+    public Date getExamDate() {
+        return examDate;
+    }
 
+    public void setExamDate(Date examDate) {
+        this.examDate = examDate;
+    }
 
     public void print_status()
     {
