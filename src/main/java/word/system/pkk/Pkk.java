@@ -21,6 +21,9 @@ public class Pkk implements ObserverDrivingLicenseApplication {
     private DrivingLicenseApplication drivingLicenseApplication;
     private DrivingLicenseStatus drivingLicenseStatus;
 
+    public Pkk() {
+
+    }
 
     public Pkk(int id, String name, String surname, String birthDate, String address) {
         this.id = id;

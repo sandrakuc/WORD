@@ -13,9 +13,13 @@ import java.util.Date;
 
 /* Product */
 abstract public class AbstractExam {
-    private Date examDate;
-    private ArrayList<Pkk> pkkList;
+    protected Date examDate;
+    protected ArrayList<Pkk> pkkList;
     protected  ExamStatus state;
+
+    AbstractExam() {
+        pkkList = new ArrayList<>();
+    }
 
     public void setPkkList (ArrayList<Pkk> pkkList)
     {
@@ -33,9 +37,6 @@ abstract public class AbstractExam {
         this.examDate = examDate;
     }
 
-    public Pkk getPkk() {
-        return pkkList.get(0);
-    }
 
     public void setState(ExamStatus state){this.state = state;}
 

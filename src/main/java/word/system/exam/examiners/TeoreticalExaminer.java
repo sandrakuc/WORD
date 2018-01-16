@@ -11,6 +11,10 @@ public class TeoreticalExaminer {
     public String birthDate;
     public String address;
 
+    public TeoreticalExaminer() {
+
+    }
+
     public TeoreticalExaminer(int id, String name, String surname, String birthDate, String address) {
         this.id = id;
         this.name = name;

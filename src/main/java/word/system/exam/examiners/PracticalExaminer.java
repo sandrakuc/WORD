@@ -10,6 +10,10 @@ public class PracticalExaminer {
     public String birthDate;
     public String address;
 
+    public PracticalExaminer() {
+
+    }
+
     public PracticalExaminer(int id, String name, String surname, String birthDate, String address) {
         this.id = id;
         this.name = name;

@@ -3,6 +3,7 @@ package word.system.exam;
 import word.system.carfactory.Machine;
 import word.system.exam.examiners.PracticalExaminer;
 import word.system.exam.notification.Visitor;
+import word.system.pkk.Pkk;
 
 public class PracticExam extends AbstractExam {
 
@@ -23,6 +24,15 @@ public class PracticExam extends AbstractExam {
 
     public void setPracticalExaminer(PracticalExaminer practicalExaminer) {
         this.practicalExaminer = practicalExaminer;
+    }
+
+    public Pkk getPkk() {
+        return pkkList.get(0);
+    }
+
+    public void setPkk(Pkk pkk) {
+        pkkList.clear();
+        pkkList.add(pkk);
     }
 
     @Override
