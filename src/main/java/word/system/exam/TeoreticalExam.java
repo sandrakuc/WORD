@@ -3,7 +3,7 @@ package word.system.exam;
 import word.system.exam.examiners.TeoreticalExaminer;
 import word.system.exam.notification.Visitor;
 
-public class TeoreticalAbstractExam extends AbstractExam
+public class TeoreticalExam extends AbstractExam
 {
     private TeoreticalExaminer teoreticalExaminer;
 

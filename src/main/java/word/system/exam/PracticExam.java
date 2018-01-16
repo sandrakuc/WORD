@@ -4,7 +4,7 @@ import word.system.carfactory.Machine;
 import word.system.exam.examiners.PracticalExaminer;
 import word.system.exam.notification.Visitor;
 
-public class PracticAbstractExam extends AbstractExam {
+public class PracticExam extends AbstractExam {
 
     private Machine machine;
     private PracticalExaminer practicalExaminer;

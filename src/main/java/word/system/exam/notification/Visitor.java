@@ -1,10 +1,10 @@
 package word.system.exam.notification;
 
-import word.system.exam.PracticAbstractExam;
-import word.system.exam.TeoreticalAbstractExam;
+import word.system.exam.PracticExam;
+import word.system.exam.TeoreticalExam;
 
 public interface Visitor {
 
-    void visit(TeoreticalAbstractExam exam);
-    void visit(PracticAbstractExam exam);
+    void visit(TeoreticalExam exam);
+    void visit(PracticExam exam);
 }

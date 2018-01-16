@@ -1,7 +1,7 @@
 package word.system.exam.notification;
 
-import word.system.exam.PracticAbstractExam;
-import word.system.exam.TeoreticalAbstractExam;
+import word.system.exam.PracticExam;
+import word.system.exam.TeoreticalExam;
 
 public class EmailNotificationVisitor implements Visitor {
 
@@ -12,7 +12,7 @@ public class EmailNotificationVisitor implements Visitor {
     }
 
     @Override
-    public void visit(TeoreticalAbstractExam exam) {
+    public void visit(TeoreticalExam exam) {
 
         exam.getTeoreticalExaminer();
         exam.getPkkList();
@@ -23,7 +23,7 @@ public class EmailNotificationVisitor implements Visitor {
     }
 
     @Override
-    public void visit(PracticAbstractExam exam) {
+    public void visit(PracticExam exam) {
         exam.getPracticalExaminer();
         exam.getPkk();
         exam.getExamDate();
