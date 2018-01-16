@@ -14,6 +14,7 @@ import java.util.Date;
 abstract public class AbstractExam {
     private Date examDate;
     private ArrayList<Pkk> pkkList;
+    protected  ExamStatus state;
 
     public void setPkkList (ArrayList<Pkk> pkkList)
     {
@@ -31,12 +32,30 @@ abstract public class AbstractExam {
         this.examDate = examDate;
     }
 
+    public void setState(ExamStatus state){this.state = state;}
+
+    public Memento createMemento(){
+        return new Memento(this.state);
+    }
+
+    public void restoreState(Memento m){
+        this.state = m.state;
+    }
+
     public void print_status()
     {
         System.out.printf("Egzamin utworzony.\n ");
         System.out.printf("Lista pkk.\n");
         for (int i = 0; i < getPkkList().size(); i++) {
             System.out.println(getPkkList().get(i));
+        }
+    }
+
+    public class Memento{
+        private ExamStatus state;
+
+        Memento(ExamStatus state){
+            this.state = state;
         }
     }
 }
