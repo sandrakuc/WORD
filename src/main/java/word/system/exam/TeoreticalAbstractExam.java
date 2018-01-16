@@ -1,6 +1,7 @@
 package word.system.exam;
 
 import word.system.exam.examiners.TeoreticalExaminer;
+import word.system.exam.notification.Visitor;
 
 public class TeoreticalAbstractExam extends AbstractExam
 {
@@ -12,5 +13,10 @@ public class TeoreticalAbstractExam extends AbstractExam
 
     public void setTeoreticalExaminer(TeoreticalExaminer teoreticalExaminer) {
         this.teoreticalExaminer = teoreticalExaminer;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }

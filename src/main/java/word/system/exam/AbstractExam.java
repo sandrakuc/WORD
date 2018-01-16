@@ -4,6 +4,7 @@ import word.system.carfactory.Car;
 import word.system.carfactory.Machine;
 import word.system.exam.examiners.PracticalExaminer;
 import word.system.exam.examiners.TeoreticalExaminer;
+import word.system.exam.notification.Visitor;
 import word.system.pkk.Pkk;
 
 import java.util.ArrayList;
@@ -31,6 +32,10 @@ abstract public class AbstractExam {
         this.examDate = examDate;
     }
 
+    public Pkk getPkk() {
+        return pkkList.get(0);
+    }
+
     public void print_status()
     {
         System.out.printf("Egzamin utworzony.\n ");
@@ -39,4 +44,6 @@ abstract public class AbstractExam {
             System.out.println(getPkkList().get(i));
         }
     }
+
+    abstract public void accept(Visitor visitor);
 }

@@ -2,6 +2,7 @@ package word.system.exam;
 
 import word.system.carfactory.Machine;
 import word.system.exam.examiners.PracticalExaminer;
+import word.system.exam.notification.Visitor;
 
 public class PracticAbstractExam extends AbstractExam {
 
@@ -22,5 +23,10 @@ public class PracticAbstractExam extends AbstractExam {
 
     public void setPracticalExaminer(PracticalExaminer practicalExaminer) {
         this.practicalExaminer = practicalExaminer;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }
