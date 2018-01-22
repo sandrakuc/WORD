@@ -35,7 +35,7 @@ public class DrivingLicense implements Pwpw {
 
     public void simulate() {
             //ustawienie rand statusu wniosku
-            drivingLicenseStatus  = DrivingLicenseStatus.getRandomDrivingLicenceStatus();
+            drivingLicenseStatus  = DrivingLicenseStatus.ReadyToGetFromPWPW;
     }
 
     @Override

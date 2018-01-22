@@ -1,5 +1,6 @@
 package word.system.DrivingLicenseApplication;
 
+import word.system.pkk.CityDepartamentEmployee;
 import word.system.pkk.Pkk;
 import word.system.pwpw.DrivingLicenseStatus;
 import word.system.pwpw.Pwpw;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class DrivingLicenseApplication implements ObservableDriverLicenseApplication {
     private int id;
-    private static DrivingLicenseStatus drivingLicenseStatus = DrivingLicenseStatus.InProcecessOfMaking;;
+    private  DrivingLicenseStatus drivingLicenseStatus = DrivingLicenseStatus.InProcecessOfMaking;
     private Pkk pkk;
     private String drivingLicenseCategory;
 
@@ -18,10 +19,13 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
     DrivingLicenseApplication drivingLicenseApplication;
 
 
-
     public DrivingLicenseApplication(int id) {
         this.id = id;
 
+    }
+
+    public void setDrivingLicenseStatus(DrivingLicenseStatus drivingLicenseStatus) {
+        this.drivingLicenseStatus = drivingLicenseStatus;
     }
 
     public DrivingLicenseStatus getDrivingLicenseStatus() {
@@ -34,6 +38,7 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
 
     public void setDrivingLicenseCategory(String drivingLicenseCategory) {
         this.drivingLicenseCategory = drivingLicenseCategory;
+
     }
 
     public int getId() {
@@ -54,10 +59,6 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
         return isChanged;
     }
 
-    public void setChanged(boolean isChanged) {
-        this.isChanged = isChanged;
-        notifyObservers();
-    }
 
     @Override
     public void attach(ObserverDrivingLicenseApplication obj) {
@@ -73,57 +74,53 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
             observer.update(drivingLicenseStatus);
         }
     }
-     //----------------METODY WZORCA OBSERVER
 
-
-        //-------------METODY WZORCA FASADA
-
-
-    public void sendToPWPW(DrivingLicenseApplication dla)
+    public void notifyPkkOnly()
     {
+        for (ObserverDrivingLicenseApplication observer : observersList) {
+            if(observer instanceof Pkk)
+            {
+                System.out.println("\nPowiadamiam obserwatora:   " + observer.toString());
+                observer.update(drivingLicenseStatus);
+            }
+
+        }
+    }
+    //----------------METODY WZORCA OBSERVER
+
+
+    //-------------METODY WZORCA FASADA
+
+    public void sendToPWPW(DrivingLicenseApplication drivingLicenseApplication) {
         Pwpw pwpw = new PwpwProxy();
 
         //sprawdzanie poprawnosci wniosku
-        if(pwpw.verifyApplicationData()==Boolean.TRUE);
+        if (pwpw.verifyApplicationData() == Boolean.TRUE) ;
         {
             System.out.println("PWPW potwierdziło dane z wniosku");
         }
 
-        //sprawdzenie statusu wniosku
-        drivingLicenseStatus = pwpw.getDrivingLicenseStatus(dla.getPkk());
-
-        System.out.println("Status prawa jazdy odebrany z PWPW: " + drivingLicenseStatus);
+        //sprawdzenie statusu wniosku w pwpw
+        drivingLicenseStatus = pwpw.getDrivingLicenseStatus(drivingLicenseApplication.getPkk());
         System.out.println("Status zmienił sie. Powiadomie o tym obserwatorów (PKK i Urzednika)");
 
 
         ///powiadamianie ze jest zmiana
-        setChanged(Boolean.TRUE);
+        this.isChanged = Boolean.TRUE;
+        notifyObservers();
+        this.isChanged = Boolean.FALSE;
     }
 
-    public void generateApplication(Pkk pkk)
-    {
+    public void generateApplication(Pkk pkk) {
         System.out.println("");
         System.out.println("Generuje wniosek o prawo jazdy");
         System.out.println("Imie wnioskodawcy: " + pkk.name);
         System.out.println("Nazwisko wnioskodawcy: " + pkk.surname);
         System.out.println("Adres wnioskodawcy: " + pkk.address);
         System.out.println("Data urodzenia wnioskodawcy: " + pkk.birthDate);
-        System.out.println("Prawo jazdy kategorii: "+ getDrivingLicenseCategory());
+        System.out.println("Prawo jazdy kategorii: " + getDrivingLicenseCategory());
         System.out.println("");
     }
     //----------------METODY WZORCA FASADA
-
-public static void main(String[] args) {
-    DrivingLicenseApplication dla = new DrivingLicenseApplication(1);
-    dla.setDrivingLicenseCategory("B2");
-    Pkk pkk = new Pkk(1,"Marek","Nowak","21.01.1993","Polna 12");
-
-    dla.generateApplication(pkk);
-    dla.sendToPWPW(dla);
-
-        System.out.println("\n\nStatus prawa jazdy w obiekcie 'DrivingLicenseApplication': " + dla.getDrivingLicenseStatus());
-        System.out.println("Status prawa jazdy zmienil sie w tym obiekcie i mozna o tym fakcie poinformowac obserwatorow przy uzyciu wzorca Observer");
-   }
-
 
 }

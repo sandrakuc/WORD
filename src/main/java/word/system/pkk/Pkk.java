@@ -34,8 +34,7 @@ public class Pkk implements ObserverDrivingLicenseApplication {
     }
 
     @Override
-    public void update(DrivingLicenseStatus drivingLicenseStatus) {
-        System.out.println("Aktualizacja obiektu");
+    public void update(DrivingLicenseStatus drivingLicenseStatus) { ;
         this.drivingLicenseStatus = drivingLicenseStatus;
         printDrivingLicenseStatus();
     }
@@ -46,6 +45,8 @@ public class Pkk implements ObserverDrivingLicenseApplication {
         System.out.println("Status prawa jazdy w PKK: "+ drivingLicenseStatus);
     }
 
-
+    public void receiveDrivingLicense(){
+        this.drivingLicenseStatus = DrivingLicenseStatus.Received;
+    }
 
 }
