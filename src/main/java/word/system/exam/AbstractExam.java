@@ -37,16 +37,13 @@ abstract public class AbstractExam {
         this.examDate = examDate;
     }
 
+    public void runExam(){
+        state.runExam(this);
+    }
+
+    abstract void run();
 
     public void setState(ExamStatus state){this.state = state;}
-
-    public Memento createMemento(){
-        return new Memento(this.state);
-    }
-
-    public void restoreState(Memento m){
-        this.state = m.state;
-    }
 
     public void print_status()
     {
@@ -57,18 +54,6 @@ abstract public class AbstractExam {
         }
     }
 
-    @Override
-    public String toString(){
-        return super.toString() + " " + state;
-    }
-
     abstract public void accept(Visitor visitor);
 
-    public class Memento{
-        private ExamStatus state;
-
-        Memento(ExamStatus state){
-            this.state = state;
-        }
-    }
 }

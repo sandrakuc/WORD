@@ -1,4 +1,6 @@
 package word.system.user;
+import java.time.Month;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.ArrayList;
 import word.system.carfactory.*;
@@ -7,9 +9,7 @@ import word.system.exam.*;
 public class Admin {
     private Machine machine;
     private MachineDataBaseFascade mdbf;
-    private static PracticExam practicExam;
-    private static TeoreticalExam teoreticalExam;
-    private static ExamCaretaker examCaretaker;
+    private static AbstractExam exam;
 
     public Machine getMachine() {
         return machine;
@@ -69,25 +69,31 @@ public class Admin {
     }
 
     static public void main(String arg[]){
-        practicExam = new PracticExam();
-        examCaretaker = new ExamCaretaker(practicExam);
-        practicExam.setState(ExamStatus.Accepted);
-        System.out.println(practicExam);
-        examCaretaker.saveExamState();
-        practicExam.setState(ExamStatus.Rejected);
-        System.out.println(practicExam);
-        examCaretaker.restoreState();
-        System.out.println(practicExam);
+        Date data = new Date(118, 1,25,17,30); //miesiace numerowane sa od 0 do 11, chodzi o luty, a od roku odejmujesz 1900
+        exam = new TeoreticalExam();
+        exam.setExamDate(data);
+        exam.setState(new WaitingToStart());
+        exam.runExam();
+        exam.setState(new IsOn());
+        exam.runExam();
+        exam.setState(new Finished());
+        exam.runExam();
+        exam.setState(new Accepted());
+        exam.runExam();
+        exam.setState(new Rejected());
+        exam.runExam();
 
-        teoreticalExam = new TeoreticalExam();
-        examCaretaker = new ExamCaretaker(teoreticalExam);
-        teoreticalExam.setState(ExamStatus.Accepted);
-        System.out.println(teoreticalExam);
-        examCaretaker.saveExamState();
-        teoreticalExam.setState(ExamStatus.Rejected);
-        System.out.println(teoreticalExam);
-        examCaretaker.restoreState();
-        System.out.println(teoreticalExam);
-
+        exam = new PracticExam();
+        exam.setExamDate(data);
+        exam.setState(new WaitingToStart());
+        exam.runExam();
+        exam.setState(new IsOn());
+        exam.runExam();
+        exam.setState(new Finished());
+        exam.runExam();
+        exam.setState(new Accepted());
+        exam.runExam();
+        exam.setState(new Rejected());
+        exam.runExam();
     }
 }

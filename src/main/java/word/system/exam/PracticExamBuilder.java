@@ -35,4 +35,5 @@ public class PracticExamBuilder extends ExamBuilder {
         //abstractExam.setMachine(admin.getMachine()); //TOMEK - abstract exam nie może mieć instancji
 
     }
+
 }

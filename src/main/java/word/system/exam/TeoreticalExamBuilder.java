@@ -18,6 +18,7 @@ public class TeoreticalExamBuilder extends ExamBuilder {
 
     public void run() {
         // TODO implement here
+        System.out.println("Dzialanie egzaminu teoretycznego, ktore jeszcze nie zostalo zaimplementowane");
     }
 
     /**

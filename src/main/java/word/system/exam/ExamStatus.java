@@ -1,5 +1,7 @@
 package word.system.exam;
 
-public enum ExamStatus {
-    WaitingToStart, IsOn, Finished, Accepted, Rejected
+import java.util.Date;
+
+public interface ExamStatus {
+    public void runExam(AbstractExam exam);
 }

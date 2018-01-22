@@ -36,6 +36,16 @@ public class PracticExam extends AbstractExam {
     }
 
     @Override
+    void run() {
+        System.out.println("Egzamin praktyczny w toku");
+    }
+
+    @Override
+    public String toString(){
+        return "Egzamin praktyczny";
+    }
+
+    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }

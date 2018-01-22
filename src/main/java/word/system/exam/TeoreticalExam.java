@@ -16,7 +16,17 @@ public class TeoreticalExam extends AbstractExam
     }
 
     @Override
+    void run() {
+        System.out.println("Niezaimplementowane jeszcze dzialania zwiazane z obsuga egzaminu teoretycznego");
+    }
+
+    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
+    }
+
+    @Override
+    public String toString(){
+        return "Egzamin teoretyczny";
     }
 }
