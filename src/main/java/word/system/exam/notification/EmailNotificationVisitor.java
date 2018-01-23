@@ -1,5 +1,6 @@
 package word.system.exam.notification;
 
+import word.system.carfactory.Machine;
 import word.system.exam.PracticExam;
 import word.system.exam.TeoreticalExam;
 import word.system.exam.examiners.PracticalExaminer;
@@ -14,7 +15,9 @@ public class EmailNotificationVisitor implements Visitor {
 
     //tylko do testów
     public String emailContent;
-    public String emailSubject;
+    public String emailSubject = "";
+
+
 
     public EmailNotificationVisitor(Object emailManager) {
         this.emailManager = emailManager;
@@ -29,7 +32,7 @@ public class EmailNotificationVisitor implements Visitor {
 
         emailSubject = "egzamin teoretyczny w dniu: "+examDate.toString();
         emailContent = "egzaminator: "+teoreticalExaminer.name+" "+teoreticalExaminer.surname;
-
+        emailContent += " sala: "+exam.getSala();
         //emailManager.sendEMails(params)
 
     }
@@ -39,10 +42,12 @@ public class EmailNotificationVisitor implements Visitor {
         PracticalExaminer practicalExaminer = exam.getPracticalExaminer();
         Pkk pkk = exam.getPkk();
         Date examDate = exam.getExamDate();
+        Machine machine = exam.getMachine();
+
 
         emailSubject = "egzamin praktyczny w dniu: "+examDate.toString();
         emailContent = "egzaminator: "+practicalExaminer.name+" "+practicalExaminer.surname+" zdający: "+pkk.name+" "+pkk.surname;
-
+        emailContent += " Auto nr: "+machine.getNumber()+" marka: "+machine.getBrand()+" model: "+machine.getModel()+" kolor: "+machine.getColour()+" nr rejestracji: "+machine.getPlate();
         //emailManager.sendEmails(params)
     }
 

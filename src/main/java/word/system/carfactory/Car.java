@@ -3,6 +3,12 @@ package word.system.carfactory;
 import word.system.common.DriveLicenseType;
 
 public class Car extends Machine {
+
+    public Car() {
+        super();
+
+    }
+
     Car(float weight, float power, String brand, String model, String plate){
         super(weight, power, brand, model, plate);
     }
