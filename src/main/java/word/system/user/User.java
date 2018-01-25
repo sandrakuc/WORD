@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class User {
 
     public enum Role {
-        PRACTIC_EXAMINER, TEORETICAL_EXAMINER, CITY_DEPARTMENT, PKK
+        PRACTIC_EXAMINER, TEORETICAL_EXAMINER, CITY_DEPARTMENT, PKK, ADMIN, CASHEER
     }
 
     protected Role role;

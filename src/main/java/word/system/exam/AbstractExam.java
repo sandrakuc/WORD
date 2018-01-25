@@ -1,31 +1,25 @@
 package word.system.exam;
 
-import word.system.carfactory.Car;
-import word.system.carfactory.Machine;
-import word.system.exam.examiners.PracticalExaminer;
-import word.system.exam.examiners.TeoreticalExaminer;
-import word.system.exam.notification.Visitor;
-import word.system.pkk.Pkk;
+import word.system.user.User;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 /* Product */
 abstract public class AbstractExam {
     protected Date examDate;
-    protected ArrayList<Pkk> pkkList;
+    protected ArrayList<User> pkkList;
     protected  ExamStatus state;
 
     AbstractExam() {
         pkkList = new ArrayList<>();
     }
 
-    public void setPkkList (ArrayList<Pkk> pkkList)
+    public void setPkkList (ArrayList<User> pkkList)
     {
         this.pkkList=pkkList;
     }
-    public ArrayList<Pkk> getPkkList() {
+    public ArrayList<User> getPkkList() {
         return pkkList;
     }
 
@@ -54,6 +48,5 @@ abstract public class AbstractExam {
         }
     }
 
-    abstract public void accept(Visitor visitor);
 
 }

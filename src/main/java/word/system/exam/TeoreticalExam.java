@@ -1,32 +1,23 @@
 package word.system.exam;
 
-import word.system.carfactory.Car;
-import word.system.exam.examiners.TeoreticalExaminer;
-import word.system.exam.notification.Visitor;
+import javax.persistence.*;
 
+@Entity
+@Table(name="WORD_TEORETICAL_EXAM")
 public class TeoreticalExam extends AbstractExam
 {
-    private TeoreticalExaminer teoreticalExaminer;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    @SequenceGenerator(sequenceName = "word_teoretical_exam", allocationSize = 1, name = "CUST_SEQ")
+    protected long id;
 
     private String sala;
-
-    public TeoreticalExaminer getTeoreticalExaminer() {
-        return teoreticalExaminer;
-    }
-
-    public void setTeoreticalExaminer(TeoreticalExaminer teoreticalExaminer) {
-        this.teoreticalExaminer = teoreticalExaminer;
-    }
 
     @Override
     void run() {
         System.out.println("Niezaimplementowane jeszcze dzialania zwiazane z obsuga egzaminu teoretycznego");
     }
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
 
     @Override
     public String toString(){

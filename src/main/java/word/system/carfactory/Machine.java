@@ -1,9 +1,24 @@
 package word.system.carfactory;
+import word.system.common.DriveLicenseType;
 
-abstract public class Machine {
-    public float weight, power;
-    public String brand, model, plate, colour;
-    public int number;
+import  javax.persistence.*;
+
+@Entity
+@Table(name = "WORD_MACHINES")
+public class Machine {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    @SequenceGenerator(sequenceName = "word_machines_seq", allocationSize = 1, name = "CUST_SEQ")
+    protected long id;
+    protected float weight;
+    protected float power;
+    protected String brand;
+    protected String model;
+    protected String plate;
+    protected String colour;
+    protected int number;
+    protected DriveLicenseType dlt;
 
     Machine(float weight, float power, String brand, String model, String plate){
         this.weight = weight;
@@ -17,7 +32,22 @@ abstract public class Machine {
 
     }
 
-    abstract void showInformations();
+    void showInformations(){
+        System.out.println("Kategoria prawa jazdy: " + dlt);
+        System.out.println("Numer rejestracyjny: " + plate);
+        System.out.println("Marka: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Ciężar: " + weight + " ton");
+        System.out.println("Moc silnika: " + power + " KM");
+    }
+
+    public DriveLicenseType getDlt() {
+        return dlt;
+    }
+
+    public void setDlt(DriveLicenseType dlt){
+        this.dlt = dlt;
+    }
 
     public float getWeight() {
         return weight;

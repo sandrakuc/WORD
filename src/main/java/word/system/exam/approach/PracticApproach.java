@@ -3,11 +3,14 @@ package word.system.exam.approach;
 import word.system.common.DriveLicenseType;
 import word.system.exam.PracticExamBuilder;
 
+import javax.persistence.*;
 import java.io.File;
 
 /**
  * 
  */
+@Entity
+@Table(name="WORD_PRACTIC_APPROACH")
 public class PracticApproach {
 
     /**
@@ -16,15 +19,19 @@ public class PracticApproach {
     public PracticApproach() {
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    @SequenceGenerator(sequenceName = "word_user_seq", allocationSize = 1, name = "CUST_SEQ")
+    protected long id;
     /**
      * 
      */
-    public File videoOfExam;
+    protected File videoOfExam;
 
     /**
      * 
      */
-    public DriveLicenseType type;
+    protected DriveLicenseType type;
 
     /**
      * 
@@ -34,7 +41,7 @@ public class PracticApproach {
     /**
      * 
      */
-    public PracticExamBuilder practicExam;
+    protected PracticExamBuilder practicExam;
 
 
 

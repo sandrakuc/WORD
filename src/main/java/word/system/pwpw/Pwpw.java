@@ -1,9 +1,9 @@
 package word.system.pwpw;
 
-import word.system.pkk.Pkk;
+import word.system.user.User;
 
 public interface Pwpw {
     void setDrivingLicenseStatus(DrivingLicenseStatus drivingLicenseStatus);
-    DrivingLicenseStatus getDrivingLicenseStatus(Pkk pkk);
+    DrivingLicenseStatus getDrivingLicenseStatus(User pkk);
     boolean verifyApplicationData();
 }

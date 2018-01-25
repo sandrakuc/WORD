@@ -1,14 +1,18 @@
 package word.system.exam;
 
 import word.system.carfactory.Machine;
-import word.system.exam.examiners.PracticalExaminer;
-import word.system.exam.notification.Visitor;
-import word.system.pkk.Pkk;
+import word.system.user.User;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="WORD_PRACTIC_EXAM")
 public class PracticExam extends AbstractExam {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    @SequenceGenerator(sequenceName = "word_practic_exam_seq", allocationSize = 1, name = "CUST_SEQ")
+    private long id;
     private Machine machine;
-    private PracticalExaminer practicalExaminer;
 
     public Machine getMachine() {
         return machine;
@@ -18,19 +22,12 @@ public class PracticExam extends AbstractExam {
         this.machine = machine;
     }
 
-    public PracticalExaminer getPracticalExaminer() {
-        return practicalExaminer;
-    }
 
-    public void setPracticalExaminer(PracticalExaminer practicalExaminer) {
-        this.practicalExaminer = practicalExaminer;
-    }
-
-    public Pkk getPkk() {
+    public User getPkk() {
         return pkkList.get(0);
     }
 
-    public void setPkk(Pkk pkk) {
+    public void setPkk(User pkk) {
         pkkList.clear();
         pkkList.add(pkk);
     }
@@ -45,8 +42,4 @@ public class PracticExam extends AbstractExam {
         return "Egzamin praktyczny";
     }
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
-    }
 }

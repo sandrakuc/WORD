@@ -16,7 +16,6 @@ public abstract class ExamBuilder {
     }
 
     public abstract void addPkkToExam();
-    public abstract void addExaminerToExam();
     public abstract void addMachineToExam();
 
 }

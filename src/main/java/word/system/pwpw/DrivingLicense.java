@@ -1,15 +1,19 @@
 package word.system.pwpw;
 
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
-import word.system.pkk.Pkk;
+import word.system.user.User;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Random;
 
 import static word.system.pwpw.DrivingLicenseStatus.InProcecessOfMaking;
 
+@Entity
+@Table(name="WORD_DRIVING_LICENSE")
 public class DrivingLicense implements Pwpw {
-    private int id;
-    private Pkk pkk;
+    private long id;
+    private User pkk;
     private String address;
     private DrivingLicenseStatus drivingLicenseStatus =  InProcecessOfMaking;
 
@@ -17,7 +21,7 @@ public class DrivingLicense implements Pwpw {
         this.id = id;
     }
 
-    public Pkk getPkk() {
+    public User getPkk() {
         return pkk;
     }
 
@@ -25,7 +29,7 @@ public class DrivingLicense implements Pwpw {
         return address;
     }
 
-    public void setPkk(Pkk pkk) {
+    public void setPkk(User pkk) {
         this.pkk = pkk;
     }
 
@@ -44,7 +48,7 @@ public class DrivingLicense implements Pwpw {
     }
 
     @Override
-    public DrivingLicenseStatus getDrivingLicenseStatus(Pkk pkk) {
+    public DrivingLicenseStatus getDrivingLicenseStatus(User pkk) {
         return drivingLicenseStatus;
     }
 

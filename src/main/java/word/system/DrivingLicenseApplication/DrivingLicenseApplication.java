@@ -1,28 +1,31 @@
 package word.system.DrivingLicenseApplication;
 
-import word.system.pkk.CityDepartamentEmployee;
-import word.system.pkk.Pkk;
+import word.system.user.User;
 import word.system.pwpw.DrivingLicenseStatus;
 import word.system.pwpw.Pwpw;
 import word.system.pwpw.PwpwProxy;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Entity
+@Table(name = "WORD_APPLICATION")
+
 public class DrivingLicenseApplication implements ObservableDriverLicenseApplication {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    @SequenceGenerator(sequenceName = "word_application_seq", allocationSize = 1, name = "CUST_SEQ")
+    private long id;
     private  DrivingLicenseStatus drivingLicenseStatus = DrivingLicenseStatus.InProcecessOfMaking;
-    private Pkk pkk;
+    private User pkk;
     private String drivingLicenseCategory;
 
     private List<ObserverDrivingLicenseApplication> observersList = new ArrayList<ObserverDrivingLicenseApplication>();
     private boolean isChanged;
     DrivingLicenseApplication drivingLicenseApplication;
 
-
-    public DrivingLicenseApplication(int id) {
-        this.id = id;
-
-    }
 
     public void setDrivingLicenseStatus(DrivingLicenseStatus drivingLicenseStatus) {
         this.drivingLicenseStatus = drivingLicenseStatus;
@@ -41,7 +44,7 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
 
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -49,7 +52,7 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
         this.id = id;
     }
 
-    public Pkk getPkk() {
+    public User getPkk() {
         return pkk;
     }
 
@@ -78,7 +81,7 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
     public void notifyPkkOnly()
     {
         for (ObserverDrivingLicenseApplication observer : observersList) {
-            if(observer instanceof Pkk)
+            if(observer instanceof User)
             {
                 System.out.println("\nPowiadamiam obserwatora:   " + observer.toString());
                 observer.update(drivingLicenseStatus);
@@ -111,13 +114,12 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
         this.isChanged = Boolean.FALSE;
     }
 
-    public void generateApplication(Pkk pkk) {
+    public void generateApplication(User pkk) {
         System.out.println("");
         System.out.println("Generuje wniosek o prawo jazdy");
-        System.out.println("Imie wnioskodawcy: " + pkk.name);
-        System.out.println("Nazwisko wnioskodawcy: " + pkk.surname);
-        System.out.println("Adres wnioskodawcy: " + pkk.address);
-        System.out.println("Data urodzenia wnioskodawcy: " + pkk.birthDate);
+        System.out.println("Imie wnioskodawcy: " + pkk.getFirstName());
+        System.out.println("Nazwisko wnioskodawcy: " + pkk.getLastName());
+        System.out.println("Adres wnioskodawcy: " + pkk.getAddress());
         System.out.println("Prawo jazdy kategorii: " + getDrivingLicenseCategory());
         System.out.println("");
     }

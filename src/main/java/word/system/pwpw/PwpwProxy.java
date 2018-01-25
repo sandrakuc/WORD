@@ -1,14 +1,14 @@
 package word.system.pwpw;
 
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
-import word.system.pkk.Pkk;
+import word.system.user.User;
 
 import java.util.Random;
 
 
 public class PwpwProxy implements Pwpw {
     private DrivingLicense drivingLicense;
-    private Pkk pkk;
+    private User pkk;
 
     public PwpwProxy()
     {
@@ -19,11 +19,11 @@ public class PwpwProxy implements Pwpw {
 //Metody wykonywane przez PWPW nie udostepniane na zewnatrz. (PWPW oprocz bycia fasada samo tez wykonuje prace)
 
 
-    public Pkk getPkk() {
+    public User getPkk() {
         return pkk;
     }
 
-    public void setPkk(Pkk pkk) {
+    public void setPkk(User pkk) {
         this.pkk = pkk;
     }
 
@@ -40,7 +40,7 @@ public class PwpwProxy implements Pwpw {
     }
 
     @Override
-    public DrivingLicenseStatus getDrivingLicenseStatus(Pkk pkk) {
+    public DrivingLicenseStatus getDrivingLicenseStatus(User pkk) {
        return drivingLicense.getDrivingLicenseStatus(getPkk());
     }
 
