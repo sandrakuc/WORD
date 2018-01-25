@@ -32,7 +32,6 @@
 
         <#-- This processes the enclosed content:  -->
         <#nested>
-
 		</div>
 
 	</body>
