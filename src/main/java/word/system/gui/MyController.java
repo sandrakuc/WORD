@@ -15,7 +15,7 @@ public class MyController {
 
     @RequestMapping("/")
     public String index(HttpServletRequest request, Model model) {
-
+        FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
         return "index";
     }
 

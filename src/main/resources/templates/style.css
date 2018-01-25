@@ -11,21 +11,35 @@
 	color: blue;
 }
 
+
 body {
+	background-image: url('bg.jpg');
+	background-repeat:repeat-y;
+	background-size: 100% 100%;
 	width: 100%;
 	height: 100%;
 }
 
-
+textarea[name="zawartosc"]{
+  border: 3px solid grey;
+  width: 500px;
+  height:100px;
+}
 
 input[type="submit"] {
-
+    border: 1px solid black;
+    text-align: center;
+    display: inline-block;
+    font-style: italic;
+    width: 150px;
+    height: 30px;
+    margin:auto;
 
 }
 
 
 
-#header, #leftmenu, #topmenu, #content, #footer {
+#header, #topmenu, #content, #footer {
 	margin: 0px auto;
 	height: auto;
 	width: 80%;
@@ -34,18 +48,27 @@ input[type="submit"] {
 }
 
 #content, #leftmenu {
-	height: 100%;
+	height: 800px;
 }
 
 #header {
 	text-align: center;
-	background-image: url("bg_passat.jpg");
 	height: 200px
 }
 
 #topmenu {
 	text-align: center;
 	padding: 10px 0;
+}
+
+#topmenu ul li {
+	display: inline;
+	margin: 10px 10px;
+}
+
+#topmenu a {
+	display: inline;
+	margin-right: 20px ;
 }
 
 
@@ -56,7 +79,9 @@ input[type="submit"] {
 	float: left;
 	text-align: center;
 	padding: 20px 0;
+	background:  #a9bcd0;
 }
+
 
 
 #content {
@@ -67,19 +92,15 @@ input[type="submit"] {
 	padding: 25px;
 	text-align: justify;
 	letter-spacing: 0.5mm;
-	background:  #d8dbe2;
-}
-
-
-
-
-#footer{
-	top: 350px;
-	padding: 10px;
+	background: #d8dbe2;
 	text-align: center;
-	text-transform: uppercase;
-	white-space: pre-wrap;
-	white-space: nowrap;
 }
+
+
+
+#content [atrybut] {
+	background: inherit;
+}
+
 
 </style>

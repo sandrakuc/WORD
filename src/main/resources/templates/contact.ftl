@@ -1,6 +1,5 @@
 <#import "template.ftl" as t>
 
 <@t.page>
-    test spring
+    Kontakt test
 </@t.page>
-
