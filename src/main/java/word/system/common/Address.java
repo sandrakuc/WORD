@@ -1,34 +1,25 @@
 package word.system.common;
 
+import javax.persistence.*;
 import java.util.*;
 
-/**
- *
- */
+@Entity
+@Table(name = "WORD_ADDRESS")
 public class Address {
 
-
-    /**
-     * Default constructor
-     */
     public Address() {
     }
 
-    /**
-     *
-     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    @SequenceGenerator(sequenceName = "word_address_seq", allocationSize = 1, name = "CUST_SEQ")
+    Long id;
+
     protected String street;
 
-    /**
-     *
-     */
     protected String city;
 
-    /**
-     *
-     */
     protected String state;
-
 
     public String getStreet() {
         return street;
@@ -62,9 +53,6 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    /**
-     *
-     */
     protected String postalCode;
 
 }

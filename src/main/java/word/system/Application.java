@@ -1,4 +1,4 @@
-package word.system.gui;
+package word.system;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

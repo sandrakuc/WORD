@@ -1,45 +1,37 @@
 package word.system.user;
 
 import word.system.common.Address;
-import word.system.user.permission.UserPermission;
+import javax.persistence.*;
 
-/**
- * 
- */
+@Entity
+@Table(name = "WORD_USER")
 public class User {
 
-    public enum Permission {
-        LOGIN, PRACTIC_EXAMINER, TEORETICAL_EXAMINER, CITY_DEPARTMENT
+    public enum Role {
+        PRACTIC_EXAMINER, TEORETICAL_EXAMINER, CITY_DEPARTMENT, PKK
     }
 
-    protected UserPermission perms;
+    protected Role role;
 
-    /**
-     * Default constructor
-     */
     public User() {
     }
 
-    /**
-     * 
-     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    @SequenceGenerator(sequenceName = "word_user_seq", allocationSize = 1, name = "CUST_SEQ")
+    Long id;
+
+    @ManyToOne
     public Address address;
 
-    /**
-     * 
-     */
-    public int id;
-
-    /**
-     * 
-     */
     public String firstName;
 
-    public UserPermission getPerms() {
-        return perms;
-    }
+    public String lastName;
 
-    public void setPerms(UserPermission perms) {
-        this.perms = perms;
-    }
+    public String login;
+
+    public String password;
+
+    public String email;
+
 }
