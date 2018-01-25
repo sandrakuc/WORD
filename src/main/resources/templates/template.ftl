@@ -12,12 +12,12 @@
 
 		</div>
 		<div id="topmenu">
-				<a href="">Home           </a>
+				<a href="http://localhost:8080/">Home           </a>
 				<a href="kontakt">Kontakt        </a>
 				<a href="login">Zaloguj</a>
 		</div>
 		<div id="leftmenu">
-				<a href="">Home</a></li><br>
+				<a href="http://localhost:8080/">Home</a></li><br>
 				<a href="kontakt">Kontakt</a></li><br>
 				<a href="login">Zaloguj</a></li><br>
 		</div>
