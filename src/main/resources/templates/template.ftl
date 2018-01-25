@@ -23,7 +23,7 @@
 
 				<a href="http://localhost:8080/">Home</a></li><br>
 				<a href="contact">Kontakt</a></li><br>
-				<a href="contact">Zaloguj</a></li><br>
+				<a href="login">Zaloguj</a></li><br>
 
 		</div>
 		<div id="content">
