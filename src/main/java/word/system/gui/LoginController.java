@@ -8,6 +8,7 @@ import word.system.user.User;
 import word.system.user.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 @Controller
@@ -18,16 +19,21 @@ public class LoginController {
 
     @RequestMapping("login")
     public String index(HttpServletRequest request) {
-        if(request.getSession().getAttribute("user") != null ) {
+        HttpSession session = request.getSession();
+
+        if(session.getAttribute("user") != null ) {
             //@todo flashmessage
         }
 
         if(request.getParameter("login") != null) {
             String login = request.getParameter("login");
             User user = userRepository.getByLogin(login);
-
-
-
+            if(user.getPassword().equals(request.getParameter("password"))) {
+                System.out.println("zalogowano");
+                session.setAttribute("user", user);
+            } else {
+                System.out.println("niepoprawne hasło");
+            }
         }
 
 
