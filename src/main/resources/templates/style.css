@@ -39,6 +39,7 @@ input[type="submit"] {
 
 #header {
 	text-align: center;
+	background-image: url("bg_passat.jpg");
 	height: 200px
 }
 
