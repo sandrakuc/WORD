@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 		<title>WORD SYSTEM</title>
-		<#include "/css/style.css">
+		<#include "style.css">
 
 
 	</head>
