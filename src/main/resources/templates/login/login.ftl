@@ -1,5 +1,5 @@
 
-<#import "template.ftl" as t>
+<#import "../template.ftl" as t>
 
 <@t.page>
 

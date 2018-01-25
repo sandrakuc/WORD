@@ -1,0 +1,85 @@
+<style type="text/css">
+
+* {
+	margin:0;
+	padding:0;
+	position: relative;
+	box-sizing: border-box;
+}
+
+*:visited{
+	color: blue;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+
+
+input[type="submit"] {
+
+
+}
+
+
+
+#header, #leftmenu, #topmenu, #content, #footer {
+	margin: 0px auto;
+	height: auto;
+	width: 80%;
+	border: 1px solid black;
+	background: #a9bcd0;
+}
+
+#content, #leftmenu {
+	height: 100%;
+}
+
+#header {
+	text-align: center;
+	background-image: url("bg_passat.jpg");
+	height: 200px
+}
+
+#topmenu {
+	text-align: center;
+	padding: 10px 0;
+}
+
+
+#leftmenu {
+	width: 10%;
+	left: 10%;
+	border: 1px solid black;
+	float: left;
+	text-align: center;
+	padding: 20px 0;
+}
+
+
+#content {
+	float: right;
+	width: 70%;
+	right: 10%;
+	overflow: auto;
+	padding: 25px;
+	text-align: justify;
+	letter-spacing: 0.5mm;
+	background:  #d8dbe2;
+}
+
+
+
+
+#footer{
+	top: 350px;
+	padding: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	white-space: pre-wrap;
+	white-space: nowrap;
+}
+
+</style>
