@@ -25,12 +25,12 @@ input[type="submit"] {
 
 
 
-#header, #topmenu, #content, #footer {
+#header, #leftmenu, #topmenu, #content, #footer {
 	margin: 0px auto;
 	height: auto;
 	width: 80%;
 	border: 1px solid black;
-	background: rgb(116, 244, 65)
+	background: #a9bcd0;
 }
 
 #content, #leftmenu {
@@ -56,7 +56,6 @@ input[type="submit"] {
 	float: left;
 	text-align: center;
 	padding: 20px 0;
-	background:  rgb(116, 244, 65);
 }
 
 
@@ -68,7 +67,7 @@ input[type="submit"] {
 	padding: 25px;
 	text-align: justify;
 	letter-spacing: 0.5mm;
-	background:  rgb(116, 200, 30);
+	background:  #d8dbe2;
 }
 
 
