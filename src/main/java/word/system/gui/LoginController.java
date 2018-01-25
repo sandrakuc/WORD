@@ -20,24 +20,25 @@ public class LoginController {
     @RequestMapping("login")
     public String index(HttpServletRequest request) {
         HttpSession session = request.getSession();
+        FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
 
         if(session.getAttribute("user") != null ) {
-            //@todo flashmessage
+            flashMessageManager.addMessage("Jesteś już zalogowany!", FlashMessageManager.Type.ERROR);
         }
 
         if(request.getParameter("login") != null) {
             String login = request.getParameter("login");
             User user = userRepository.getByLogin(login);
-            if(user.getPassword().equals(request.getParameter("password"))) {
-                System.out.println("zalogowano");
+
+            if(user == null) {
+                flashMessageManager.addMessage("Hasło lub login niepoprawne!", FlashMessageManager.Type.ERROR);
+            }else if(user.getPassword().equals(request.getParameter("password"))) {
+                flashMessageManager.addMessage("zalogowano", FlashMessageManager.Type.INFO);
                 session.setAttribute("user", user);
             } else {
-                System.out.println("niepoprawne hasło");
+                flashMessageManager.addMessage("Hasło lub login niepoprawne", FlashMessageManager.Type.ERROR);
             }
         }
-
-
-
 
         return "login/login";
     }
