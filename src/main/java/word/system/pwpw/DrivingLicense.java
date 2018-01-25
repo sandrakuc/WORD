@@ -9,8 +9,9 @@ import java.util.Random;
 
 import static word.system.pwpw.DrivingLicenseStatus.InProcecessOfMaking;
 
-@Entity
-@Table(name="WORD_DRIVING_LICENSE")
+//@TODO
+//@Entity
+//@Table(name="WORD_DRIVING_LICENSE")
 public class DrivingLicense implements Pwpw {
     private long id;
     private User pkk;
