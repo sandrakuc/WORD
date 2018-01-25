@@ -14,10 +14,7 @@ public class MyController {
 
 
     @RequestMapping("/")
-    public String index(HttpServletRequest request) {
-
-        request.getSession().setAttribute("s", "x");
-
+    public String index(HttpServletRequest request, Model model) {
 
         return "index";
     }
