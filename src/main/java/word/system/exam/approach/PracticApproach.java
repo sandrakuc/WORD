@@ -1,10 +1,8 @@
 package word.system.exam.approach;
 
 import word.system.common.DriveLicenseType;
-import word.system.exam.PracticExamBuilder;
 
 import javax.persistence.*;
-import java.io.File;
 
 /**
  * 
