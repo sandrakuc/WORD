@@ -14,7 +14,7 @@
      <br><br>
      Póki co dla testu linki do odpowiednich paneli użytkownikow beda tutaj
      <br><br>
-     <a href="adminPanel">adminPanel</a><br>
+     <a href="cityDepEmployeePanel">cityDepEmployeePanel</a><br>
      <a href="krysiaPanel">krysiaPanel</a><br>
      <a href="pkkPanel">pkkPanel</a><br>
      <a href="practicalExaminerPanel">practicalExaminerPanel</a><br>
