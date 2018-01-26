@@ -14,7 +14,7 @@
 		<div id="topmenu">
 				<a href="http://localhost:8080/">Home           </a>
 				<a href="contact">Kontakt        </a>
-				<a href="login">Zaloguj/Zarejestruj si?</a>
+				<a href="login">Zaloguj</a>
 		</div>
 		<div id="leftmenu">
 		            <#if Session.user?exists>
@@ -23,7 +23,7 @@
 
 				<a href="http://localhost:8080/">Home</a></li><br>
 				<a href="contact">Kontakt</a></li><br>
-				<a href="login">Zaloguj/Zarejestruj si?</a></li><br>
+				<a href="login">Zaloguj</a></li><br>
 
 		</div>
 		<div id="content">

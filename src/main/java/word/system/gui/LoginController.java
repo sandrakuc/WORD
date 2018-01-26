@@ -42,4 +42,35 @@ public class LoginController {
 
         return "login/login";
     }
+
+    //dostęp do tej strony po zalogowaniu jako egzaminator teoretyczny. bedzie tu ustalal pytania itd
+    @RequestMapping("teoreticalExaminerPanel")
+    public String teoreticalExaminerPanel(HttpServletRequest request) {
+        return "userViews/teoreticalExaminerPanel";
+    }
+
+    //dostęp do tej strony po zalogowaniu jako egzaminator praktyczny.
+    @RequestMapping("practicalExaminerPanel")
+    public String practicalExaminerPanel(HttpServletRequest request) {
+        return "userViews/practicalExaminerPanel";
+    }
+
+
+    //dostęp do tej strony po zalogowaniu jako zdajacy, bedzie tu mogl sprawdzic status wniosku o prawko
+    @RequestMapping("pkkPanel")
+    public String pkkPanel(HttpServletRequest request) {
+        return "userViews/pkkPanel";
+    }
+
+    //dostęp do tej strony po zalogowaniu jako admin, bedzie tu zarzadxzał bazą np dodawanie aut do bazy, egzaminatorow itp
+    @RequestMapping("adminPanel")
+    public String adminPanel(HttpServletRequest request) {
+        return "userViews/adminPanel";
+    }
+
+    //dostęp do tej strony po zalogowaniu jako pani ustalajaca egzaminy, bedzie tu oznaczac wplaty oraz ogarniac terminy
+    @RequestMapping("krysiaPanel")
+    public String krysiaPanel(HttpServletRequest request) {
+        return "userViews/krysiaPanel";
+    }
 }
