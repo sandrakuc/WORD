@@ -1,5 +1,5 @@
 <#import "../template.ftl" as t>
 
 <@t.page>
-    admin panel test
+    City Department Employee panel test
 </@t.page>

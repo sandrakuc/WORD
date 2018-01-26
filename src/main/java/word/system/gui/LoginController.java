@@ -63,9 +63,9 @@ public class LoginController {
     }
 
     //dostęp do tej strony po zalogowaniu jako admin, bedzie tu zarzadxzał bazą np dodawanie aut do bazy, egzaminatorow itp
-    @RequestMapping("adminPanel")
-    public String adminPanel(HttpServletRequest request) {
-        return "userViews/adminPanel";
+    @RequestMapping("cityDepEmployeePanel")
+    public String cityDepEmployeePanel(HttpServletRequest request) {
+        return "userViews/cityDepEmployeePanel";
     }
 
     //dostęp do tej strony po zalogowaniu jako pani ustalajaca egzaminy, bedzie tu oznaczac wplaty oraz ogarniac terminy
