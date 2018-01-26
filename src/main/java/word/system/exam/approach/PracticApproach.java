@@ -26,7 +26,7 @@ public class PracticApproach {
     /**
      * 
      */
-    protected File videoOfExam;
+    //protected File videoOfExam;
 
     /**
      * 
@@ -41,7 +41,7 @@ public class PracticApproach {
     /**
      * 
      */
-    protected PracticExamBuilder practicExam;
+    //protected PracticExamBuilder practicExam;
 
 
 

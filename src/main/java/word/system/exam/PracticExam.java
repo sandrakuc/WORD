@@ -8,19 +8,22 @@ import javax.persistence.*;
 @Entity
 @Table(name="WORD_PRACTIC_EXAM")
 public class PracticExam extends AbstractExam {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     @SequenceGenerator(sequenceName = "word_practic_exam_seq", allocationSize = 1, name = "CUST_SEQ")
     private long id;
-    private Machine machine;
 
-    public Machine getMachine() {
-        return machine;
-    }
 
-    public void setMachine(Machine machine) {
-        this.machine = machine;
-    }
+    //private Machine machine;
+
+    //public Machine getMachine() {
+    //    return machine;
+    //}
+
+//    public void setMachine(Machine machine) {
+//        this.machine = machine;
+//    }
 
 
     public User getPkk() {

@@ -22,9 +22,9 @@ public class DrivingLicenseApplication implements ObservableDriverLicenseApplica
     private User pkk;
     private String drivingLicenseCategory;
 
-    private List<ObserverDrivingLicenseApplication> observersList = new ArrayList<ObserverDrivingLicenseApplication>();
+    //private List<ObserverDrivingLicenseApplication> observersList = new ArrayList<ObserverDrivingLicenseApplication>();
     private boolean isChanged;
-    DrivingLicenseApplication drivingLicenseApplication;
+    //DrivingLicenseApplication drivingLicenseApplication;
 
 
     public void setDrivingLicenseStatus(DrivingLicenseStatus drivingLicenseStatus) {

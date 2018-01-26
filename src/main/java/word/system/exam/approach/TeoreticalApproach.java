@@ -38,7 +38,7 @@ public class TeoreticalApproach {
     /**
      * 
      */
-    protected TeoreticalExamBuilder teoreticalExam;
+    //protected TeoreticalExamBuilder teoreticalExam;
 
 
 
