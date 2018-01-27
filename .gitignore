@@ -1,5 +1,6 @@
 *.class
 .idea/
-target/
-
+target/*
+/target/*
+target
 /src/main/resources/application.properties
