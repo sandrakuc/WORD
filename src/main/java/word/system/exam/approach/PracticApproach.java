@@ -1,6 +1,8 @@
 package word.system.exam.approach;
 
 import word.system.common.DriveLicenseType;
+import word.system.exam.PracticExam;
+import word.system.user.User;
 
 import javax.persistence.*;
 
@@ -31,18 +33,36 @@ public class PracticApproach {
      */
     protected DriveLicenseType type;
 
-    /**
-     * 
-     */
-    //public Pkk pkk;
+    @OneToOne
+    protected PracticExam practicExam;
 
-    /**
-     * 
-     */
-    //protected PracticExamBuilder practicExam;
+    @ManyToOne
+    protected User pkk;
 
+    public void setType(DriveLicenseType type){
+        this.type = type;
+    }
 
+    public void setPracticExam(PracticExam practicExam){
+        this.practicExam = practicExam;
+    }
 
+    public void setPkk(User pkk){
+        if(pkk.getRole().equals(User.Role.PKK))
+            this.pkk = pkk;
+    }
+
+    public DriveLicenseType getType(){
+        return type;
+    }
+
+    public PracticExam getPracticExam(){
+        return practicExam;
+    }
+
+    public User getPkk(){
+        return pkk;
+    }
 
 
 }
