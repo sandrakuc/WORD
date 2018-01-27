@@ -13,7 +13,7 @@ public class Address {
     @Id @GeneratedValue
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     //@SequenceGenerator(sequenceName = "word_address_seq", allocationSize = 1, name = "CUST_SEQ")
-    @OneToMany(mappedBy = "User.address")
+    //@OneToMany(mappedBy = "User.address")
     Long id;
 
     protected String street;

@@ -17,21 +17,5 @@ public class PracticExam {
 
     protected Date date;
 
-    @OneToMany(mappedBy = "User.id")
-    protected User examiner;
-
-    @ManyToOne
-    protected User pkk;
-
-    public void setExaminer(User examiner) {
-        if(examiner.getRole().equals(User.Role.PRACTIC_EXAMINER)){
-            this.examiner = examiner;
-        }
-    }
-
-    public void setPkk(User pkk){
-        if(pkk.getRole().equals(User.Role.PKK)){
-            this.pkk = pkk;
-        }
-    }
+    
 }
