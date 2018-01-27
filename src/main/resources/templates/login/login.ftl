@@ -9,7 +9,6 @@
        <input type="submit" value="Submit">
      </form>
      <br>
-     <p>Nie masz jeszcze konta? <a href="register"></a></p>
 
      <br><br>
      Póki co dla testu linki do odpowiednich paneli użytkownikow beda tutaj
