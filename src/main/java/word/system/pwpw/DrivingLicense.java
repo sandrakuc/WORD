@@ -17,7 +17,6 @@ public class DrivingLicense implements Pwpw {
     //@SequenceGenerator(sequenceName = "word_driving_license_seq", allocationSize = 1, name = "CUST_SEQ")
     Long id;
 
-
     private String address;
     private DrivingLicenseStatus drivingLicenseStatus =  InProcecessOfMaking;
 
