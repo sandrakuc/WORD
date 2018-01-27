@@ -7,9 +7,9 @@ import java.util.Date;
 @Table(name = "WORD_TEST")
 public class Test {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
-    @SequenceGenerator(sequenceName = "word_test_seq", allocationSize = 1, name = "CUST_SEQ")
+    @Id @GeneratedValue
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    //@SequenceGenerator(sequenceName = "word_test_seq", allocationSize = 1, name = "CUST_SEQ")
     Long id;
 
     String name;

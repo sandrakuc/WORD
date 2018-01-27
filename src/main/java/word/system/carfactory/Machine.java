@@ -7,9 +7,9 @@ import  javax.persistence.*;
 @Table(name = "WORD_MACHINES")
 public class Machine {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
-    @SequenceGenerator(sequenceName = "word_machines_seq", allocationSize = 1, name = "CUST_SEQ")
+    @Id @GeneratedValue
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    //@SequenceGenerator(sequenceName = "word_machines_seq", allocationSize = 1, name = "CUST_SEQ")
     Long id;
 
     protected float weight;

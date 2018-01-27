@@ -15,8 +15,8 @@ import java.util.List;
 
 public class DrivingLicenseApplication //implements ObservableDriverLicenseApplication
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
-    @SequenceGenerator(sequenceName = "word_application_seq", allocationSize = 1, name = "CUST_SEQ")
+    @Id @GeneratedValue
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    //@SequenceGenerator(sequenceName = "word_application_seq", allocationSize = 1, name = "CUST_SEQ")
     Long id;
 }

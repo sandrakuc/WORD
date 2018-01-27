@@ -12,25 +12,18 @@ import static word.system.pwpw.DrivingLicenseStatus.InProcecessOfMaking;
 @Entity
 @Table(name="WORD_DRIVING_LICENSE")
 public class DrivingLicense implements Pwpw {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
-    @SequenceGenerator(sequenceName = "word_driving_license_seq", allocationSize = 1, name = "CUST_SEQ")
+    @Id @GeneratedValue
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    //@SequenceGenerator(sequenceName = "word_driving_license_seq", allocationSize = 1, name = "CUST_SEQ")
     Long id;
-    private User pkk;
+
+
     private String address;
     private DrivingLicenseStatus drivingLicenseStatus =  InProcecessOfMaking;
 
 
-    public User getPkk() {
-        return pkk;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setPkk(User pkk) {
-        this.pkk = pkk;
     }
 
     public void setAddress(String address) {

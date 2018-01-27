@@ -22,9 +22,9 @@ public class TeoreticalApproach {
     /**
      * 
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
-    @SequenceGenerator(sequenceName = "word_user_seq", allocationSize = 1, name = "CUST_SEQ")
+    @Id @GeneratedValue
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    //@SequenceGenerator(sequenceName = "word_user_seq", allocationSize = 1, name = "CUST_SEQ")
     Long id;
 
     protected DriveLicenseType type;

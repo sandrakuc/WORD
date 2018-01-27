@@ -10,9 +10,9 @@ public class Address {
     public Address() {
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
-    @SequenceGenerator(sequenceName = "word_address_seq", allocationSize = 1, name = "CUST_SEQ")
+    @Id @GeneratedValue
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
+    //@SequenceGenerator(sequenceName = "word_address_seq", allocationSize = 1, name = "CUST_SEQ")
     Long id;
 
     protected String street;

@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import word.system.user.User;
 
 public interface DrivingLicenseRepository extends CrudRepository<DrivingLicense, Long> {
-    DrivingLicense getByPkk(User pkk);
+    //DrivingLicense getByPkk(User pkk);
 }
