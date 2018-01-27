@@ -27,24 +27,26 @@ textarea[name="zawartosc"]{
 }
 
 input[name="signIn"] {
-    border: 1px solid black;
+    border: 1dpx solid black;
     text-align: center;
     display: inline-block;
     font-style: italic;
     width: 150px;
     height: 30px;
     margin:auto;
+	  border-radius: 8px;
 }
 
-input[name~="signIn"] {
-	border: 1px solid black;
+input:not([name="signIn"])[type="submit"]  {
+	border: 1dpx solid black;
 	text-align: center;
 	display: inline-block;
 	font-style: italic;
-	width: 100%;
+	padding: 0px 10px 0px 10px;
 	height: 30px;
 	margin:auto;
-	max-width: 300px
+	max-width: 300px;
+	border-radius: 8px;
 }
 
 /*form[name="sendToPwpw"]
@@ -116,6 +118,5 @@ input[name~="signIn"] {
 #content [atrybut] {
 	background: inherit;
 }
-
 
 </style>

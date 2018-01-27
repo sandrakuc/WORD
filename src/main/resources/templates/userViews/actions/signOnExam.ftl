@@ -1,12 +1,12 @@
 <#import "../../template.ftl" as t>
 
 <@t.page>
-    <h2>Zapisywanie na egzamin</h2>
+    <h2>Zapisywanie na egzamin</h2><br>
 
     	<form name="signOnExam" method="POST">
-           imie: <input type="text" name="name"><br>
+           Imie: <input type="text" name="name"><br>
            Nazwisko: <input type="text" name="surname"><br>
-           Pesel: <input type="text" name="pesel"><br>
+           PESEL: <input type="text" name="pesel"><br>
            //Po Peselu znajdowałoby o ktore PKK chodzi
            <br>
            <br>

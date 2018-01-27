@@ -1,7 +1,7 @@
 <#import "../../template.ftl" as t>
 
 <@t.page>
-    <h2>Księgowanie wpłaty zdającego</h2>
+    <h2>Księgowanie wpłaty zdającego</h2><br>
     	<form method="POST">
 
            Kwota: <input type="text" name="cash"><br>
