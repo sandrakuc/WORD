@@ -12,6 +12,6 @@ public class PracticExam {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     @SequenceGenerator(sequenceName = "word_practic_exam_seq", allocationSize = 1, name = "CUST_SEQ")
-    private long id;
+    Long id;
 
 }

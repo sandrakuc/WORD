@@ -12,7 +12,7 @@ public class PwpwProxy implements Pwpw {
 
     public PwpwProxy()
     {
-        drivingLicense = new DrivingLicense(1);
+        drivingLicense = new DrivingLicense();
         drivingLicense.simulate();
     }
 

@@ -10,7 +10,7 @@ public class Machine {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     @SequenceGenerator(sequenceName = "word_machines_seq", allocationSize = 1, name = "CUST_SEQ")
-    protected long id;
+    Long id;
 
     protected float weight;
     protected float power;

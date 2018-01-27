@@ -18,5 +18,5 @@ public class DrivingLicenseApplication //implements ObservableDriverLicenseAppli
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     @SequenceGenerator(sequenceName = "word_application_seq", allocationSize = 1, name = "CUST_SEQ")
-    private long id;
+    Long id;
 }

@@ -20,7 +20,7 @@ public class PracticApproach {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     @SequenceGenerator(sequenceName = "word_user_seq", allocationSize = 1, name = "CUST_SEQ")
-    protected long id;
+    Long id;
     /**
      * 
      */

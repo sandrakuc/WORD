@@ -9,5 +9,5 @@ public class TeoreticalExam
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     @SequenceGenerator(sequenceName = "word_teoretical_exam_seq", allocationSize = 1, name = "CUST_SEQ")
-    protected long id;
+    Long id;
 }
