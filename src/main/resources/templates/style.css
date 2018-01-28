@@ -1,5 +1,4 @@
 <style type="text/css">
-
 * {
 	margin:0;
 	padding:0;
@@ -47,6 +46,21 @@ input:not([name="signIn"])[type="submit"]  {
 	margin:auto;
 	max-width: 300px;
 	border-radius: 8px;
+}
+
+td,th{
+	padding: 5px;
+}
+
+table, td, th {
+    border: 1px solid black;
+		margin: auto;
+		text-align: center;
+}
+
+
+td[name="id"]{
+	font-weight: bold;
 }
 
 /*form[name="sendToPwpw"]

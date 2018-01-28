@@ -21,7 +21,7 @@
     			
     			<form action="checkDriverLicenseApplication"  method="POST">
     				 <p><b>Sprawdz status wniosku o prawo jazdy</b></p>
-    				  Wprowadz PESEL: <input type="text" name="pkk_pesel"><br><br>
+    				  Wprowadz PESEL: <input type="text" name="pkk_pesel"><br>
     				 <input name="checkStatus" type="submit" value="Sprawdz status wniosku">
     			 </form>
 

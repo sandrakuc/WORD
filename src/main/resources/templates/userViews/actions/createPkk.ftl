@@ -14,7 +14,7 @@
           Domyslne haslo: <input type="text" value="word_ck" name="default_pass">
           <br><br>
           //dobrze gdyby na tej samej stronie wyswietlalo czy założone po wcisnieciu przycisku
-
+          <br>
           <input name="createPkk" type="submit" value="Załóż PKK">
        </form>
 
