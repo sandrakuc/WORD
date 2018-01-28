@@ -1,4 +1,4 @@
-package word.system.gui;
+package word.system.gui.viewsControllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
