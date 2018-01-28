@@ -1,7 +1,11 @@
 package word.system.gui.viewsControllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import word.system.user.User;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,9 +31,22 @@ public class controllerCityDepEmployeePanel {
         return "userViews/actions/checkDriverLicenseApplication";
     }
 
-    @RequestMapping("createPkk")
-    public String createPkk(HttpServletRequest request) {
 
+
+    @GetMapping("createPkk")
+    public String formGet() {
         return "userViews/actions/createPkk";
     }
+
+    @PostMapping("createPkk")
+    public String formPost(User user, Model model) {
+        model.addAttribute("user", user);
+        return "userViews/actions/createPkk";
+    }
+
+//    @RequestMapping("createPkk")
+//    public String createPkk(HttpServletRequest request) {
+//
+//        return "userViews/actions/createPkk";
+//    }
 }

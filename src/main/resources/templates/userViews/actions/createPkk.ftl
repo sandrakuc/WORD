@@ -1,24 +1,18 @@
 <#import "../../template.ftl" as t>
 
 <@t.page>
+
     <h2>Tworzenie PKK</h2>
        <#if user?? >
-            <p><b>Dodano Zdajacego</b></p>
-             Imie: ${user.firstName}<br>
-             Nazwisko: ${user.lastName}<br>
-             Adres: ${user.address}<br>
-             Email: ${user.email}<br>
-             <br>
-             Login: ${user.login}<br>
-             Haslo: ${user.password}<br>
-             <br>
-             Rola: ${user.role}
+        <p><b>Dodano zdajacego</b></p>
+          First name: ${user.firstName}<br>
+          Last name: ${user.lastName}<br>
 
         <#else>
 
-            <form method="POST">
+            <form action="createPkk" method="post">
               id: <input type="text" name="id"><br>
-              id: <input type="text" name="role" value="PKK" disabled><br>
+              rola: <input type="text" name="role" value="PKK" disabled><br>
               imie: <input type="text" name="firstName"><br>
               Nazwisko: <input type="text" name="lastName"><br>
               Adres: <input type="text" name="address"><br>
@@ -32,7 +26,6 @@
               <br>
               <input name="createPkk" type="submit" value="Załóż PKK">
            </form>
-
        </#if>
 
        <br>

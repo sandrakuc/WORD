@@ -13,8 +13,6 @@ public class User {
 
     protected Role role;
 
-    public User() {
-    }
 
     @Id @GeneratedValue
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
