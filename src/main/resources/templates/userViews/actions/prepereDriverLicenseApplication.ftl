@@ -4,12 +4,12 @@
     <h2>Składanie wniosku o prawo jazdy do PWPW</h2>
 
 
-    	 <form name="sendToPwpw" method="POST">
-           //Dobrze gdyby to java sama z obiektu PKK uzupełniała <br>
-           imie: <input type="text" name="name"><br>
+    	 <form action="prepereDriverLicenseApplication" method="POST">
+           //Dobrze gdyby to java sama z obiektu PKK uzupełniała (na podstawie podanego wczesniej PESEL) <br>
+           Imie: <input type="text" name="name"><br>
            Nazwisko: <input type="text" name="surname"><br>
            Adres: <input type="text" name="address"><br>
-           Pesel: <input type="text" name="pesel"><br>
+           PESEL: <input type="text" name="pesel"><br>
 
            <br>
            //To juz recznie by sie wpisywalo <br>

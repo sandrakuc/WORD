@@ -16,6 +16,11 @@
     			 <input name="getMoney" type="submit" value="Przyjmij wpłate">
     		 </form>
 
+            <br>
+            <form action="createExam"  method="POST">
+                 <p><b>Utworzyć egzamin</b></p>
+                 <input name="createExam" type="submit" value="Utwórz egzamin">
+             </form>
 
     		 <br>
     			<form action="/"  method="POST">

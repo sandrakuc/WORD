@@ -4,6 +4,7 @@ import word.system.carfactory.Machine;
 import word.system.user.User;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
@@ -17,5 +18,35 @@ public class PracticExam {
 
     protected Date date;
 
-    
+    @ManyToOne
+    protected User examiner;
+
+    @ManyToOne
+    protected Machine machine;
+
+    public void setExaminer(User examiner){
+        if(examiner.getRole().equals(User.Role.PRACTIC_EXAMINER)){
+            this.examiner = examiner;
+        }
+    }
+
+    public void setMachine(Machine machine){
+        this.machine = machine;
+    }
+
+    public void setDate(Date date){
+        this.date = date;
+    }
+
+    public Date getDate(){
+        return date;
+    }
+
+    public User getExaminer(){
+        return examiner;
+    }
+
+    public Machine getMachine(){
+        return machine;
+    }
 }

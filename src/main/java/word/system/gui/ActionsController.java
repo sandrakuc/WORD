@@ -42,6 +42,30 @@ public class ActionsController {
         return "userViews/actions/signOnExam";
     }
 
+    @RequestMapping("createExam")
+    public String createExam(HttpServletRequest request) {
+
+        return "userViews/actions/createExam";
+    }
+
+    @RequestMapping("createExamResults")
+    public String createExamResults(HttpServletRequest request) {
+
+        return "userViews/actions/createExamResults";
+    }
+
+    //egzaminator teoretyczny actions
+    @RequestMapping("openExam")
+    public String openExam(HttpServletRequest request) {
+
+        return "userViews/actions/openExam";
+    }
+
+    @RequestMapping("closeExam")
+    public String closeExam(HttpServletRequest request) {
+
+        return "userViews/actions/closeExam";
+    }
 
 
 }

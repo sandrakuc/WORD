@@ -13,17 +13,18 @@
 
     		
     		 <form action="prepereDriverLicenseApplication"  method="POST">
-    				<p><b>Złóż dla zdającego wniosek o prawo jazdy</b></p>
-    				<input name="prepereApplication" type="submit" value="Zacznij wypełniać wniosek">
-    			</form><br>
+    		       <p><b>Złóż dla zdającego wniosek o prawo jazdy</b></p><br>
+                   	Wprowadz PESEL: <input type="text" name="pesel"><br><br>
+                   	<input name="prepereApplication" type="submit" value="Zacznij wypełniać wniosek">
+              </form><br>
 
 
-    			
-    			<form action="checkDriverLicenseApplication"  method="POST">
-    				 <p><b>Sprawdz status wniosku o prawo jazdy</b></p>
-    				  Wprowadz PESEL: <input type="text" name="pkk_pesel"><br><br>
-    				 <input name="checkStatus" type="submit" value="Sprawdz status wniosku">
-    			 </form>
+
+             <form action="checkDriverLicenseApplication"  method="POST">
+                <p><b>Sprawdz status wniosku o prawo jazdy</b></p><br>
+                 Wprowadz PESEL: <input type="text" name="pkk_pesel"><br><br>
+                  <input name="checkStatus" type="submit" value="Sprawdz status wniosku">
+              </form>
 
     			 <br>
      			
