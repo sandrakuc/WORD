@@ -23,7 +23,7 @@
              </form>
 
     		 <br>
-    			<form action="/"  method="POST">
+    			<form action="login"  method="POST">
     				 <input name="logout" type="submit" value="Wyloguj się">
     			 </form>
     		</div>

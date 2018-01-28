@@ -5,7 +5,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "WORD_ADDRESS")
-public class Address {
+public class  Address {
 
     public Address() {
     }
