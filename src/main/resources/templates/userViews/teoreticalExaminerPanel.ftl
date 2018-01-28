@@ -45,7 +45,7 @@
     				<br>
     				<br>
 
-    				                <form action="practicalExaminerPanel"  method="POST">
+    				                <form action="teoreticalExaminerPanel"  method="POST">
                     		 		<b>Wpisz id egzaminu:</b>
                     				<input type="text" name="examId" value=""><br>
                     				<input name="examAction" type="submit" value="Wylosuj pytania"><br>
