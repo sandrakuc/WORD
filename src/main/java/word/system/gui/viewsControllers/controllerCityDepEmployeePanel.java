@@ -13,4 +13,23 @@ public class controllerCityDepEmployeePanel {
     public String cityDepEmployeePanel(HttpServletRequest request) {
         return "userViews/cityDepEmployeePanel";
     }
+
+    ///CityDepEmployee actions
+    @RequestMapping("prepereDriverLicenseApplication")
+    public String prepereDriverLicenseApplication(HttpServletRequest request) {
+
+        return "userViews/actions/prepereDriverLicenseApplication";
+    }
+
+    @RequestMapping("checkDriverLicenseApplication")
+    public String checkDriverLicenseApplication(HttpServletRequest request) {
+
+        return "userViews/actions/checkDriverLicenseApplication";
+    }
+
+    @RequestMapping("createPkk")
+    public String createPkk(HttpServletRequest request) {
+
+        return "userViews/actions/createPkk";
+    }
 }

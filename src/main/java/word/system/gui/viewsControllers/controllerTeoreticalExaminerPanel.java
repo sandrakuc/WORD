@@ -13,4 +13,17 @@ public class controllerTeoreticalExaminerPanel {
     public String teoreticalExaminerPanel(HttpServletRequest request) {
         return "userViews/teoreticalExaminerPanel";
     }
+
+    @RequestMapping("openExam")
+    public String openExam(HttpServletRequest request) {
+
+        return "userViews/actions/openExam";
+    }
+
+    @RequestMapping("closeExam")
+    public String closeExam(HttpServletRequest request) {
+
+        return "userViews/actions/closeExam";
+    }
+
 }

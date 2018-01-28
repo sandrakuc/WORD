@@ -13,4 +13,31 @@ public class controllerKrysiaPanel {
     public String krysiaPanel(HttpServletRequest request) {
         return "userViews/krysiaPanel";
     }
+
+
+    //Krysia actions
+    @RequestMapping("getMoney")
+    public String getMoney(HttpServletRequest request) {
+
+        return "userViews/actions/getMoney";
+    }
+
+    @RequestMapping("signOnExam")
+    public String signOnExam(HttpServletRequest request) {
+
+        return "userViews/actions/signOnExam";
+    }
+
+    @RequestMapping("createExam")
+    public String createExam(HttpServletRequest request) {
+
+        return "userViews/actions/createExam";
+    }
+
+    @RequestMapping("createExamResults")
+    public String createExamResults(HttpServletRequest request) {
+
+        return "userViews/actions/createExamResults";
+    }
+
 }
