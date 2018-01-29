@@ -22,7 +22,7 @@ public class BQuestionTaskResultCreator  implements TaskResultCreator {
 
         Question question = new Question();
         question.setQuestion("testowe pytanie 123");
-        question.setType(DriveLicenseType.B2);
+        question.setType(DriveLicenseType.B);
         //@todo odpowiedzi i poprawne odpowiedz
 
         questions.add(question);
