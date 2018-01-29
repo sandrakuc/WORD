@@ -61,7 +61,7 @@
 	    </table>
 
 			<br><br><br>
-			<form action="../index.html"  method="POST">
+			<form action="login"  method="POST">
 				 <input name="logout" type="submit" value="Wyloguj się">
 			 </form>
 </@t.page>

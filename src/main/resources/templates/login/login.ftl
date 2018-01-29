@@ -18,6 +18,8 @@
      <a href="pkkPanel">pkkPanel</a><br>
      <a href="practicalExaminerPanel">practicalExaminerPanel</a><br>
      <a href="teoreticalExaminerPanel">teoreticalExaminerPanel</a><br>
+     <br><br>
+     <a href="person">Test wojtek</a><br>
 
 
 </@t.page>
