@@ -16,13 +16,13 @@
           </form>
 
             <br>
-            <form action="createTeoreticalExam"  method="get">
+            <form action="createTeoreticalExam" metod="get"  >
                  <p><b>Utworzyć egzamin teoretyczny</b></p>
                  <input name="createExam" type="submit" value="Utwórz egzamin teoretyczny">
              </form>
 
              <br>
-                <form action="createPracticalExam"  method="get">
+                <form action="createPracticalExam" metod="get"  >
                   <p><b>Utworzyć egzamin praktyczny</b></p>
                   <input name="createPracticalExam" type="submit" value="Utwórz egzamin praktyczny">
                </form>

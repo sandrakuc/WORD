@@ -37,4 +37,12 @@ public class TeoreticalExam
     public User getExaminer(){
         return examiner;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

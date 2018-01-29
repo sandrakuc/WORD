@@ -1,7 +1,9 @@
 package word.system.gui.viewsControllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
@@ -11,11 +13,17 @@ import word.system.exam.TeoreticalExam;
 import word.system.exam.TeoreticalExamRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 public class controllerKrysiaPanel {
 
+    @Autowired
     PracticExamRepository practicExamRepository;
+    @Autowired
     TeoreticalExamRepository teoreticalExamRepository;
 
     //dostęp do tej strony po zalogowaniu jako pani ustalajaca egzaminy, bedzie tu oznaczac wplaty oraz ogarniac terminy
@@ -45,11 +53,15 @@ public class controllerKrysiaPanel {
 }
 
 
+    @GetMapping("createTeoreticalExam")
+    public String postMCreateTeoreticalExam(HttpServletRequest request) throws ParseException {
 
-    @RequestMapping("createTeoreticalExam")
-    public String createTeoreticalExam(HttpServletRequest request) {
-        TeoreticalExam teoreticalExam = new TeoreticalExam();
-        teoreticalExam.setDate(null);
+        return "userViews/actions/createTeoreticalExam";
+    }
+
+    @PostMapping("createTeoreticalExam")
+    public String getMCreateTeoreticalExam(HttpServletRequest request, Model model) throws ParseException {
+      
         return "userViews/actions/createTeoreticalExam";
     }
 
