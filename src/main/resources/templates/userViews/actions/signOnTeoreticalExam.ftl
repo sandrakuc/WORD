@@ -1,7 +1,7 @@
 <#import "../../template.ftl" as t>
 
 <@t.page>
-    <h2>Zapisywanie na egzamin</h2><br>
+    <h2>Zapisywanie na egzamin teoretyczny</h2><br>
 
     	<form name="signOnExam" method="POST">
            Imie: <input type="text" name="name"><br>
@@ -12,12 +12,12 @@
            <br>
            Kategoria: <input type="text" name="category"><br>
            <br>
-           Data: <input type="text" name="date"><br>
-           Godzina: <input type="text" name="time"><br><br>
+            <p>Godzina egzaminu:</p>
+                         <input type="radio" name="hour" value="9" checked> 9:00<br>
+                         <input type="radio" name="hour" value="12"> 12:00<br>
+                         <input type="radio" name="hour" value="14"> 14:00<br>
+                         <input type="radio" name="hour" value="16"> 16:00<br>
            <br>
-           Zapisz na egzamin:<br>
-           <input type="radio" name="examType" value="teoretical" checked> Teoretyczny<br>
-           <input type="radio" name="examType" value="practical"> Praktyczny<br>
 
            <br>
            <input name="signOnExam" type="submit" value="Zapisz na egzamin">
