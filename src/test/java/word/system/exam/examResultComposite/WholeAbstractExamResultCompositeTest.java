@@ -2,8 +2,6 @@ package word.system.exam.examResultComposite;
 
 import org.junit.Assert;
 import org.junit.Test;
-import word.system.exam.Task.question.Answer;
-import word.system.exam.Task.question.Question;
 
 import static org.junit.Assert.*;
 

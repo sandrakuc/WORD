@@ -1,6 +1,8 @@
 package word.system.gui.viewsControllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,21 @@ public class controllerPkkPanel {
     @RequestMapping("pkkPanel")
     public String pkkPanel(HttpServletRequest request) {
         return "userViews/pkkPanel";
+    }
+
+    @RequestMapping("takeTheExam")
+    public String takeTheExam(HttpServletRequest request) {
+        return "userViews/actions/takeTheExam";
+    }
+
+    @GetMapping("finishAndConfirmTheExam")
+    public String finishAndConfirmTheExam(HttpServletRequest request) {
+        return "userViews/actions/finishAndConfirmTheExam";
+    }
+
+    @PostMapping("finishAndConfirmTheExam")
+    public String finishAndConfirmTheExam2(HttpServletRequest request) {
+        return "userViews/actions/finishAndConfirmTheExam";
     }
 
 }

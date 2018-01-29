@@ -1,4 +1,4 @@
-<#import "../template.ftl" as t>
+<#import "../../template.ftl" as t>
 
 <@t.page>
 
@@ -18,7 +18,7 @@
 			</form>
 
 			<br><br><br>
-			<form action="finishAndConfirmTheExam"  method="POST">
+			<form action="finishAndConfirmTheExam"  method="GET">
 				 <input name="confirm" type="submit" value="Zakończ i zapisz podejście">
 			 </form>
 
