@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
+import word.system.common.DriveLicenseType;
 import word.system.user.User;
 import word.system.user.UserRepository;
 import word.system.DrivingLicenseApplication.ApplicationRepository;
@@ -18,7 +20,10 @@ public class controllerCityDepEmployeePanel {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
     ApplicationRepository applicationRepository;
+
 
     //dostęp do tej strony po zalogowaniu jako admin, bedzie tu zarzadxzał bazą np dodawanie aut do bazy, egzaminatorow itp
     @RequestMapping("cityDepEmployeePanel")
@@ -33,11 +38,44 @@ public class controllerCityDepEmployeePanel {
         return "userViews/actions/prepereDriverLicenseApplication";
     }
 
+    @GetMapping("prepereDriverLicenseApplication")
+    public String getMPrepereDriverLicenseApplication(HttpServletRequest request) {
+
+        return "userViews/actions/prepereDriverLicenseApplication";
+    }
+
+    @PostMapping("prepereDriverLicenseApplication")
+    public String postMPrepereDriverLicenseApplication(HttpServletRequest request, Model model) {
+        DrivingLicenseApplication drivingLicenseApplication = new DrivingLicenseApplication();
+        drivingLicenseApplication.setName(request.getParameter("name"));
+        drivingLicenseApplication.setSurname(request.getParameter("surname"));
+        drivingLicenseApplication.setAddress(request.getParameter("address"));
+        drivingLicenseApplication.setPesel(request.getParameter("pesel"));
+        drivingLicenseApplication.setPesel(request.getParameter("DLCategory"));
+        drivingLicenseApplication.setStatus(DrivingLicenseApplication.Status.InPorcessOfMaking);
+        applicationRepository.save(drivingLicenseApplication);
+
+        model.addAttribute("drivingLicenseApplication", drivingLicenseApplication);
+
+        return "userViews/actions/prepereDriverLicenseApplication";
+    }
+
 
     @GetMapping("checkDriverLicenseApplication")
-    public String checkDriverLicenseApplication(Model model) {
-        
+    public String getCheckDriverLicenseApplication(HttpServletRequest request, Model model) {
+        DrivingLicenseApplication drivingLicenseApplication = new DrivingLicenseApplication();
+        drivingLicenseApplication.setPesel(request.getParameter("pesel"));
+        String tmpPesel = drivingLicenseApplication.getPesel();
+
+        System.out.println("\n\n\n\n"+ tmpPesel + "\n\n\n\n");
+        drivingLicenseApplication = applicationRepository.getByPesel(tmpPesel);
+
+        System.out.println("\n\n\n\nStatus wniosku z bazy"+ drivingLicenseApplication.getStatus() + "\n\n\n\n");
+        drivingLicenseApplication.setStatus(drivingLicenseApplication.getStatus());
+
+        model.addAttribute("drivingLicenseApplication",drivingLicenseApplication);
         return "userViews/actions/checkDriverLicenseApplication";
+
     }
 
 
@@ -46,8 +84,6 @@ public class controllerCityDepEmployeePanel {
 
     @GetMapping("createPkk")
     public String formGet() {
-
-
         return "userViews/actions/createPkk";
     }
 
