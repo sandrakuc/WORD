@@ -17,7 +17,11 @@ public class QuestionBase {
 
     String correctAnswer;
 
-    String possibleAnswers[] = new String[4];
+    String possibleAnswer1;
+    String possibleAnswer2;
+    String possibleAnswer3;
+    String possibleAnswer4;
+
 
 
 }
