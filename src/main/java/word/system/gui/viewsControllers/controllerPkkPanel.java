@@ -14,4 +14,11 @@ public class controllerPkkPanel {
         return "userViews/pkkPanel";
     }
 
+    @RequestMapping("takeTheExam")
+    public String takeTheExam(HttpServletRequest request) {
+        return "userViews/actions/takeTheExam";
+    }
+
+
+
 }
