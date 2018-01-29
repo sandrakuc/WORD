@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import word.system.user.User;
 import word.system.user.UserRepository;
+import word.system.DrivingLicenseApplication.ApplicationRepository;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +18,7 @@ public class controllerCityDepEmployeePanel {
 
     @Autowired
     UserRepository userRepository;
+    ApplicationRepository applicationRepository;
 
     //dostęp do tej strony po zalogowaniu jako admin, bedzie tu zarzadxzał bazą np dodawanie aut do bazy, egzaminatorow itp
     @RequestMapping("cityDepEmployeePanel")
@@ -31,17 +33,20 @@ public class controllerCityDepEmployeePanel {
         return "userViews/actions/prepereDriverLicenseApplication";
     }
 
-    @RequestMapping("checkDriverLicenseApplication")
-    public String checkDriverLicenseApplication(HttpServletRequest request) {
 
+    @GetMapping("checkDriverLicenseApplication")
+    public String checkDriverLicenseApplication(Model model) {
+        
         return "userViews/actions/checkDriverLicenseApplication";
     }
 
 
 
+
+
     @GetMapping("createPkk")
-    public String formGet(Model model) {
-        //model.addAttribute("user", userRepository.getByLogin("admin"));
+    public String formGet() {
+
 
         return "userViews/actions/createPkk";
     }
@@ -66,9 +71,5 @@ public class controllerCityDepEmployeePanel {
         return "userViews/actions/createPkk";
     }
 
-//    @RequestMapping("createPkk")
-//    public String createPkk(HttpServletRequest request) {
-//
-//        return "userViews/actions/createPkk";
-//    }
+
 }
