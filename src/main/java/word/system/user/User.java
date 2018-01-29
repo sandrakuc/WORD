@@ -12,25 +12,22 @@ public class User {
     }
 
     protected Role role;
-
+    protected String address;
 
     @Id @GeneratedValue
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     //@SequenceGenerator(sequenceName = "word_user_seq", allocationSize = 1, name = "CUST_SEQ")
     Long id;
 
-    @ManyToOne
-    protected Address address;
+    protected String firstName ="";
 
-    protected String firstName;
+    protected String lastName ="";
 
-    protected String lastName;
+    protected String login ="";
 
-    protected String login;
+    protected String password ="";
 
-    protected String password;
-
-    protected String email;
+    protected String email ="";
 
     public Role getRole() {
         return role;
@@ -48,11 +45,11 @@ public class User {
         this.id = id;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -95,4 +92,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

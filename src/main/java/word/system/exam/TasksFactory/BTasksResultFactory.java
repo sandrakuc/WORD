@@ -11,7 +11,7 @@ import java.util.*;
 /**
  * 
  */
-public class B2TasksResultFactory implements TasksFactory {
+public class BTasksResultFactory implements TasksFactory {
 
     final int NUMBER_OF_QUESTION_ON_TEORETICAL_EXAM = 5;
 
@@ -21,7 +21,7 @@ public class B2TasksResultFactory implements TasksFactory {
     List<Maneuver> maneuvers;
 
 
-    public B2TasksResultFactory() {
+    public BTasksResultFactory() {
         maneuvers = getManeuvers();
     }
 
@@ -65,11 +65,11 @@ public class B2TasksResultFactory implements TasksFactory {
      */
     protected List<Maneuver> getManeuvers() {
         ArrayList<Maneuver> maneuvers = new ArrayList<Maneuver>();
-        maneuvers.add(new Maneuver("parkowanie równoległe", "opis", DriveLicenseType.B2));
-        maneuvers.add(new Maneuver("parkowanie prostopadłe", "opis", DriveLicenseType.B2));
-        maneuvers.add(new Maneuver("podjazd pod górkę", "opis", DriveLicenseType.B2));
-        maneuvers.add(new Maneuver("przejazd przez pasy", "opis", DriveLicenseType.B2));
-        maneuvers.add(new Maneuver("przejazd przez skrzyżowanie", "opis", DriveLicenseType.B2));
+        maneuvers.add(new Maneuver("parkowanie równoległe", "opis", DriveLicenseType.B));
+        maneuvers.add(new Maneuver("parkowanie prostopadłe", "opis", DriveLicenseType.B));
+        maneuvers.add(new Maneuver("podjazd pod górkę", "opis", DriveLicenseType.B));
+        maneuvers.add(new Maneuver("przejazd przez pasy", "opis", DriveLicenseType.B));
+        maneuvers.add(new Maneuver("przejazd przez skrzyżowanie", "opis", DriveLicenseType.B));
         return maneuvers;
     }
 
@@ -84,7 +84,7 @@ public class B2TasksResultFactory implements TasksFactory {
 
         Question question = new Question();
         question.setQuestion("testowe pytanie 123");
-        question.setType(DriveLicenseType.B2);
+        question.setType(DriveLicenseType.B);
         //@todo odpowiedzi i poprawne odpowiedz
 
 

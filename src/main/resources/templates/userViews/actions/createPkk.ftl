@@ -3,16 +3,18 @@
 <@t.page>
 
     <h2>Tworzenie PKK</h2>
-       <#if user?? >
-        <p><b>Dodano zdajacego</b></p>
-          First name: ${user.firstName}<br>
-          Last name: ${user.lastName}<br>
+     <#if user?? >
+             Dodano zdającego<br>
+             Imie: ${user.firstName}<br>
+             Nazwisko: ${user.lastName}<br>
+             Adres:  ${user.address}<br>
+             Email:  ${user.email}<br>
+             <br>
+             Login:  ${user.login}<br>
+             Haslo:  ${user.password}<br>
+     <#else>
 
-        <#else>
-
-            <form action="createPkk" method="post">
-              id: <input type="text" name="id"><br>
-              rola: <input type="text" name="role" value="PKK" disabled><br>
+            <form action="/createPkk" method="post">
               imie: <input type="text" name="firstName"><br>
               Nazwisko: <input type="text" name="lastName"><br>
               Adres: <input type="text" name="address"><br>
@@ -22,11 +24,10 @@
               Pesel (jako login): <input type="text" name="login"><br>
               Domyslne haslo: <input type="text" value="word_ck" name="password">
               <br><br>
-              //dobrze gdyby na tej samej stronie wyswietlalo czy założone po wcisnieciu przycisku
-              <br>
+
               <input name="createPkk" type="submit" value="Załóż PKK">
            </form>
-       </#if>
+      </#if>
 
        <br>
        <a href="cityDepEmployeePanel">Wstecz</a>

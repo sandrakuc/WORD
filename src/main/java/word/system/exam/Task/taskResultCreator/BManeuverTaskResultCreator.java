@@ -41,11 +41,11 @@ public class BManeuverTaskResultCreator implements TaskResultCreator {
      */
     protected List<Maneuver> getManeuvers() {
         ArrayList<Maneuver> maneuvers = new ArrayList<>();
-        maneuvers.add(new Maneuver("parkowanie równoległe", "opis", DriveLicenseType.B2));
-        maneuvers.add(new Maneuver("parkowanie prostopadłe", "opis", DriveLicenseType.B2));
-        maneuvers.add(new Maneuver("podjazd pod górkę", "opis", DriveLicenseType.B2));
-        maneuvers.add(new Maneuver("przejazd przez pasy", "opis", DriveLicenseType.B2));
-        maneuvers.add(new Maneuver("przejazd przez skrzyżowanie", "opis", DriveLicenseType.B2));
+        maneuvers.add(new Maneuver("parkowanie równoległe", "opis", DriveLicenseType.B));
+        maneuvers.add(new Maneuver("parkowanie prostopadłe", "opis", DriveLicenseType.B));
+        maneuvers.add(new Maneuver("podjazd pod górkę", "opis", DriveLicenseType.B));
+        maneuvers.add(new Maneuver("przejazd przez pasy", "opis", DriveLicenseType.B));
+        maneuvers.add(new Maneuver("przejazd przez skrzyżowanie", "opis", DriveLicenseType.B));
         return maneuvers;
     }
 }
