@@ -9,6 +9,7 @@ import com.vaadin.spring.annotation.SpringUI;
 import com.vaadin.ui.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.vaadin.crudui.crud.impl.GridCrud;
 import word.system.user.User;
 import word.system.user.UserRepository;
 
@@ -20,65 +21,23 @@ public class VaadinUI extends UI {
 
     UserRepository userRepository;
 
-    private final UserEditor editor;
-
-    Grid<User> grid;
-
-    final TextField filter;
-
-    private final Button addNewBtn;
-
     @Autowired
     public VaadinUI(UserRepository repo, UserEditor editor) {
         this.userRepository = repo;
-        this.editor = editor;
-        this.grid = new Grid<>(User.class);
-        this.filter = new TextField();
-        this.addNewBtn = new Button("New customer", FontAwesome.PLUS);
-    }
-
-    void listUsers(String filterText) {
-        if (StringUtils.isEmpty(filterText)) {
-            grid.setItems((Collection<User>) userRepository.findAll());
-        }
-        else {
-            grid.setItems(userRepository.findByLastNameStartsWithIgnoreCase(filterText));
-        }
     }
 
     @Override
-    protected void init(VaadinRequest vaadinRequest) {
-// build layout
-        HorizontalLayout actions = new HorizontalLayout(filter, addNewBtn);
-        VerticalLayout mainLayout = new VerticalLayout(actions, grid, editor);
-        setContent(mainLayout);
+    protected void init(VaadinRequest request) {
 
-        grid.setHeight(300, Unit.PIXELS);
-        grid.setColumns("id", "firstName", "lastName");
+        GridCrud<User> crud = new GridCrud<>(User.class);
+        crud.getCrudFormFactory().setUseBeanValidation(true);
+        crud.setFindAllOperation(() -> (Collection<User>)userRepository.findAll());
+        crud.setAddOperation(userRepository::save);
+        crud.setUpdateOperation(userRepository::save);
+        crud.setDeleteOperation(userRepository::delete);
 
-        filter.setPlaceholder("Filter by last name");
+        final VerticalLayout layout = new VerticalLayout(crud);
 
-        // Hook logic to components
-
-        // Replace listing with filtered content when user changes filter
-        filter.setValueChangeMode(ValueChangeMode.LAZY);
-        filter.addValueChangeListener(e -> listUsers(e.getValue()));
-
-        // Connect selected Customer to editor or hide if none is selected
-        grid.asSingleSelect().addValueChangeListener(e -> {
-            editor.editUser(e.getValue());
-        });
-
-        // Instantiate and edit new Customer the new button is clicked
-        addNewBtn.addClickListener(e -> editor.editUser(new User()));
-
-        // Listen changes made by the editor, refresh data from backend
-        editor.setChangeHandler(() -> {
-            editor.setVisible(false);
-            listUsers(filter.getValue());
-        });
-
-        // Initialize listing
-        listUsers(null);
+        setContent(layout);
     }
 }
