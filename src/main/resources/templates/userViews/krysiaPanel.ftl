@@ -4,27 +4,38 @@
     <h2>Panel Krysi</h2>
     	 <p>Wybierz co chcesz zrobić:</p><br>
 
-    	 <form action="signOnExam"  method="POST">
-    			<p><b>Zapisać kursanta na egzamin</b></p>
-    			<input name="signOnExam" type="submit" value="Zapisz na egzamin">
+    	 <form action="signOnTeoreticalExam"  method="get">
+    			<p><b>Zapisać kursanta na egzamin teoretyczny</b></p>
+    			<input name="signTeoreticalOnExam" type="submit" value="Zapisz na egzamin">
     		</form>
+            <br>
 
-
-    		<br>
-    		<form action="getMoney"  method="POST">
-    			 <p><b>Zaksiegować wpłate od zdającego</b></p>
-    			 <input name="getMoney" type="submit" value="Przyjmij wpłate">
-    		 </form>
+         <form action="signOnPracticalExam"  method="get">
+               <p><b>Zapisać kursanta na egzamin praktyczny</b></p>
+               <input name="signPracticalOnExam" type="submit" value="Zapisz na egzamin">
+          </form>
 
             <br>
-            <form action="createExam"  method="POST">
-                 <p><b>Utworzyć egzamin</b></p>
-                 <input name="createExam" type="submit" value="Utwórz egzamin">
+            <form action="createTeoreticalExam"  method="get">
+                 <p><b>Utworzyć egzamin teoretyczny</b></p>
+                 <input name="createExam" type="submit" value="Utwórz egzamin teoretyczny">
              </form>
 
+             <br>
+                <form action="createPracticalExam"  method="get">
+                  <p><b>Utworzyć egzamin praktyczny</b></p>
+                  <input name="createPracticalExam" type="submit" value="Utwórz egzamin praktyczny">
+               </form>
+
+               	<br>
+                 <form action="getMoney"  method="get">
+                   	<p><b>Zaksiegować wpłate od zdającego</b></p>
+                   	<input name="getMoney" type="submit" value="Przyjmij wpłate">
+                  </form>
+
     		 <br>
-    			<form action="login"  method="POST">
+    			<form action="login"  method="get">
     				 <input name="logout" type="submit" value="Wyloguj się">
-    			 </form>
+    			</form>
     		</div>
 </@t.page>
