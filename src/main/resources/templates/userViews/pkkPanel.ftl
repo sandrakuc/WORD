@@ -61,7 +61,13 @@
 	    </table>
 
 			<br><br><br>
+			<form action="takeTheExam" method="GET">
+            	<input name="takeTheExam" type="submit" value="Rozpocznij podejście">
+            </form>
+
+			<br><br><br>
 			<form action="login"  method="POST">
 				 <input name="logout" type="submit" value="Wyloguj się">
 			 </form>
+
 </@t.page>

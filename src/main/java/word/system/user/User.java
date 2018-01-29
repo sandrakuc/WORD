@@ -1,6 +1,5 @@
 package word.system.user;
 
-import word.system.common.Address;
 import javax.persistence.*;
 
 @Entity
@@ -91,6 +90,12 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    //do testu
+    @Override
+    public String toString(){
+        return firstName + " " + lastName + ", " + login + " " + email;
     }
 
 
