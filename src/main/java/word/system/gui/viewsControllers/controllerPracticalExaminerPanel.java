@@ -33,7 +33,6 @@ public class controllerPracticalExaminerPanel {
     @PostMapping("practicalExaminerPanel")
     public String postMPrepereDriverLicenseApplication(HttpServletRequest request, Model model) {
 
-
         HttpSession session = request.getSession();
         User sessionUser = (User)session.getAttribute("user");
 
@@ -49,7 +48,7 @@ public class controllerPracticalExaminerPanel {
                 practicExamsList.add(practicExam);
             }
         }
-
+        System.out.println(practicExamsList);
         modifyTable(request,model,practicExamsList);
 
         model.addAttribute("userId", sessionUser.getId());
@@ -69,10 +68,10 @@ public class controllerPracticalExaminerPanel {
             Integer examIdToChange = Integer.parseInt(request.getParameter("examId"));
 
             Integer idInDatabase = examIdToChange;
-            Integer idInArrayList = examIdToChange-1;
+            Integer idInArrayList = checkIdEnterOnField(practicExams,idInDatabase);
+            System.out.println("\n\n\n\n\n"+ idInArrayList + "\n\n\n\n");
 
-
-            if(checkIdEnterOnField(practicExams,idInArrayList)==true)
+            if(checkIdEnterOnField(practicExams,idInDatabase)!=-1)
             {
                 //sprawdzanie co bylo zaznaczone w radioboxach
                 if(request.getParameter("examResult").equals("positive"))
@@ -86,31 +85,31 @@ public class controllerPracticalExaminerPanel {
                 practicExamRepository.save(practicExams.get(idInArrayList));
 
             }else
-                message = "Wprowadziłeś złe id" + examIdToChange;
+                message = "Nie ma takiego id";
 
 
         }
         model.addAttribute("message",message);
     }
 
-    private boolean checkIdEnterOnField(ArrayList<PracticExam> practicExams, Integer idInArrayList)
+    private Integer checkIdEnterOnField(ArrayList<PracticExam> practicExams, Integer idInDatabase)
     {
-        if(idInArrayList==null)
-            return false;
+        if(idInDatabase==null)
+            return -1;
 
         for (PracticExam p: practicExams)
         {
-            if(toIntExact( p.getId()-1 ) == idInArrayList){
-                return Boolean.TRUE;
+            if(toIntExact( p.getId() ) == idInDatabase){
+                return practicExams.indexOf(p);
             }
         }
-        return Boolean.FALSE;
+        return -1;
     }
 
 
     @GetMapping("practicalExaminerPanel")
     public String getMPrepereDriverLicenseApplication(HttpServletRequest request, Model model) {
-
+        String message = "";
 
         HttpSession session = request.getSession();
         User sessionUser = (User)session.getAttribute("user");
@@ -128,6 +127,7 @@ public class controllerPracticalExaminerPanel {
 
         model.addAttribute("userId", sessionUser.getId());
         model.addAttribute("practicExamsList", practicExamsList);
+        model.addAttribute("message",message);
 
         return "userViews/practicalExaminerPanel";
     }

@@ -7,6 +7,7 @@
    			<p>Twoje egzaminy:</p><br>
 
 
+                <b>${message}</b>
 
    			<table>
    				<tr>
@@ -44,7 +45,7 @@
 
 
    			<br><br><br>
-   			<form action="login"  method="POST">
+   			<form action="login"  method="GET">
    				 <input name="logout" type="submit" value="Wyloguj się">
    			 </form>
 </@t.page>
