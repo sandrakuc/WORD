@@ -10,6 +10,7 @@ import word.system.exam.TeoreticalQuestions.QuestionBase;
 import word.system.exam.TeoreticalQuestions.QuestionRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Random;
 
 @Controller
 public class controllerPkkPanel {
@@ -24,17 +25,24 @@ public class controllerPkkPanel {
 
     @RequestMapping("takeTheExam")
     public String takeTheExam(HttpServletRequest request, Model model) {
-        QuestionBase questionBase1 = questionRepository.getById((long) 1);
+        Random rd = new Random();
+        long id1, id2, id3;
+        do{
+            id1 = (long)rd.nextInt(15)+1;
+            id2 = (long)rd.nextInt(15)+1;
+            id3 = (long)rd.nextInt(15)+1;
+        }while(id1 == id2 || id1 == id3 || id2 == id3);
+        QuestionBase questionBase1 = questionRepository.getById(id1);
         System.out.println(questionBase1.getContents());
         System.out.println(questionBase1.getPossibleAnswer1());
         System.out.println(questionBase1.getPossibleAnswer2());
         System.out.println(questionBase1.getPossibleAnswer3());
-        QuestionBase questionBase2 = questionRepository.getById((long) 2);
+        QuestionBase questionBase2 = questionRepository.getById(id2);
         System.out.println(questionBase2.getContents());
         System.out.println(questionBase2.getPossibleAnswer1());
         System.out.println(questionBase2.getPossibleAnswer2());
         System.out.println(questionBase2.getPossibleAnswer3());
-        QuestionBase questionBase3 = questionRepository.getById((long) 3);
+        QuestionBase questionBase3 = questionRepository.getById(id3);
         System.out.println(questionBase3.getContents());
         System.out.println(questionBase3.getPossibleAnswer1());
         System.out.println(questionBase3.getPossibleAnswer2());

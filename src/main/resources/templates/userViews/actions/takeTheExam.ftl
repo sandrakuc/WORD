@@ -5,7 +5,8 @@
 <h2>Panel Zdającego</h2>
 
 			<p><b>Egzamin teoretyczny</b></p>
-			<br>// w juz w krotce w bazie pojawi sie wiecej pytan ktore beda losowane
+			<br>// pytania sie juz losuja ale bede musiala poprawic, zeby zmienialy sie dopiero na nowym podejsciu,
+			a nie za każdym odświeżeniem
 			<br> // i bedzie uproszczona wersja, wyswietla sie trzy pytania, bo bym sie zaorala
 			<br><br><br>
 
