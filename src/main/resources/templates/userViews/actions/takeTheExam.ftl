@@ -5,31 +5,34 @@
 <h2>Panel Zdającego</h2>
 				<p>Przykładowe pytania na razie napisane na sztywno</p>
 			<p><b>Egzamin teoretyczny</b></p>
+			<br>// w juz w krotce w bazie pojawi sie wiecej pytan ktore beda losowane
+			<br> // i bedzie uproszczona wersja, wyswietla sie trzy pytania, bo bym sie zaorala
 			<br><br><br>
 
-			<p> ${questionBase.contents} </p>
+			<p> ${questionBase1.contents} </p>
 			<form>
-			    <br><input type="radio" name="pierwsze" value="a"> ${questionBase.possibleAnswer1}
-			    <br><input type="radio" name="pierwsze" value="b"> ${questionBase.possibleAnswer2}
-			    <br><input type="radio" name="pierwsze" value="c"> ${questionBase.possibleAnswer3}
-			    <br><input type="radio" name="pierwsze" value="d"> ${questionBase.possibleAnswer4}
+			    <br><input type="radio" name="pierwsze" value="a"> ${questionBase1.possibleAnswer1}
+			    <br><input type="radio" name="pierwsze" value="b"> ${questionBase1.possibleAnswer2}
+			    <br><input type="radio" name="pierwsze" value="c"> ${questionBase1.possibleAnswer3}
+			    <br><input type="radio" name="pierwsze" value="d"> ${questionBase1.possibleAnswer4}
 			</form>
 
-			<p> ${QuestionBase.contents} </p>
+            <br> <br>
+			<p> ${questionBase2.contents} </p>
             	<form>
-                <br><input type="radio" name="drugie" value="a"> ${questionBase.possibleAnswer1}
-                <br><input type="radio" name="drugie" value="b"> ${questionBase.possibleAnswer2}
-                <br><input type="radio" name="drugie" value="c"> ${questionBase.possibleAnswer3}
-                <br><input type="radio" name="drugie" value="d"> ${questionBase.possibleAnswer4}
+                <br><input type="radio" name="drugie" value="a"> ${questionBase2.possibleAnswer1}
+                <br><input type="radio" name="drugie" value="b"> ${questionBase2.possibleAnswer2}
+                <br><input type="radio" name="drugie" value="c"> ${questionBase2.possibleAnswer3}
+                <br><input type="radio" name="drugie" value="d"> ${questionBase2.possibleAnswer4}
             	</form>
 
-
-            <p> ${QuestionBase.contents} </p>
+            <br> <br>
+            <p> ${questionBase3.contents} </p>
             	<form>
-                <br><input type="radio" name="trzecie" value="a"> ${questionBase.possibleAnswer1}
-                <br><input type="radio" name="trzecie" value="b"> ${questionBase.possibleAnswer2}
-                <br><input type="radio" name="trzecie" value="c"> ${questionBase.possibleAnswer3}
-                <br><input type="radio" name="trzecie" value="d"> ${questionBase.possibleAnswer4}
+                <br><input type="radio" name="trzecie" value="a"> ${questionBase3.possibleAnswer1}
+                <br><input type="radio" name="trzecie" value="b"> ${questionBase3.possibleAnswer2}
+                <br><input type="radio" name="trzecie" value="c"> ${questionBase3.possibleAnswer3}
+                <br><input type="radio" name="trzecie" value="d"> ${questionBase3.possibleAnswer4}
             	</form>
 
 
