@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Long> {
+    User getById(Long id);
 
     User getByLogin(String login);
 

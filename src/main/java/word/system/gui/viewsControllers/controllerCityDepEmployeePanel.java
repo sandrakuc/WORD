@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 import word.system.common.DriveLicenseType;
+import word.system.gui.FlashMessageManager;
 import word.system.user.User;
 import word.system.user.UserRepository;
 import word.system.DrivingLicenseApplication.ApplicationRepository;
@@ -26,9 +27,11 @@ public class controllerCityDepEmployeePanel{
     ApplicationRepository applicationRepository;
 
 
+
     //dostęp do tej strony po zalogowaniu jako admin, bedzie tu zarzadxzał bazą np dodawanie aut do bazy, egzaminatorow itp
     @RequestMapping("cityDepEmployeePanel")
     public String cityDepEmployeePanel(HttpServletRequest request) {
+
         return "userViews/cityDepEmployeePanel";
     }
 

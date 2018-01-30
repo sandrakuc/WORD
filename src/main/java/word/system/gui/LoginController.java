@@ -35,7 +35,7 @@ public class LoginController {
             }else if(user.getPassword().equals(request.getParameter("password"))) {
                 flashMessageManager.addMessage("zalogowano", FlashMessageManager.Type.INFO);
                 session.setAttribute("user", user);
-                
+
                 if(user.getRole()== User.Role.ADMIN){
                     return "admin";
                 }else if (user.getRole()== User.Role.PKK) {

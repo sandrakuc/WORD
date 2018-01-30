@@ -2,8 +2,9 @@
 
 <@t.page>
              <h2>Panel egzaminatora praktycznego</h2>
+
    			<p>Twoje egzaminy:</p><br>
-   			//tu wypisze egzaminy ktore zrobila krysia (o ile ona ma tworzyc ich obiekty), a które sa przypisane do zalogowanego egzaminatora np:
+
 
    			<table>
    				<tr>
@@ -13,27 +14,16 @@
    					<th>PESEL zdającego</th>
    					<th>Wynik egzaminu</th>
    				</tr>
-   				<tr>
-   					<td name="id">1</td>
-   					<td>12.12.2018 12:00</td>
-   					<td>1</td>
-   					<td>12345678910</td>
-   					<td>Pozytywny</td>
-   				</tr>
-   				<tr>
-   					<td name="id">2</td>
-   					<td>12.12.2018 12:00</td>
-   					<td>12</td>
-   					<td>12345678910</td>
-   					<td>Negatywny</td>
-   				</tr>
-   				<tr>
-   					<td name="id">3</td>
-   					<td>12.12.2018 12:00</td>
-   					<td>12</td>
-   					<td>12345678910</td>
-   					<td>-</td>
-   				</tr>
+
+   				<#list practicExamsList as practicExamsList>
+                    <tr>
+                        <td name="id">${practicExamsList.getId()}</td>
+                        <td>${practicExamsList.getDate()}</td>
+                        <td>${practicExamsList.getMachine()}</td>
+                        <td>${practicExamsList.getPesel()}</td>
+                        <td>${practicExamsList.getExamResult()}</td>
+                    </tr>
+                 </#list>
    			</table>
    			<br>
    			<br>
