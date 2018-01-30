@@ -20,7 +20,6 @@ public class QuestionBase {
     protected String possibleAnswer1;
     protected String possibleAnswer2;
     protected String possibleAnswer3;
-    protected String possibleAnswer4;
 
     public void setContents(String contents){
         this.contents = contents;
@@ -40,10 +39,6 @@ public class QuestionBase {
 
     public void setPossibleAnswer3(String possibleAnswer3) {
         this.possibleAnswer3 = possibleAnswer3;
-    }
-
-    public void setPossibleAnswer4(String possibleAnswer4) {
-        this.possibleAnswer4 = possibleAnswer4;
     }
 
     public String getContents() {
@@ -66,7 +61,4 @@ public class QuestionBase {
         return possibleAnswer3;
     }
 
-    public String getPossibleAnswer4() {
-        return possibleAnswer4;
-    }
 }

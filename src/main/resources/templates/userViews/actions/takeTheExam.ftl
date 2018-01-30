@@ -14,7 +14,6 @@
 			    <br><input type="radio" name="pierwsze" value="a"> ${questionBase1.possibleAnswer1}
 			    <br><input type="radio" name="pierwsze" value="b"> ${questionBase1.possibleAnswer2}
 			    <br><input type="radio" name="pierwsze" value="c"> ${questionBase1.possibleAnswer3}
-			    <br><input type="radio" name="pierwsze" value="d"> ${questionBase1.possibleAnswer4}
 			</form>
 
             <br> <br>
@@ -23,7 +22,6 @@
                 <br><input type="radio" name="drugie" value="a"> ${questionBase2.possibleAnswer1}
                 <br><input type="radio" name="drugie" value="b"> ${questionBase2.possibleAnswer2}
                 <br><input type="radio" name="drugie" value="c"> ${questionBase2.possibleAnswer3}
-                <br><input type="radio" name="drugie" value="d"> ${questionBase2.possibleAnswer4}
             	</form>
 
             <br> <br>
@@ -32,7 +30,6 @@
                 <br><input type="radio" name="trzecie" value="a"> ${questionBase3.possibleAnswer1}
                 <br><input type="radio" name="trzecie" value="b"> ${questionBase3.possibleAnswer2}
                 <br><input type="radio" name="trzecie" value="c"> ${questionBase3.possibleAnswer3}
-                <br><input type="radio" name="trzecie" value="d"> ${questionBase3.possibleAnswer4}
             	</form>
 
 
