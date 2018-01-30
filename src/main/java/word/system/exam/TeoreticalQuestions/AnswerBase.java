@@ -9,7 +9,7 @@ public class AnswerBase {
     @GeneratedValue
     Long id;
 
-    @OneToOne
+    @ManyToOne
     QuestionBase question;
 
     String answer;

@@ -2,6 +2,7 @@ package word.system.exam.approach;
 
 import word.system.common.DriveLicenseType;
 import word.system.exam.TeoreticalExam;
+import word.system.exam.TeoreticalQuestions.AnswerBase;
 import word.system.user.User;
 
 import javax.persistence.*;
@@ -30,11 +31,11 @@ public class TeoreticalApproach {
 
     protected DriveLicenseType type;
 
-    @ManyToMany
-    protected Collection<User> participants;
-
     @OneToOne
     protected TeoreticalExam teoreticalExam;
+
+    @ManyToMany
+    protected Collection<CourseOfExam> courses;
 
     public void setType(DriveLicenseType type){
         this.type = type;
@@ -44,15 +45,6 @@ public class TeoreticalApproach {
         this.teoreticalExam = teoreticalExam;
     }
 
-    public void setParticipants(Collection<User> participants ){
-        this.participants = participants;
-    }
-
-    public void addToParticipants(User pkk){
-        if(pkk.getRole().equals(User.Role.PKK)){
-            participants.add(pkk);
-        }
-    }
 
     public DriveLicenseType getType(){
         return type;
@@ -62,9 +54,6 @@ public class TeoreticalApproach {
         return teoreticalExam;
     }
 
-    public Collection<User>  getParticipants(){
-        return participants;
-    }
 
     /**
      * @param questionResult 
