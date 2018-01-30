@@ -35,10 +35,31 @@ public class LoginController {
             }else if(user.getPassword().equals(request.getParameter("password"))) {
                 flashMessageManager.addMessage("zalogowano", FlashMessageManager.Type.INFO);
                 session.setAttribute("user", user);
+                
+                if(user.getRole()== User.Role.ADMIN){
+                    return "admin";
+                }else if (user.getRole()== User.Role.PKK) {
+                    return "pkkPanel";
+                }
+                else if (user.getRole()== User.Role.PRACTIC_EXAMINER) {
+                    return "practicalExaminerPanel";
+                }
+                else if (user.getRole()== User.Role.TEORETICAL_EXAMINER) {
+                    return "teoreticalExaminerPanel";
+                }
+                else if (user.getRole()== User.Role.CASHEER) {
+                    return "krysiaPanel";
+                }
+                else if (user.getRole()== User.Role.CITY_DEPARTMENT) {
+                    return "cityDepEmployeePanel";
+                }
             } else {
                 flashMessageManager.addMessage("Hasło lub login niepoprawne", FlashMessageManager.Type.ERROR);
             }
+
+
         }
+
 
         return "login/login";
     }
