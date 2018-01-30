@@ -8,14 +8,30 @@
 			<br><br><br>
 
 			<p> ${QuestionBase.contents} </p>
-
-
 			<form>
 			    <br><input type="radio" name="pierwsze" value="a"> ${QuestionBase}
 			    <br><input type="radio" name="pierwsze" value="b"> ${QuestionBase}
 			    <br><input type="radio" name="pierwsze" value="c"> ${QuestionBase}
 			    <br><input type="radio" name="pierwsze" value="d"> ${QuestionBase}
 			</form>
+
+			<p> ${QuestionBase.contents} </p>
+            	<form>
+                <br><input type="radio" name="drugie" value="a"> ${QuestionBase}
+                <br><input type="radio" name="drugie" value="b"> ${QuestionBase}
+                <br><input type="radio" name="drugie" value="c"> ${QuestionBase}
+                <br><input type="radio" name="drugie" value="d"> ${QuestionBase}
+            	</form>
+
+
+            <p> ${QuestionBase.contents} </p>
+            	<form>
+                <br><input type="radio" name="trzecie" value="a"> ${QuestionBase}
+                <br><input type="radio" name="trzecie" value="b"> ${QuestionBase}
+                <br><input type="radio" name="trzecie" value="c"> ${QuestionBase}
+                <br><input type="radio" name="trzecie" value="d"> ${QuestionBase}
+            	</form>
+
 
 			<br><br><br>
 			<form action="finishAndConfirmTheExam"  method="GET">
