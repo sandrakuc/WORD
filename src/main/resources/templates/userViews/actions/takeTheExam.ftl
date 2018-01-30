@@ -7,29 +7,29 @@
 			<p><b>Egzamin teoretyczny</b></p>
 			<br><br><br>
 
-			<p> ${QuestionBase.contents} </p>
+			<p> ${questionBase.contents} </p>
 			<form>
-			    <br><input type="radio" name="pierwsze" value="a"> ${QuestionBase}
-			    <br><input type="radio" name="pierwsze" value="b"> ${QuestionBase}
-			    <br><input type="radio" name="pierwsze" value="c"> ${QuestionBase}
-			    <br><input type="radio" name="pierwsze" value="d"> ${QuestionBase}
+			    <br><input type="radio" name="pierwsze" value="a"> ${questionBase.possibleAnswer1}
+			    <br><input type="radio" name="pierwsze" value="b"> ${questionBase.possibleAnswer2}
+			    <br><input type="radio" name="pierwsze" value="c"> ${questionBase.possibleAnswer3}
+			    <br><input type="radio" name="pierwsze" value="d"> ${questionBase.possibleAnswer4}
 			</form>
 
 			<p> ${QuestionBase.contents} </p>
             	<form>
-                <br><input type="radio" name="drugie" value="a"> ${QuestionBase}
-                <br><input type="radio" name="drugie" value="b"> ${QuestionBase}
-                <br><input type="radio" name="drugie" value="c"> ${QuestionBase}
-                <br><input type="radio" name="drugie" value="d"> ${QuestionBase}
+                <br><input type="radio" name="drugie" value="a"> ${questionBase.possibleAnswer1}
+                <br><input type="radio" name="drugie" value="b"> ${questionBase.possibleAnswer2}
+                <br><input type="radio" name="drugie" value="c"> ${questionBase.possibleAnswer3}
+                <br><input type="radio" name="drugie" value="d"> ${questionBase.possibleAnswer4}
             	</form>
 
 
             <p> ${QuestionBase.contents} </p>
             	<form>
-                <br><input type="radio" name="trzecie" value="a"> ${QuestionBase}
-                <br><input type="radio" name="trzecie" value="b"> ${QuestionBase}
-                <br><input type="radio" name="trzecie" value="c"> ${QuestionBase}
-                <br><input type="radio" name="trzecie" value="d"> ${QuestionBase}
+                <br><input type="radio" name="trzecie" value="a"> ${questionBase.possibleAnswer1}
+                <br><input type="radio" name="trzecie" value="b"> ${questionBase.possibleAnswer2}
+                <br><input type="radio" name="trzecie" value="c"> ${questionBase.possibleAnswer3}
+                <br><input type="radio" name="trzecie" value="d"> ${questionBase.possibleAnswer4}
             	</form>
 
 
