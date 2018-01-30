@@ -54,6 +54,13 @@ public class TeoreticalApproach {
         return teoreticalExam;
     }
 
+    public void setCourses(Collection<CourseOfExam> courses){
+        this.courses = courses;
+    }
+
+    public Collection<CourseOfExam> getCourses() {
+        return courses;
+    }
 
     /**
      * @param questionResult 
