@@ -41,6 +41,7 @@ public class controllerPracticalExaminerPanel {
 
         //pobranie wszystkich egzaminow jesli obiekt egzaminu ma w sobie id egzaminatora takie same jak id egzaminatora w sesji
         //to ten egzamin zostanie dodany do practicExamList a potem wyswietlony na stronie
+        //@TODO jesli inserty egzaminow maja dziury w id to nie zadziala
         for (long i=1; i<=recordNumber; i++ ) {
             PracticExam practicExam =  practicExamRepository.getById(i);
 
