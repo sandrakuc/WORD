@@ -3,7 +3,7 @@
 <@t.page>
 
 <h2>Panel Zdającego</h2>
-				<p>Przykładowe pytania na razie napisane na sztywno</p>
+
 			<p><b>Egzamin teoretyczny</b></p>
 			<br>// w juz w krotce w bazie pojawi sie wiecej pytan ktore beda losowane
 			<br> // i bedzie uproszczona wersja, wyswietla sie trzy pytania, bo bym sie zaorala
