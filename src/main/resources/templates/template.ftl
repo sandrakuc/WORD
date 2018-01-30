@@ -19,6 +19,8 @@
 		<div id="leftmenu">
 		            <#if Session.user?exists>
         			<span>Witaj ${Session.user.firstName} ${Session.user.lastName}</span>
+        			<#else>
+        			<span>Odwiedzasz strone jako gość</span>
         			</#if><br><br>
 
 				<a href="http://localhost:8080/">Home</a></li><br>
