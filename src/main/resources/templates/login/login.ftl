@@ -10,9 +10,7 @@
     	</form>
      <br>
 
-     <br><br>
-     Póki co dla testu linki do odpowiednich paneli użytkownikow beda tutaj
-     <br><br>
+
      Już nie wszedzie dziala przez linki trzeba sie logowac z formularza. Loginy i passy są w panelu admina
      <br><br>
      <a href="person">Test wojtek</a><br>
