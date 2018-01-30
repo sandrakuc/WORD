@@ -13,15 +13,60 @@ public class QuestionBase {
     @GeneratedValue
     Long id;
 
-    String contents;
+    protected String contents;
 
-    String correctAnswer;
+    protected String correctAnswer;
 
-    String possibleAnswer1;
-    String possibleAnswer2;
-    String possibleAnswer3;
-    String possibleAnswer4;
+    protected String possibleAnswer1;
+    protected String possibleAnswer2;
+    protected String possibleAnswer3;
+    protected String possibleAnswer4;
 
+    public void setContents(String contents){
+        this.contents = contents;
+    }
 
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
 
+    public void setPossibleAnswer1(String possibleAnswer1) {
+        this.possibleAnswer1 = possibleAnswer1;
+    }
+
+    public void setPossibleAnswer2(String possibleAnswer2) {
+        this.possibleAnswer2 = possibleAnswer2;
+    }
+
+    public void setPossibleAnswer3(String possibleAnswer3) {
+        this.possibleAnswer3 = possibleAnswer3;
+    }
+
+    public void setPossibleAnswer4(String possibleAnswer4) {
+        this.possibleAnswer4 = possibleAnswer4;
+    }
+
+    public String getContents() {
+        return contents;
+    }
+
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public String getPossibleAnswer1() {
+        return possibleAnswer1;
+    }
+
+    public String getPossibleAnswer2() {
+        return possibleAnswer2;
+    }
+
+    public String getPossibleAnswer3() {
+        return possibleAnswer3;
+    }
+
+    public String getPossibleAnswer4() {
+        return possibleAnswer4;
+    }
 }

@@ -7,14 +7,14 @@
 			<p><b>Egzamin teoretyczny</b></p>
 			<br><br><br>
 
-			<p>Znak z biegnącą dziewczynką i chłopcem oznacza</p>
+			<p> ${QuestionBase.contents} </p>
 
 
 			<form>
-			    <br><input type="radio" name="dzieci" value="a"> Uwaga! Pedofil!
-			    <br><input type="radio" name="dzieci" value="b"> Uwaga! Marek Kowalczyk!
-			    <br><input type="radio" name="dzieci" value="c"> Obie powyższe odpowiedzi oznaczają to samo
-			    <br><input type="radio" name="dzieci" value="d"> Uwaga! Dzieci!
+			    <br><input type="radio" name="pierwsze" value="a"> ${QuestionBase}
+			    <br><input type="radio" name="pierwsze" value="b"> ${QuestionBase}
+			    <br><input type="radio" name="pierwsze" value="c"> ${QuestionBase}
+			    <br><input type="radio" name="pierwsze" value="d"> ${QuestionBase}
 			</form>
 
 			<br><br><br>
