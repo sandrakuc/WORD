@@ -3,19 +3,35 @@
 <@t.page>
 
 <h2>Panel Zdającego</h2>
-				<p>Przykładowe pytania na razie napisane na sztywno</p>
+
 			<p><b>Egzamin teoretyczny</b></p>
+			<br>// w juz w krotce w bazie pojawi sie wiecej pytan ktore beda losowane
+			<br> // i bedzie uproszczona wersja, wyswietla sie trzy pytania, bo bym sie zaorala
 			<br><br><br>
 
-			<p>Znak z biegnącą dziewczynką i chłopcem oznacza</p>
-
-
+			<p> ${questionBase1.contents} </p>
 			<form>
-			    <br><input type="radio" name="dzieci" value="a"> Uwaga! Pedofil!
-			    <br><input type="radio" name="dzieci" value="b"> Uwaga! Marek Kowalczyk!
-			    <br><input type="radio" name="dzieci" value="c"> Obie powyższe odpowiedzi oznaczają to samo
-			    <br><input type="radio" name="dzieci" value="d"> Uwaga! Dzieci!
+			    <br><input type="radio" name="pierwsze" value="a"> ${questionBase1.possibleAnswer1}
+			    <br><input type="radio" name="pierwsze" value="b"> ${questionBase1.possibleAnswer2}
+			    <br><input type="radio" name="pierwsze" value="c"> ${questionBase1.possibleAnswer3}
 			</form>
+
+            <br> <br>
+			<p> ${questionBase2.contents} </p>
+            	<form>
+                <br><input type="radio" name="drugie" value="a"> ${questionBase2.possibleAnswer1}
+                <br><input type="radio" name="drugie" value="b"> ${questionBase2.possibleAnswer2}
+                <br><input type="radio" name="drugie" value="c"> ${questionBase2.possibleAnswer3}
+            	</form>
+
+            <br> <br>
+            <p> ${questionBase3.contents} </p>
+            	<form>
+                <br><input type="radio" name="trzecie" value="a"> ${questionBase3.possibleAnswer1}
+                <br><input type="radio" name="trzecie" value="b"> ${questionBase3.possibleAnswer2}
+                <br><input type="radio" name="trzecie" value="c"> ${questionBase3.possibleAnswer3}
+            	</form>
+
 
 			<br><br><br>
 			<form action="finishAndConfirmTheExam"  method="GET">
