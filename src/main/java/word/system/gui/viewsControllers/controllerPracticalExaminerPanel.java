@@ -12,6 +12,7 @@ import word.system.user.User;
 import word.system.user.UserRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,28 +44,24 @@ public class controllerPracticalExaminerPanel {
 
     @PostMapping("practicalExaminerPanel")
     public String postMPrepereDriverLicenseApplication(HttpServletRequest request, Model model) {
-        //pobranie id egzaminatora (usera) ktorego egzaminy chcemy wyswietlic
-        Long userRecordNumber = userRepository.count();
-        ArrayList<User> usersList = new ArrayList<User>();
+        HttpSession session = request.getSession();
+        User sessionUser = (User)session.getAttribute("user");
 
-        for (long i=1; i<=userRecordNumber; i++ ) {
-            User user = userRepository.getById(i);
-            if (user.getRole()== User.Role.PRACTIC_EXAMINER) {
-                usersList.add(user);
-            }
-        }
 
-        System.out.println("\n\n\n" + usersList + "\n\n\n");
-
-        //pobranie egzaminow
         Long recordNumber = practicExamRepository.count();
         ArrayList<PracticExam> practicExamsList = new ArrayList<PracticExam>();
 
+        //pobranie egzaminow jesli obiekt egzaminu ma w sobie id egzaminatora takie same jak id egzaminatora w sesji
+        //to ten egzamin zostanie dodany do practicExamList a potem wyswietlony na stronie
         for (long i=1; i<=recordNumber; i++ ) {
-            practicExamsList.add( practicExamRepository.getById(i) );
+            PracticExam practicExam =  practicExamRepository.getById(i);
+
+            if(practicExam.getExaminer().getId() == sessionUser.getId()) {
+                practicExamsList.add(practicExam);
+            }
         }
 
-
+        model.addAttribute("userId", sessionUser.getId());
         model.addAttribute("practicExamsList", practicExamsList);
 
         return "userViews/practicalExaminerPanel";

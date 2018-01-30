@@ -2,6 +2,7 @@
 
 <@t.page>
              <h2>Panel egzaminatora praktycznego</h2>
+             <b>Twoje id to: ${userId}</b>
 
    			<p>Twoje egzaminy:</p><br>
 

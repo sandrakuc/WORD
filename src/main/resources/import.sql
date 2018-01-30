@@ -27,7 +27,7 @@ INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(
 --egzaminy praktyczne
 insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID) values(1,'2018-02-01 16:00', 0, 12345678910, 3, 1);
 insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID) values(2,'2018-02-21 12:00', 0, 11234563421, 3, 3);
-insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID) values(3,'2018-02-11 16:30', 1, 38482874823, 3, 3);
+insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID) values(3,'2018-02-11 16:30', 1, 38482874823, 7, 3); -- ten egzamin jest do egzaminatora o id=7 jak sie na niego zalogujemy to tylko ten egz sie pokaze
 
 
 =======
