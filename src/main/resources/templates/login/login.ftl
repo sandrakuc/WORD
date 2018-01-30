@@ -13,11 +13,7 @@
      <br><br>
      Póki co dla testu linki do odpowiednich paneli użytkownikow beda tutaj
      <br><br>
-     <a href="cityDepEmployeePanel">cityDepEmployeePanel</a><br>
-     <a href="krysiaPanel">krysiaPanel</a><br>
-     <a href="pkkPanel">pkkPanel</a><br>
-     <a href="practicalExaminerPanel">practicalExaminerPanel</a><br>
-     <a href="teoreticalExaminerPanel">teoreticalExaminerPanel</a><br>
+     Już nie wszedzie dziala przez linki trzeba sie logowac z formularza. Loginy i passy są w panelu admina
      <br><br>
      <a href="person">Test wojtek</a><br>
 
