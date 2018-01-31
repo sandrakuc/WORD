@@ -64,11 +64,21 @@ public class controllerPkkPanel {
 
     @GetMapping("finishAndConfirmTheExam")
     public String finishAndConfirmTheExam(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
+        session.setAttribute("questionBase1", null);
+        session.setAttribute("questionBase1", null);
+        session.setAttribute("questionBase1", null);
         return "userViews/actions/finishAndConfirmTheExam";
     }
 
     @PostMapping("finishAndConfirmTheExam")
     public String finishAndConfirmTheExam2(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
+        session.setAttribute("questionBase1", null);
+        session.setAttribute("questionBase1", null);
+        session.setAttribute("questionBase1", null);
         return "userViews/actions/finishAndConfirmTheExam";
     }
 
