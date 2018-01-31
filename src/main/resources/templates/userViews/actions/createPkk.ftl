@@ -25,7 +25,7 @@
               Email:   <input type="text" name="email"><br>
 
               <br>
-              Pesel (jako login): <input type="text" name="login"><br>
+              Login: <input type="text" name="login"><br>
               Domyslne haslo: <input type="text" value="word_ck" name="password">
               <br><br>
 

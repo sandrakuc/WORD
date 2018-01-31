@@ -84,7 +84,7 @@ public class controllerCityDepEmployeePanel{
         {
             System.out.println("\n\n\n\n\n" +drivingLicenseApplication);
             applicationRepository.save(drivingLicenseApplication);
-            message="Dodano wniosek dla usera o id = " + drivingLicenseApplication.getId();
+            message="Dodano wniosek dla usera o id = " + drivingLicenseApplication.getUser().getId();
             applicationApply=true;
         }
         else
