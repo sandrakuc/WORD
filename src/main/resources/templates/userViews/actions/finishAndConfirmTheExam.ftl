@@ -5,6 +5,6 @@
 <h2>Panel Zdającego</h2>
 				<p><b>Podejście zapisane</b></p>
                 <br>
-                <a href="pkkPanel">Powrót do panelu PKK</a>
+                <a href="login">Wyloguj sie</a>
 
 </@t.page>
