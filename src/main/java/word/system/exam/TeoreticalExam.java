@@ -16,6 +16,9 @@ public class TeoreticalExam
     Long id;
 
     protected Date date;
+    protected Date endDate;
+    protected Integer room;
+    protected TeoreticalExamStatus teoreticalExamStatus;
 
     @ManyToOne
     protected User examiner;
@@ -32,6 +35,30 @@ public class TeoreticalExam
 
     public Date getDate(){
         return date;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Integer getRoom() {
+        return room;
+    }
+
+    public void setRoom(Integer room) {
+        this.room = room;
+    }
+
+    public TeoreticalExamStatus getTeoreticalExamStatus() {
+        return teoreticalExamStatus;
+    }
+
+    public void setTeoreticalExamStatus(TeoreticalExamStatus teoreticalExamStatus) {
+        this.teoreticalExamStatus = teoreticalExamStatus;
     }
 
     public User getExaminer(){
