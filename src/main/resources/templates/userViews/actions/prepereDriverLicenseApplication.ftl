@@ -2,12 +2,16 @@ e<#import "../../template.ftl" as t>
 
 <@t.page>
     <h2>Składanie wniosku o prawo jazdy do PWPW</h2>
-     <#if drivingLicenseApplication?? >
-                 Dodano zdającego<br>
+
+    <#if message ??>
+    <p>${message}</p><br>
+    </#if>
+
+     <#if drivingLicenseApplication?? && applicationApply==true >
                  Imie: ${drivingLicenseApplication.name}<br>
                  Nazwisko: ${drivingLicenseApplication.surname}<br>
                  Adres:  ${drivingLicenseApplication.address}<br>
-                 PESEL:  ${drivingLicenseApplication.pesel}<br>
+                 PESEL (213213):  ${drivingLicenseApplication.pesel}<br>
                  <br>
                  Kategoria:  ${drivingLicenseApplication.category}<br>
                  Status:  ${drivingLicenseApplication.status}<br>

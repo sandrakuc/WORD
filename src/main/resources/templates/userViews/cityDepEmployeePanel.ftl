@@ -5,10 +5,10 @@
     		 <p>Wybierz co chcesz zrobić:</p><br>
 
     		
-    		 <form action="createPkk"  method="GET">
+
     				<p><b>Utworzyć Profil Kandydata na Kierowce</b></p>
-    				<input name="createPkk" type="submit" value="Utwórz Pkk">
-    			</form><br>
+    				<a href="createPkk">Utworz pkk</a><br><br>
+
 
 
     		
@@ -22,7 +22,7 @@
 
              <form action="checkDriverLicenseApplication"  method="GET">
                 <p><b>Sprawdz status wniosku o prawo jazdy</b></p><br>
-                 Wprowadz PESEL: <input type="text" name="pesel"><br><br>
+                 Wprowadz ID wniosku: <input type="text" name="id"><br><br>
                   <input name="checkStatus" type="submit" value="Sprawdz status wniosku">
               </form>
 

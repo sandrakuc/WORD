@@ -3,18 +3,21 @@
 <@t.page>
 
     <h2>Tworzenie PKK</h2>
-     <#if user?? >
-             Dodano zdającego<br>
-             Imie: ${user.firstName}<br>
-             Nazwisko: ${user.lastName}<br>
-             Adres:  ${user.address}<br>
-             Email:  ${user.email}<br>
-             <br>
-             Login:  ${user.login}<br>
-             Haslo:  ${user.password}<br>
+
+    <#if user??>
+                 Dodano zdającego<br>
+                 Imie: ${user.firstName}<br>
+                 Nazwisko: ${user.lastName}<br>
+                 Adres:  ${user.address}<br>
+                 Email:  ${user.email}<br>
+                 <br>
+                 Login:  ${user.login}<br>
+                 Haslo:  ${user.password}<br>
+
      <#else>
 
-            <form action="/createPkk" method="post">
+
+            <form action="createPkk" method="post">
               imie: <input type="text" name="firstName"><br>
               Nazwisko: <input type="text" name="lastName"><br>
               Adres: <input type="text" name="address"><br>
@@ -27,7 +30,7 @@
 
               <input name="createPkk" type="submit" value="Załóż PKK">
            </form>
-      </#if>
+    </#if>
 
        <br>
        <a href="cityDepEmployeePanel">Wstecz</a>

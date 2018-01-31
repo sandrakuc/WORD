@@ -49,18 +49,51 @@ public class controllerCityDepEmployeePanel{
         return "userViews/actions/prepereDriverLicenseApplication";
     }
 
+    public DrivingLicenseApplication mapPeselToPkkId(String tmp_pesel, DrivingLicenseApplication drivingLicenseApplication)
+    {
+        Long recordNumber = userRepository.count();
+        for (long i=1; i<=recordNumber; i++ ) {
+            User user =  userRepository.getById(i);
+                                                //System.out.println("\n\n\n\n\n" + user.getPesel() + " " + tmp_pesel + "\n\n\n\n\n");
+            if(user.getPesel().equals(tmp_pesel)) {
+                                               //System.out.println("\n\n\n\n\n" +user.getId());
+                //ustawiam obiekt usera dla wniosku po wyszukaniu go. Obiekt wniosku przechowuje obiekt usera
+                drivingLicenseApplication.setUser(user);
+                return drivingLicenseApplication;
+            }
+        }
+        return null;
+    }
+
     @PostMapping("prepereDriverLicenseApplication")
     public String postMPrepereDriverLicenseApplication(HttpServletRequest request, Model model) {
+        String message = "";
+        boolean applicationApply = false;
+
         DrivingLicenseApplication drivingLicenseApplication = new DrivingLicenseApplication();
         drivingLicenseApplication.setName(request.getParameter("name"));
         drivingLicenseApplication.setSurname(request.getParameter("surname"));
         drivingLicenseApplication.setAddress(request.getParameter("address"));
         drivingLicenseApplication.setPesel(request.getParameter("pesel"));
-        drivingLicenseApplication.setPesel(request.getParameter("DLCategory"));
-        drivingLicenseApplication.setStatus(ApplicationStatus.PRAWO_JAZDY_WYRABIANE);
-        applicationRepository.save(drivingLicenseApplication);
+        drivingLicenseApplication.setCategory(request.getParameter("DLCategory"));
+        drivingLicenseApplication.setStatus(ApplicationStatus.PODANIE_UTWORZONE);
+
+        //mapowanie peselu do id pkk
+        String tmp_pesel = request.getParameter("pesel");
+        if(mapPeselToPkkId(tmp_pesel, drivingLicenseApplication)!=null)
+        {
+            System.out.println("\n\n\n\n\n" +drivingLicenseApplication);
+            applicationRepository.save(drivingLicenseApplication);
+            message="Dodano wniosek dla usera o id = " + drivingLicenseApplication.getId();
+            applicationApply=true;
+        }
+        else
+            message ="Nie ma zdajacego o takim peselu";
+
 
         model.addAttribute("drivingLicenseApplication", drivingLicenseApplication);
+        model.addAttribute("message", message);
+        model.addAttribute("applicationApply", applicationApply);
 
         return "userViews/actions/prepereDriverLicenseApplication";
     }
@@ -70,24 +103,31 @@ public class controllerCityDepEmployeePanel{
 
     @GetMapping("checkDriverLicenseApplication")
     public String getCheckDriverLicenseApplication(HttpServletRequest request, Model model) {
-        DrivingLicenseApplication drivingLicenseApplication = new DrivingLicenseApplication();
-        drivingLicenseApplication.setPesel(request.getParameter("pesel"));
-        String tmpPesel = drivingLicenseApplication.getPesel();
 
-        System.out.println("\n\n\n\n"+ tmpPesel + "\n\n\n\n");
-        drivingLicenseApplication = applicationRepository.getByPesel(tmpPesel);
+        Long applicationId = Long.parseLong(request.getParameter("id"));
+        //System.out.println("\n\n\n\n"+ applicationId + "\n\n\n\n");
 
-        System.out.println("\n\n\n\nStatus wniosku z bazy"+ drivingLicenseApplication.getStatus() + "\n\n\n\n");
-        drivingLicenseApplication.setStatus(drivingLicenseApplication.getStatus());
+        DrivingLicenseApplication drivingLicenseApplication = applicationRepository.getById(applicationId);
+        System.out.println("\n\n\n" + drivingLicenseApplication + "\n\n\n\n");
 
-        model.addAttribute("drivingLicenseApplication",drivingLicenseApplication);
+        if(drivingLicenseApplication!=null){
+            model.addAttribute("drivingLicenseApplication",drivingLicenseApplication);
+        }
+        else{
+            String errMessage = "Nie ma takiego wniosku";
+            model.addAttribute("errMessage",errMessage);
+        }
+
         return "userViews/actions/checkDriverLicenseApplication";
 
     }
 
 
 
-
+    @RequestMapping("createPkk")
+    public String createPkk(){
+        return "userViews/actions/createPkk";
+    }
 
     @GetMapping("createPkk")
     public String formGet() {
@@ -96,7 +136,7 @@ public class controllerCityDepEmployeePanel{
 
     @PostMapping("createPkk")
     public String formPost(HttpServletRequest request, Model model) {
-
+       
         User user = new User();
         user.setAddress(request.getParameter("address"));
         user.setFirstName(request.getParameter("firstName"));
@@ -107,6 +147,7 @@ public class controllerCityDepEmployeePanel{
         user.setLogin(request.getParameter("login"));
         user.setPassword(request.getParameter("password"));
 
+        System.out.println("\n\n\n\n"+user + "\n\n\n\n");
         //System.out.println(user);
         userRepository.save(user);
 

@@ -1,20 +1,20 @@
 -- userzy
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(1, 'admin@admin.pl', 'admin', 'admin', 'admin', 'qwerty', 4);
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(2, 'a@l.pl', 'Krysia', 'Krysia', 'kasjerka', 'kasjerka', 5);
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(3, 'a@l.pl', 'Pan', 'Urzednik', 'urzednik', 'urzednik', 2);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(1, 'admin@admin.pl', 'admin', 'admin', '923423499', 'admin', 'qwerty', 4);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(2, 'a@l.pl', 'Krysia', 'Krysia', '123423435', 'kasjerka', 'kasjerka', 5);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(3, 'a@l.pl', 'Pan', 'Urzednik', '34543', 'urzednik', 'urzednik', 2);
 
 -- userzy zdajacy
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(4, 'pkk@login.pl', 'Jan', 'Nowak', 'pkk', 'pkk', 3);
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(5, 'pkk@login.pl', 'Pawel', 'Pawlowski', 'pkk2', 'pkk2', 3);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(4, 'pkk@login.pl', 'Jan', 'Nowak', '213213', 'pkk', 'pkk', 3);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(5, 'pkk@login.pl', 'Pawel', 'Pawlowski', '23432', 'pkk2', 'pkk2', 3);
 
 
 -- userzy egzaminatorzy praktyczni
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(6, 'adres@gmail.com', 'Pawel', 'Nowak', 'practical', 'practical', 0);
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(7, 'adres2@gmail.com', 'Daniel', 'Danielski', 'daniel', 'daniel', 0);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(6, 'adres@gmail.com', 'Pawel', 'Nowak', '934', 'practical', 'practical', 0);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(7, 'adres2@gmail.com', 'Daniel', 'Danielski', '684', 'daniel', 'daniel', 0);
 
 -- userzy egzaminatorzy teoretyczni
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(8, 'a@l.pl', 'Adam', 'Nowak', 'teoretical', 'teoretical', 1);
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(9, 'a@l.pl', 'Tomek', 'Nowak', 'teoretical2', 'teoretical2', 1);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(8, 'a@l.pl', 'Adam', 'Nowak', '999', 'teoretical', 'teoretical', 1);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, PESEL, LOGIN, PASSWORD, ROLE) VALUES(9, 'a@l.pl', 'Tomek', 'Nowak', '399', 'teoretical2', 'teoretical2', 1);
 
 -- pojazdy (koniecznie po egzaminnie praktycznym, koniecnie id po kolei)
 INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(1,'VW','czarny', 'Passat', 'TKI-7312', 1.8, 0, 2.0);

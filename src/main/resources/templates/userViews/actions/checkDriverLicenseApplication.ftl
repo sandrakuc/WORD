@@ -2,9 +2,15 @@
 
 <@t.page>
         <h3>Sprawdzanie statusu wniosku <br>
-        dla zdającego o PESELu = ${drivingLicenseApplication.pesel} </h3>
-        <br>
-        <p>Status wniosku to: ${drivingLicenseApplication.status} </p>
+        <#if errMessage ??>
+             <p><b>${errMessage}</b></p>
+        </#if>
+
+        <#if drivingLicenseApplication ??>
+            dla wniosku o id = ${drivingLicenseApplication.getId()} </h3>
+            <br>
+            <p>Status wniosku to: ${drivingLicenseApplication.getStatus()} </p>
+         </#if>
 
     <br>
     <a href="cityDepEmployeePanel">Wstecz</a>
