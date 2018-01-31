@@ -27,13 +27,6 @@
     				<br>
     				<br>
 
-    				    <form action="teoreticalExaminerPanel"  method="POST">
-                            <b>Wpisz id egzaminu:</b>
-                            <input type="text" name="examId" value=""><br>
-                            <input name="examAction" type="submit" value="Wylosuj pytania"><br>
-                            <p>//ten przycisk niech wykonuje sie i zwraca wynik na tej stronie. Zmieniajac dane w tabeli</p>
-                            <p>//np. Wylosowano pytania dla egzaminu o id=4</p>
-                    	</form>
 
                         <br>
                         <br>

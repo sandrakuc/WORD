@@ -37,6 +37,7 @@ public class controllerTeoreticalExaminerPanel {
             }
         }
         System.out.println("\n\n\n" + teoreticalExams + "\n\n\n");
+        randQuestions();
 
         model.addAttribute("userId", sessionUser.getId());
         model.addAttribute("teoreticalExams", teoreticalExams);
@@ -44,8 +45,31 @@ public class controllerTeoreticalExaminerPanel {
         return "userViews/teoreticalExaminerPanel";
     }
 
+    public void randQuestions()
+    {
+
+    }
+
     @GetMapping("teoreticalExaminerPanel")
     public String getMTeoreticalExaminerPanel(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        User sessionUser = (User)session.getAttribute("user");
+
+        Long recordNumber = teoreticalExamRepository.count();
+        ArrayList<TeoreticalExam> teoreticalExams = new ArrayList<TeoreticalExam>();
+
+        for (long i=1; i<=recordNumber; i++ ) {
+            TeoreticalExam teoreticalExam =  teoreticalExamRepository.getById(i);
+
+            if(teoreticalExam.getExaminer().getId() == sessionUser.getId()) {
+                teoreticalExams.add(teoreticalExam);
+            }
+        }
+        System.out.println("\n\n\n" + teoreticalExams + "\n\n\n");
+
+        model.addAttribute("userId", sessionUser.getId());
+        model.addAttribute("teoreticalExams", teoreticalExams);
+
         return "userViews/teoreticalExaminerPanel";
     }
 
