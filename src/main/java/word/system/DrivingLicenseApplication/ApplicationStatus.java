@@ -1,12 +1,10 @@
 package word.system.DrivingLicenseApplication;
 
 public enum ApplicationStatus {
-    New,
-    InPorcessOfMaking,
-    SendToPWPW,
-    ReadyInPWPW,
-    ReadyToGet,
-    DrivingLicenseReceived
-
-
+    PODANIE_UTWORZONE,
+    PRAWO_JAZDY_WYRABIANE,
+    WYSLANE_DO_PWPW,
+    GOTOWE_W_PWPW,
+    DO_ODBIORU,
+    ODEBRANE
 }

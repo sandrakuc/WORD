@@ -57,7 +57,7 @@ public class controllerCityDepEmployeePanel{
         drivingLicenseApplication.setAddress(request.getParameter("address"));
         drivingLicenseApplication.setPesel(request.getParameter("pesel"));
         drivingLicenseApplication.setPesel(request.getParameter("DLCategory"));
-        drivingLicenseApplication.setStatus(ApplicationStatus.InPorcessOfMaking);
+        drivingLicenseApplication.setStatus(ApplicationStatus.PRAWO_JAZDY_WYRABIANE);
         applicationRepository.save(drivingLicenseApplication);
 
         model.addAttribute("drivingLicenseApplication", drivingLicenseApplication);

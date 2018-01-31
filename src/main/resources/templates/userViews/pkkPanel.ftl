@@ -55,29 +55,24 @@
 			<br>
 			<br>
 			<p><b>Statusy Twoich wniosków:</b></p>
-			//tu by iterowało po wnioskach i wyswietlało status tych ktore maja pole "pkkId" takie jak id zalogowanego
-			<table>
-	      <tr>
-	        <th>Nr wniosku</th>
-	        <th>Kategoria</th>
-			<th>Status prawa jazdy</th>
-	      </tr>
-	      <tr>
-	        <td name="id">1</td>
-	        <td>B2</td>
-	        <td>Odebrane</td>
-	      </tr>
-	      <tr>
-					<td name="id">2</td>
-	        <td>B2</td>
-	        <td>Do odbioru</td>
-	      </tr>
-				<tr>
-				 <td name="id">3</td>
-				 <td>B2</td>
-				 <td>Wysłane do PWPW</td>
-			 </tr>
-	    </table>
+            <table>
+                  <tr>
+                    <th>Nr wniosku</th>
+                    <th>Kategoria</th>
+                    <th>Status prawa jazdy</th>
+                  </tr>
+
+                 <#list pkkApplicationsList as pkkApplicationsList>
+                    <tr>
+                        <td>${pkkApplicationsList.getId()}</td>
+                        <td>${pkkApplicationsList.getCategory()}</td>
+                        <td>${pkkApplicationsList.getStatus()}</td>
+                    </tr>
+                 </#list>
+
+
+
+            </table>
 
 			<br><br><br>
 			<form action="takeTheExam" method="GET">

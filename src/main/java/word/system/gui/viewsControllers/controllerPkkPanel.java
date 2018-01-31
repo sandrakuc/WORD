@@ -74,6 +74,7 @@ public class controllerPkkPanel {
 
         model.addAttribute("userId", sessionUser.getId());
         model.addAttribute("pkkPracticalExamsList", pkkPracticalExamsList);
+        model.addAttribute("pkkApplicationsList", pkkApplicationsList);
         return "userViews/pkkPanel";
     }
 

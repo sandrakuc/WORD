@@ -13,7 +13,6 @@
 
      Już nie wszedzie dziala przez linki trzeba sie logowac z formularza. Loginy i passy są w panelu admina
      <br><br>
-     <a href="person">Test wojtek</a><br>
 
 
 </@t.page>
