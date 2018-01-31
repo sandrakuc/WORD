@@ -1,5 +1,5 @@
 package word.system.exam;
 
 public enum ExamResult {
-     NIEZALICZONY, ZALICZONY, NIEROZPOCZETY
+     NIEZALICZONY, ZALICZONY, NIE_ROZPOCZETY
 }

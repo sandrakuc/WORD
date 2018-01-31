@@ -9,26 +9,28 @@ INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, R
 
 
 -- userzy egzaminatorzy praktyczni
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(6, 'a@l.pl', 'Pawel', 'Nowak', 'practical', 'practical', 0);
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(7, 'b@l.pl', 'Daniel', 'danielski', 'daniel', 'daniel', 0);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(6, 'adres@gmail.com', 'Pawel', 'Nowak', 'practical', 'practical', 0);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(7, 'adres2@gmail.com', 'Daniel', 'Danielski', 'daniel', 'daniel', 0);
 
 -- userzy egzaminatorzy teoretyczni
 INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(8, 'a@l.pl', 'Adam', 'Nowak', 'teoretical', 'teoretical', 1);
 INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(9, 'a@l.pl', 'Tomek', 'Nowak', 'teoretical2', 'teoretical2', 1);
 
--- pojazdy (koniecznie przed egzaminem praktycznym, koniecnie id po kolei)
+-- pojazdy (koniecznie po egzaminnie praktycznym, koniecnie id po kolei)
 INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(1,'VW','czarny', 'Passat', 'TKI-7312', 1.8, 0, 2.0);
 INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(2,'VW','bialy', 'Passat', 'TKI-1234', 1.8, 0, 2.0);
 INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(3,'VW','rozowy', 'Passat', 'TST-28A2', 1.8, 0, 2.0);
 
 
--- egzaminy praktyczne
+-- egzaminy praktyczne(koniecznie po userach i pojazdach)
 insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID, PKK_ID) values(1,'2018-02-01 16:00', 0, 12345678910, 6, 1, 4);
 insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID, PKK_ID) values(2,'2018-02-21 12:00', 0, 11234563421, 6, 3, 4);
-insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID, PKK_ID) values(3,'2018-02-11 16:30', 1, 38482874823, 7, 3, 5); -- ten egzamin jest do egzaminatora o id=7 jak sie na niego zalogujemy to tylko ten egz sie pokaze
-insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID, PKK_ID) values(4,'2018-02-11 16:00', 1, 38482874823, 7, 3, 5); -- ten egzamin jest do egzaminatora o id=7 jak sie na niego zalogujemy to tylko ten egz sie pokaze
+insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID, PKK_ID) values(3,'2018-02-11 16:30', 0, 38482874823, 7, 3, 5); -- ten egzamin jest do egzaminatora o id=7 jak sie na niego zalogujemy to tylko ten egz sie pokaze
+insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID, PKK_ID) values(4,'2018-02-11 16:00', 0, 38482874823, 7, 3, 5); -- ten egzamin jest do egzaminatora o id=7 jak sie na niego zalogujemy to tylko ten egz sie pokaze
+insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MACHINE_ID, PKK_ID) values(5,'2018-02-21 12:00', 2, 38482874823, 6, 3, 5); -- ten egzamin jest do egzaminatora o id=7 jak sie na niego zalogujemy to tylko ten egz sie pokaze
 
--- egzaminy teoretyczne
+
+-- egzaminy teoretyczne (koniecznie po userach)
 INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, END_DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (1, '2018-01-01 00:00:00', '2018-01-02 00:00:00', '12', 0, 8);
 INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, END_DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (2, '2018-01-21 00:00:00', '2018-01-22 02:00:00', '12', 1, 8);
 INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, END_DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (3, '2018-02-10 16:00:00', '2018-01-02 00:00:00', '12', 1, 9);

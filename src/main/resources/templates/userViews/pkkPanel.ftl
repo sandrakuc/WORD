@@ -3,35 +3,52 @@
 <@t.page>
 
 <h2>Panel Zdającego</h2>
-				<p>przykladowe tabele poki co zapisane na sztywno</p>
 			<p><b>Terminy Twoich egzaminów:</b></p>
-			///Tu by iterowało po kolekcji Exam i wypisywało nazwe terminu i termin
-			<table>
-	      <tr>
-	        <th>Typ egzaminu</th>
-	        <th>Data</th>
-	        <th>Egzaminator</th>
-					<th>Status</th>
-	      </tr>
-	      <tr>
-	        <td>Teoretyczny</td>
-	        <td>21.02.2018</td>
-	        <td>Adam Nowak</td>
-	        <td>-</td>
-	      </tr>
-	      <tr>
-	        <td>Praktyczny</td>
-	        <td>21.02.2018</td>
-	        <td>Adam Nowak</td>
-	        <td>Zakończony. Nie zdany</td>
-	      </tr>
-				<tr>
-				 <td>Teoretyczny</td>
-				 <td>21.02.2018</td>
-				 <td>Adam Nowak</td>
-				 <td>Zakończony. Zdany</td>
-			 </tr>
-	    </table>
+
+			<br><br>
+			<p><b>Egzaminy praktyczne:</b></p>
+                <table>
+                  <tr>
+                    <th>Data</th>
+                    <th>Egzaminator</th>
+                    <th>Pojazd</th>
+                    <th>Status</th>
+                  </tr>
+
+                  <#list pkkPracticalExamsList as pkkPracticalExamsList>
+                      <tr>
+                        <td>${pkkPracticalExamsList.getDate()}</td>
+
+                        <td>
+                            ${pkkPracticalExamsList.getExaminer().getFirstName()}
+                            ${pkkPracticalExamsList.getExaminer().getLastName()}<br>
+                            ${pkkPracticalExamsList.getExaminer().getEmail()}<br>
+                        </td>
+
+                        <td>
+                             ${pkkPracticalExamsList.getMachine().getBrand()}
+                             ${pkkPracticalExamsList.getMachine().getModel()}
+                        </td>
+
+                        <td>${pkkPracticalExamsList.getExamResult()}</td>
+                      </tr>
+                  </#list>
+
+                </table>
+
+            <br><br>
+            <p>//Jeszcze nie wiem jak w rekordzie egzaminu teoretycznego zapisac liste pkk osob</p>
+			<p><b>Egzaminy teoretyczne:</b></p>
+                <table>
+                  <tr>
+                    <th>Data</th>
+                    <th>Wynik</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+
+                  </tr>
+                </table>
 
 			<br>
 			<br>

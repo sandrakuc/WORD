@@ -6,12 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import word.system.exam.PracticExam;
+import word.system.exam.PracticExamRepository;
 import word.system.exam.TeoreticalQuestions.QuestionBase;
 import word.system.exam.TeoreticalQuestions.QuestionRepository;
 import word.system.gui.FlashMessageManager;
+import word.system.user.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Random;
 
 @Controller
@@ -19,9 +23,41 @@ public class controllerPkkPanel {
     @Autowired
     QuestionRepository questionRepository;
 
+    @Autowired
+    PracticExamRepository practicExamRepository;
+
     //dostęp do tej strony po zalogowaniu jako zdajacy, bedzie tu mogl sprawdzic status wniosku o prawko
-    @RequestMapping("pkkPanel")
-    public String pkkPanel(HttpServletRequest request) {
+    @GetMapping("pkkPanel")
+    public String PostMPkkPanel(HttpServletRequest request, Model model) {
+
+
+        return "userViews/pkkPanel";
+    }
+
+    @PostMapping("pkkPanel")
+    public String GetMPkkPanel(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        User sessionUser = (User)session.getAttribute("user");
+
+        ///wypisywanie egzaminow praktycznych
+        Long recordNumber = practicExamRepository.count();
+        ArrayList<PracticExam> pkkPracticalExamsList = new ArrayList<PracticExam>();
+
+        for (long i=1; i<=recordNumber; i++ ) {
+            PracticExam practicExam =  practicExamRepository.getById(i);
+
+            if(practicExam.getPkk().getId() == sessionUser.getId()) {
+                pkkPracticalExamsList.add(practicExam);
+            }
+
+
+        }
+        System.out.println("\n\n\n\n\n" + pkkPracticalExamsList + "\n\n\n\n\n");
+
+        ///wypisywanie wnioskow
+
+        model.addAttribute("userId", sessionUser.getId());
+        model.addAttribute("pkkPracticalExamsList", pkkPracticalExamsList);
         return "userViews/pkkPanel";
     }
 
