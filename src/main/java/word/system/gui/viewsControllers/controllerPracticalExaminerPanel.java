@@ -24,11 +24,6 @@ public class controllerPracticalExaminerPanel {
 
     @Autowired
     PracticExamRepository practicExamRepository;
-    @Autowired
-    UserRepository userRepository;
-
-
-
 
     @PostMapping("practicalExaminerPanel")
     public String postMPrepereDriverLicenseApplication(HttpServletRequest request, Model model) {

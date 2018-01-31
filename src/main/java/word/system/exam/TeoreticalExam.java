@@ -72,4 +72,9 @@ public class TeoreticalExam
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return " " + getId() + " " + getExaminer() + " " + getDate() + " " + getEndDate()  + " " + getRoom() + " " + getTeoreticalExamStatus();
+    }
 }
