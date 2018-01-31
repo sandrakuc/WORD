@@ -1,7 +1,7 @@
 -- userzy
 INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(1, 'admin@admin.pl', 'admin', 'admin', 'admin', 'qwerty', 4);
 INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(2, 'a@l.pl', 'Krysia', 'Krysia', 'kasjerka', 'kasjerka', 5);
-INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(3, 'a@l.pl', 'Pan', 'Urzednik', 'urzednik', 'urzenik', 2);
+INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(3, 'a@l.pl', 'Pan', 'Urzednik', 'urzednik', 'urzednik', 2);
 
 -- userzy zdajacy
 INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, ROLE) VALUES(4, 'pkk@login.pl', 'Jan', 'Nowak', 'pkk', 'pkk', 3);
