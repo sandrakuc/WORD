@@ -5,8 +5,7 @@
 <h2>Panel Zdającego</h2>
 
 			<p><b>Egzamin teoretyczny</b></p>
-			<br>// pytania sie juz losuja ale bede musiala poprawic, zeby zmienialy sie dopiero na nowym podejsciu,
-			a nie za każdym odświeżeniem
+			<br>// dobra, to teraz zrobić żeby wylosowało nowe po włączeniu nowego podejścia
 			<br> // i bedzie uproszczona wersja, wyswietla sie trzy pytania, bo bym sie zaorala
 			<br><br><br>
 
