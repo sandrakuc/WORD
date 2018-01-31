@@ -30,11 +30,22 @@ public class PracticExam {
 
 
 
-    public void setExaminer(User examiner){
-        if(examiner.getRole().equals(User.Role.PRACTIC_EXAMINER)){
-            this.examiner = examiner;
-        }
+    @ManyToOne
+    protected User pkk;
+
+    public User getPkk() {
+        return pkk;
     }
+
+    public void setPkk(User pkk) {
+            this.pkk = pkk;
+
+    }
+
+    public void setExaminer(User examiner){
+            this.examiner = examiner;
+    }
+
 
     public void setMachine(Machine machine){
         this.machine = machine;
@@ -81,6 +92,8 @@ public class PracticExam {
     public void setExamResult(ExamResult examResult) {
         this.examResult = examResult;
     }
+
+
 
     @Override
     public String toString() {

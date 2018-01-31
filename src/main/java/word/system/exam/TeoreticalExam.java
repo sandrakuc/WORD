@@ -23,6 +23,8 @@ public class TeoreticalExam
     @ManyToOne
     protected User examiner;
 
+
+
     public void setExaminer(User examiner){
         if(examiner.getRole().equals(User.Role.TEORETICAL_EXAMINER)){
             this.examiner = examiner;
