@@ -16,9 +16,7 @@ import java.util.List;
 
 public class DrivingLicenseApplication //implements ObservableDriverLicenseApplication
 {
-    public enum Status {
-        SendToPkk,ReadyToGet,InPorcessOfMaking
-    }
+
     @Id @GeneratedValue
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
     //@SequenceGenerator(sequenceName = "word_application_seq", allocationSize = 1, name = "CUST_SEQ")
@@ -28,10 +26,11 @@ public class DrivingLicenseApplication //implements ObservableDriverLicenseAppli
     String address="";
     String pesel="";
     String category="";
-    Status status;
 
     @ManyToOne
     User user;
+
+    ApplicationStatus status;
 
 
     public Long getId() {
@@ -82,11 +81,11 @@ public class DrivingLicenseApplication //implements ObservableDriverLicenseAppli
         this.category = category;
     }
 
-    public Status getStatus() {
+    public ApplicationStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(ApplicationStatus status) {
         this.status = status;
     }
 
@@ -96,5 +95,11 @@ public class DrivingLicenseApplication //implements ObservableDriverLicenseAppli
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    //@TODO zmienic tak by w zapytaniu wystarczylo dac samo id usera, aby to zrobic trzeba zmienic CityDepEmployeePanel i tam formatki pozmieniac
+    @Override
+    public String toString() {
+        return "\n" + getId() + " " + getCategory() + " " + getStatus()  + " " + getUser();
     }
 }

@@ -3,9 +3,11 @@
 <@t.page>
 
 <h2>Panel Zdającego</h2>
+ Twoje id to: ${userId}
+ <br><br>
 			<p><b>Terminy Twoich egzaminów:</b></p>
 
-			<br><br>
+			<br>
 			<p><b>Egzaminy praktyczne:</b></p>
                 <table>
                   <tr>
@@ -58,7 +60,7 @@
 	      <tr>
 	        <th>Nr wniosku</th>
 	        <th>Kategoria</th>
-					<th>Status prawa jazdy</th>
+			<th>Status prawa jazdy</th>
 	      </tr>
 	      <tr>
 	        <td name="id">1</td>

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import word.system.DrivingLicenseApplication.ApplicationStatus;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 import word.system.common.DriveLicenseType;
 import word.system.gui.FlashMessageManager;
@@ -56,7 +57,7 @@ public class controllerCityDepEmployeePanel{
         drivingLicenseApplication.setAddress(request.getParameter("address"));
         drivingLicenseApplication.setPesel(request.getParameter("pesel"));
         drivingLicenseApplication.setPesel(request.getParameter("DLCategory"));
-        drivingLicenseApplication.setStatus(DrivingLicenseApplication.Status.InPorcessOfMaking);
+        drivingLicenseApplication.setStatus(ApplicationStatus.InPorcessOfMaking);
         applicationRepository.save(drivingLicenseApplication);
 
         model.addAttribute("drivingLicenseApplication", drivingLicenseApplication);

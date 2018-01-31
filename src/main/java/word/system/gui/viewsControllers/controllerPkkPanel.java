@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import word.system.DrivingLicenseApplication.ApplicationRepository;
+import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 import word.system.exam.PracticExam;
 import word.system.exam.PracticExamRepository;
 import word.system.exam.TeoreticalQuestions.QuestionBase;
@@ -26,6 +28,9 @@ public class controllerPkkPanel {
     @Autowired
     PracticExamRepository practicExamRepository;
 
+    @Autowired
+    ApplicationRepository applicationRepository;
+
     //dostęp do tej strony po zalogowaniu jako zdajacy, bedzie tu mogl sprawdzic status wniosku o prawko
     @GetMapping("pkkPanel")
     public String PostMPkkPanel(HttpServletRequest request, Model model) {
@@ -40,10 +45,10 @@ public class controllerPkkPanel {
         User sessionUser = (User)session.getAttribute("user");
 
         ///wypisywanie egzaminow praktycznych
-        Long recordNumber = practicExamRepository.count();
+        Long practicalExamsRecordsNumber = practicExamRepository.count();
         ArrayList<PracticExam> pkkPracticalExamsList = new ArrayList<PracticExam>();
 
-        for (long i=1; i<=recordNumber; i++ ) {
+        for (long i=1; i<=practicalExamsRecordsNumber; i++ ) {
             PracticExam practicExam =  practicExamRepository.getById(i);
 
             if(practicExam.getPkk().getId() == sessionUser.getId()) {
@@ -52,9 +57,20 @@ public class controllerPkkPanel {
 
 
         }
-        System.out.println("\n\n\n\n\n" + pkkPracticalExamsList + "\n\n\n\n\n");
+        //System.out.println("\n\n\n\n\n" + pkkPracticalExamsList + "\n\n\n\n\n");
 
         ///wypisywanie wnioskow
+        Long applicationRecorsNumber = applicationRepository.count();
+        ArrayList<DrivingLicenseApplication> pkkApplicationsList = new ArrayList<DrivingLicenseApplication>();
+
+        for (long i=1; i<=applicationRecorsNumber; i++ ) {
+            DrivingLicenseApplication drivingLicenseApplication = applicationRepository.getById(i);
+
+            if (drivingLicenseApplication.getUser().getId() == sessionUser.getId()) {
+                pkkApplicationsList.add(drivingLicenseApplication);
+            }
+        }
+        System.out.println("\n\n\n\n\n" + pkkApplicationsList + "\n\n\n\n\n");
 
         model.addAttribute("userId", sessionUser.getId());
         model.addAttribute("pkkPracticalExamsList", pkkPracticalExamsList);
