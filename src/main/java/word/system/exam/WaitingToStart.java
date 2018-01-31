@@ -1,8 +1,6 @@
 package word.system.exam;
 
-import java.util.Date;
-
-public class WaitingToStart implements ExamStatus{
+public class WaitingToStart implements PracticalExamStatus {
     @Override
     public void runExam(AbstractExam exam){
         System.out.println(exam + " czeka na rozpoczecie dn " + exam.examDate);

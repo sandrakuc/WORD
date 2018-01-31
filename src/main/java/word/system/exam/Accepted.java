@@ -1,8 +1,6 @@
 package word.system.exam;
 
-import java.util.Date;
-
-public class Accepted implements ExamStatus {
+public class Accepted implements PracticalExamStatus {
 
     @Override
     public void runExam(AbstractExam exam) {
