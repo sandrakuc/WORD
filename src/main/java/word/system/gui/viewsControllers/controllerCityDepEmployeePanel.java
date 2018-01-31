@@ -136,22 +136,24 @@ public class controllerCityDepEmployeePanel{
 
     @PostMapping("createPkk")
     public String formPost(HttpServletRequest request, Model model) {
-       
-        User user = new User();
-        user.setAddress(request.getParameter("address"));
-        user.setFirstName(request.getParameter("firstName"));
-        user.setLastName(request.getParameter("lastName"));
-        user.setAddress(request.getParameter("address"));
-        user.setEmail(request.getParameter("email"));
-        user.setRole(User.Role.PKK);
-        user.setLogin(request.getParameter("login"));
-        user.setPassword(request.getParameter("password"));
 
-        System.out.println("\n\n\n\n"+user + "\n\n\n\n");
+        User usertmp = new User();
+        usertmp.setAddress(request.getParameter("address"));
+        usertmp.setFirstName(request.getParameter("firstName"));
+        usertmp.setLastName(request.getParameter("lastName"));
+        usertmp.setAddress(request.getParameter("address"));
+        usertmp.setPesel(request.getParameter("pesel"));
+        usertmp.setEmail(request.getParameter("email"));
+        usertmp.setRole(User.Role.PKK);
+        usertmp.setLogin(request.getParameter("login"));
+        usertmp.setPassword(request.getParameter("password"));
+
+        System.out.println("\n\n\n\n"+usertmp + "\n\n\n\n");
         //System.out.println(user);
-        userRepository.save(user);
+        userRepository.save(usertmp);
 
-        model.addAttribute("user", user);
+
+        model.addAttribute("usertmp", usertmp);
         return "userViews/actions/createPkk";
     }
 

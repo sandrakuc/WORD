@@ -4,15 +4,15 @@
 
     <h2>Tworzenie PKK</h2>
 
-    <#if user??>
+    <#if usertmp??>
                  Dodano zdającego<br>
-                 Imie: ${user.firstName}<br>
-                 Nazwisko: ${user.lastName}<br>
-                 Adres:  ${user.address}<br>
-                 Email:  ${user.email}<br>
+                 Imie: ${usertmp.firstName}<br>
+                 Nazwisko: ${usertmp.lastName}<br>
+                 Adres:  ${usertmp.address}<br>
+                 Email:  ${usertmp.email}<br>
                  <br>
-                 Login:  ${user.login}<br>
-                 Haslo:  ${user.password}<br>
+                 Login:  ${usertmp.login}<br>
+                 Haslo:  ${usertmp.password}<br>
 
      <#else>
 
@@ -21,6 +21,7 @@
               imie: <input type="text" name="firstName"><br>
               Nazwisko: <input type="text" name="lastName"><br>
               Adres: <input type="text" name="address"><br>
+              Pesel: <input type="text" name="pesel"><br>
               Email:   <input type="text" name="email"><br>
 
               <br>
