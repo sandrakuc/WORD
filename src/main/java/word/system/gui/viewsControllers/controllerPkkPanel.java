@@ -85,17 +85,30 @@ public class controllerPkkPanel {
 
         ///wypisywanie egz teoretycznych
         Long teoreticalExamsNumber = teoreticalExamToPkkRepository.count();
-        ArrayList<TeoreticalExam> teoreticalExamsList = new ArrayList<TeoreticalExam>();
+        ArrayList<TeoreticalExamToPkk> teoreticalExamToPKKList = new ArrayList<TeoreticalExamToPkk>();
+        String textResult = "";
 
         for (long i=1; i<=teoreticalExamsNumber; i++ ) {
             TeoreticalExamToPkk teoreticalExamToPkk = teoreticalExamToPkkRepository.getById(i);
 
             if (teoreticalExamToPkk.getUser().equals(sessionUser)) {
-                  //z teoreticalExamToPkk wybieramy tylko obj egzaminu
-                  teoreticalExamsList.add(teoreticalExamToPkk.getTeoreticalExam());
+                teoreticalExamToPKKList.add(teoreticalExamToPkk);
+
+                if (teoreticalExamToPkk.getPercResult() >= 66.0 ){
+                    textResult = "ZDANE";
+                }
+                else if(teoreticalExamToPkk.getPercResult() == -1.0)
+                {
+                    teoreticalExamToPkk.setPercResult(0.0);
+                    textResult = "BRAK PODEJSCIA";
+                }
+                else
+                {
+                    textResult = "NIEZDANE";
+                }
             }
         }
-        System.out.println("\n\n\n\n\n" + teoreticalExamsList + "\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n" + teoreticalExamToPKKList + "\n\n\n\n\n");
 
         ///wypisywanie wnioskow
         Long applicationRecorsNumber = applicationRepository.count();
@@ -112,7 +125,10 @@ public class controllerPkkPanel {
 
         model.addAttribute("userId", sessionUser.getId());
         model.addAttribute("pkkPracticalExamsList", pkkPracticalExamsList);
-        model.addAttribute("teoreticalExamsList", teoreticalExamsList);
+
+        model.addAttribute("teoreticalExamToPKKList", teoreticalExamToPKKList);
+        model.addAttribute("textResult", textResult);
+
         model.addAttribute("pkkApplicationsList", pkkApplicationsList);
         return "userViews/pkkPanel";
     }

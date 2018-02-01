@@ -44,13 +44,15 @@
                 <table>
                   <tr>
                     <th>Data rozpoczecia</th>
-                    <th>Status</th>
+                    <th>Wynik procentowy</th>
+                    <th>Rezultat</th>
                   </tr>
 
-                  <#list teoreticalExamsList as teoreticalExamsList>
+                  <#list teoreticalExamToPKKList as teoreticalExamToPKKList>
                       <tr>
-                        <td>${teoreticalExamsList.getDate()}</td>
-                        <td>${teoreticalExamsList.getTeoreticalExamStatus()}</td>
+                        <td>${teoreticalExamToPKKList.getTeoreticalExam().getDate()}</td>
+                        <td>${teoreticalExamToPKKList.getPercResult()}</td>
+                        <td>${textResult}</td>
                       </tr>
                   </#list>
 

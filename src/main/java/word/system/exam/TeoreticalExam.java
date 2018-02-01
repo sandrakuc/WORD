@@ -75,6 +75,7 @@ public class TeoreticalExam
         this.id = id;
     }
 
+
     @Override
     public String toString() {
         return "\n " + getId() + "   examinatorObj:" + getExaminer() + "    Daty: " + getDate() + " " + getEndDate()  + "    Pokoj:" + getRoom() + "    StatusEgz:" + getTeoreticalExamStatus();

@@ -19,6 +19,9 @@ public class TeoreticalExamToPkk {
     @ManyToOne
     protected TeoreticalExam teoreticalExam;
 
+    //Nie moze byc rowne NULL, jesli brak wyniku dajemy -1
+    protected Double percResult;
+
     public Long getId() {
         return id;
     }
@@ -41,6 +44,14 @@ public class TeoreticalExamToPkk {
 
     public void setTeoreticalExam(TeoreticalExam teoreticalExam) {
         this.teoreticalExam = teoreticalExam;
+    }
+
+    public Double getPercResult() {
+        return percResult;
+    }
+
+    public void setPercResult(Double percResult) {
+        this.percResult = percResult;
     }
 
     @Override
