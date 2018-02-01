@@ -105,7 +105,7 @@ public class User {
     //do testu
     @Override
     public String toString(){
-        return " " + id + firstName + " " + lastName + ", " + login + " " + email + " " + role;
+        return " " + id  + " " + firstName + " " + lastName + ", " + login + " " + email + " " + role;
     }
 
 

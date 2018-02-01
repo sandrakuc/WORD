@@ -77,6 +77,6 @@ public class TeoreticalExam
 
     @Override
     public String toString() {
-        return " " + getId() + " " + getExaminer() + " " + getDate() + " " + getEndDate()  + " " + getRoom() + " " + getTeoreticalExamStatus();
+        return "\n " + getId() + "   examinatorObj:" + getExaminer() + "    Daty: " + getDate() + " " + getEndDate()  + "    Pokoj:" + getRoom() + "    StatusEgz:" + getTeoreticalExamStatus();
     }
 }
