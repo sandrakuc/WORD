@@ -1,10 +1,14 @@
 <#import "../template.ftl" as t>
 
 <@t.page>
+                    <br>
+    				 <b>${message}</b>
+    				<br>
                     <h2>Panel egzaminatora teoretycznego</h2>
 
                     Twoje id to: ${userId}
     				<p>Twoje egzaminy:</p><br>
+
 
     				<table>
     				  <tr>
@@ -25,16 +29,19 @@
                        </#list>
     				</table>
     				<br>
-    				<br>
 
 
-                        <br>
-                        <br>
-                    	<form action="openExam"  method="POST">
-                    		<b>Wpisz id egzaminu:</b>
-                    		<input type="text" name="examId" value=""><br>
-                    		<input name="examAction" type="submit" value="Otwórz egzamin"><br>
-                    		<p>//Otwiera egzamin i przechodzi do strony z zarzadzaniem nim</p>
+
+                    	<form action="teoreticalExaminerPanel"  method="POST">
+                    	    <b>Wpisz id egzaminu:</b>
+                            <input type="text" name="examId" value=""><br><br>
+
+                    	    <p><b>Wybierz czynność</b></p>
+                    	    <br>
+                    	    <input type="radio" name="examStatus" value="otwarty" checked> Otwórz egzamin<br>
+                            <input type="radio" name="examStatus" value="zamkniety">Zamknij egzamin<br><br>
+
+                    		<input name="examAction" type="submit" value="Zmien status"><br>
                     	</form>
 
 

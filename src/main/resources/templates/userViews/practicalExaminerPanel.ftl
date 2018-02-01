@@ -1,14 +1,14 @@
 <#import "../template.ftl" as t>
 
 <@t.page>
+            <br>
+   			<b>${message}</b>
+   			<br>
+
              <h2>Panel egzaminatora praktycznego</h2>
              Twoje id to: ${userId}
 
    			<p>Twoje egzaminy:</p><br>
-
-
-                <b>${message}</b>
-
    			<table>
    				<tr>
    					<th>id egzaminu</th>
@@ -29,7 +29,8 @@
                  </#list>
    			</table>
    			<br>
-   			<br>
+
+
 
 
    			<form action="practicalExaminerPanel"  method="POST">
