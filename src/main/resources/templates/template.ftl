@@ -15,6 +15,7 @@
 				<a href="http://localhost:8080/">Home           </a>
 				<a href="contact">Kontakt        </a>
 				<a href="login">Zaloguj</a>
+                <a href="logout">Wyloguj</a>
 		</div>
 		<div id="leftmenu">
 		            <#if Session.user?exists>
@@ -23,9 +24,10 @@
         			<span>Odwiedzasz strone jako gość</span>
         			</#if><br><br>
 
-				<a href="http://localhost:8080/">Home</a></li><br>
-				<a href="contact">Kontakt</a></li><br>
-				<a href="login">Zaloguj</a></li><br>
+				<a href="http://localhost:8080/">Home</a><br>
+				<a href="contact">Kontakt</a><br>
+				<a href="login">Zaloguj</a><br>
+                <a href="logout">Wyloguj</a><br>
 
 		</div>
 		<div id="content">

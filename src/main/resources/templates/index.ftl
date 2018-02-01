@@ -1,6 +1,7 @@
 <#import "template.ftl" as t>
 
 <@t.page>
-    test spring
+    Strona główna WORD
+    <br>// TODO polskie znaki mi nie śmigają w pytaniach z teorii
 </@t.page>
 

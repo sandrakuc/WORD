@@ -39,7 +39,7 @@
 
 
     				<br><br><br>
-    				<form action="login"  method="POST">
+    				<form action="logout"  method="POST">
     					 <input name="logout" type="submit" value="Wyloguj się">
     				 </form>
 </@t.page>

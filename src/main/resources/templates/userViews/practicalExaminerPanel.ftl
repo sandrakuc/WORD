@@ -45,7 +45,7 @@
 
 
    			<br><br><br>
-   			<form action="login"  method="GET">
+   			<form action="logout"  method="GET">
    				 <input name="logout" type="submit" value="Wyloguj się">
    			 </form>
 </@t.page>
