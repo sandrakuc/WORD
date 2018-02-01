@@ -18,20 +18,20 @@ public class CourseOfExam {
     @ManyToOne
     protected User partcipants;
 
-    void setPartcipants(User pkk){
+    public void setPartcipants(User pkk){
         if(pkk.getRole().equals(User.Role.PKK))
             partcipants = pkk;
     }
 
-    User getParticipants(){
+    public User getParticipants(){
         return partcipants;
     }
 
-    void setAnswers(AnswerBase answers){
+    public void setAnswers(AnswerBase answers){
         this.answers = answers;
     }
 
-    AnswerBase getAnswers(){
+    public AnswerBase getAnswers(){
         return answers;
     }
 }
