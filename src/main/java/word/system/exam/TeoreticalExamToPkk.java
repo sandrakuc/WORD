@@ -22,6 +22,8 @@ public class TeoreticalExamToPkk {
     //Nie moze byc rowne NULL, jesli brak wyniku dajemy -1
     protected Double percResult;
 
+    protected String textResult;
+
     public Long getId() {
         return id;
     }
@@ -54,8 +56,16 @@ public class TeoreticalExamToPkk {
         this.percResult = percResult;
     }
 
+    public String getTextResult() {
+        return textResult;
+    }
+
+    public void setTextResult(String textResult) {
+        this.textResult = textResult;
+    }
+
     @Override
     public String toString() {
-        return "Objekt tExamToUser: " + getId() + " Obj Egzaminu: " + getTeoreticalExam()  + "Obj usera " + getUser() + "\n";
+        return "Objekt tExamToUser: " + getId() + " Obj Egzaminu: " + getTeoreticalExam() + " procenty:" + getPercResult() + "\n";
     }
 }

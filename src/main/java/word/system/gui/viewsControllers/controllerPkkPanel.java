@@ -86,7 +86,8 @@ public class controllerPkkPanel {
         ///wypisywanie egz teoretycznych
         Long teoreticalExamsNumber = teoreticalExamToPkkRepository.count();
         ArrayList<TeoreticalExamToPkk> teoreticalExamToPKKList = new ArrayList<TeoreticalExamToPkk>();
-        String textResult = "";
+
+
 
         for (long i=1; i<=teoreticalExamsNumber; i++ ) {
             TeoreticalExamToPkk teoreticalExamToPkk = teoreticalExamToPkkRepository.getById(i);
@@ -95,16 +96,16 @@ public class controllerPkkPanel {
                 teoreticalExamToPKKList.add(teoreticalExamToPkk);
 
                 if (teoreticalExamToPkk.getPercResult() >= 66.0 ){
-                    textResult = "ZDANE";
+                    teoreticalExamToPkk.setTextResult("ZDANE");
                 }
                 else if(teoreticalExamToPkk.getPercResult() == -1.0)
                 {
                     teoreticalExamToPkk.setPercResult(0.0);
-                    textResult = "BRAK PODEJSCIA";
+                    teoreticalExamToPkk.setTextResult("BRAK PODEJSCIA");
                 }
                 else
                 {
-                    textResult = "NIEZDANE";
+                    teoreticalExamToPkk.setTextResult("NIEZDANE");
                 }
             }
         }
@@ -127,7 +128,7 @@ public class controllerPkkPanel {
         model.addAttribute("pkkPracticalExamsList", pkkPracticalExamsList);
 
         model.addAttribute("teoreticalExamToPKKList", teoreticalExamToPKKList);
-        model.addAttribute("textResult", textResult);
+
 
         model.addAttribute("pkkApplicationsList", pkkApplicationsList);
         return "userViews/pkkPanel";

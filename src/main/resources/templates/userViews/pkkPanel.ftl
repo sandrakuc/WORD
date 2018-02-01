@@ -52,7 +52,7 @@
                       <tr>
                         <td>${teoreticalExamToPKKList.getTeoreticalExam().getDate()}</td>
                         <td>${teoreticalExamToPKKList.getPercResult()}</td>
-                        <td>${textResult}</td>
+                        <td>${teoreticalExamToPKKList.getTextResult()}</td>
                       </tr>
                   </#list>
 
