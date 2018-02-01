@@ -45,6 +45,6 @@ public class TeoreticalExamToPkk {
 
     @Override
     public String toString() {
-        return getId() + " " + getTeoreticalExam()  + " " + getUser();
+        return "Objekt tExamToUser: " + getId() + " Obj Egzaminu: " + getTeoreticalExam()  + "Obj usera " + getUser() + "\n";
     }
 }

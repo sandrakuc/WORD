@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import word.system.DrivingLicenseApplication.ApplicationRepository;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
-import word.system.exam.PracticExam;
-import word.system.exam.PracticExamRepository;
+import word.system.exam.*;
 import word.system.exam.TeoreticalQuestions.QuestionBase;
 import word.system.exam.TeoreticalQuestions.QuestionRepository;
 import word.system.gui.FlashMessageManager;
@@ -27,6 +26,9 @@ public class controllerPkkPanel {
 
     @Autowired
     PracticExamRepository practicExamRepository;
+
+    @Autowired
+    TeoreticalExamToPkkRepository teoreticalExamToPkkRepository;
 
     @Autowired
     ApplicationRepository applicationRepository;
@@ -51,13 +53,28 @@ public class controllerPkkPanel {
         for (long i=1; i<=practicalExamsRecordsNumber; i++ ) {
             PracticExam practicExam =  practicExamRepository.getById(i);
 
-            if(practicExam.getPkk().getId() == sessionUser.getId()) {
+            if(practicExam.getPkk().equals(sessionUser)) {
                 pkkPracticalExamsList.add(practicExam);
             }
 
 
         }
         //System.out.println("\n\n\n\n\n" + pkkPracticalExamsList + "\n\n\n\n\n");
+
+
+        ///wypisywanie egz teoretycznych
+        Long teoreticalExamsNumber = teoreticalExamToPkkRepository.count();
+        ArrayList<TeoreticalExam> teoreticalExamsList = new ArrayList<TeoreticalExam>();
+
+        for (long i=1; i<=teoreticalExamsNumber; i++ ) {
+            TeoreticalExamToPkk teoreticalExamToPkk = teoreticalExamToPkkRepository.getById(i);
+
+            if (teoreticalExamToPkk.getUser().equals(sessionUser)) {
+                  //z teoreticalExamToPkk wybieramy tylko obj egzaminu
+                  teoreticalExamsList.add(teoreticalExamToPkk.getTeoreticalExam());
+            }
+        }
+        System.out.println("\n\n\n\n\n" + teoreticalExamsList + "\n\n\n\n\n");
 
         ///wypisywanie wnioskow
         Long applicationRecorsNumber = applicationRepository.count();
@@ -66,14 +83,15 @@ public class controllerPkkPanel {
         for (long i=1; i<=applicationRecorsNumber; i++ ) {
             DrivingLicenseApplication drivingLicenseApplication = applicationRepository.getById(i);
 
-            if (drivingLicenseApplication.getUser().getId() == sessionUser.getId()) {
+            if (drivingLicenseApplication.getUser().equals(sessionUser)) {
                 pkkApplicationsList.add(drivingLicenseApplication);
             }
         }
-        System.out.println("\n\n\n\n\n" + pkkApplicationsList + "\n\n\n\n\n");
+        //System.out.println("\n\n\n\n\n" + pkkApplicationsList + "\n\n\n\n\n");
 
         model.addAttribute("userId", sessionUser.getId());
         model.addAttribute("pkkPracticalExamsList", pkkPracticalExamsList);
+        model.addAttribute("teoreticalExamsList", teoreticalExamsList);
         model.addAttribute("pkkApplicationsList", pkkApplicationsList);
         return "userViews/pkkPanel";
     }

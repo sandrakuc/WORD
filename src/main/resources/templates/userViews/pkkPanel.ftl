@@ -39,17 +39,21 @@
                 </table>
 
             <br><br>
-            <p>//Jeszcze nie wiem jak w rekordzie egzaminu teoretycznego zapisac liste pkk osob</p>
+
 			<p><b>Egzaminy teoretyczne:</b></p>
                 <table>
                   <tr>
-                    <th>Data</th>
-                    <th>Wynik</th>
+                    <th>Data rozpoczecia</th>
                     <th>Status</th>
                   </tr>
-                  <tr>
 
-                  </tr>
+                  <#list teoreticalExamsList as teoreticalExamsList>
+                      <tr>
+                        <td>${teoreticalExamsList.getDate()}</td>
+                        <td>${teoreticalExamsList.getTeoreticalExamStatus()}</td>
+                      </tr>
+                  </#list>
+
                 </table>
 
 			<br>
