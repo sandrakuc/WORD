@@ -148,18 +148,33 @@ public class controllerPkkPanel {
             } while (id1 == id2 || id1 == id3 || id2 == id3);
             QuestionBase questionBase1 = questionRepository.getById(id1);
             session.setAttribute("questionBase1", questionBase1);
+            AnswerBase answer1 = new AnswerBase();
+            answer1.setQuestion(questionBase1);
+            answer1.setAnswer(request.getParameter("pierwsze"));
+            answerRepository.save(answer1);
+            session.setAttribute("answer1", answer1);
             System.out.println(questionBase1.getContents());
             System.out.println(questionBase1.getPossibleAnswer1());
             System.out.println(questionBase1.getPossibleAnswer2());
             System.out.println(questionBase1.getPossibleAnswer3());
             QuestionBase questionBase2 = questionRepository.getById(id2);
             session.setAttribute("questionBase2", questionBase2);
+            AnswerBase answer2 = new AnswerBase();
+            answer2.setQuestion(questionBase2);
+            answer2.setAnswer(request.getParameter("drugie"));
+            answerRepository.save(answer2);
+            session.setAttribute("answer2", answer2);
             System.out.println(questionBase2.getContents());
             System.out.println(questionBase2.getPossibleAnswer1());
             System.out.println(questionBase2.getPossibleAnswer2());
             System.out.println(questionBase2.getPossibleAnswer3());
             QuestionBase questionBase3 = questionRepository.getById(id3);
             session.setAttribute("questionBase3", questionBase3);
+            AnswerBase answer3 = new AnswerBase();
+            answer3.setQuestion(questionBase3);
+            answer3.setAnswer(request.getParameter("trzecie"));
+            answerRepository.save(answer3);
+            session.setAttribute("answer3", answer3);
             System.out.println(questionBase3.getContents());
             System.out.println(questionBase3.getPossibleAnswer1());
             System.out.println(questionBase3.getPossibleAnswer2());
@@ -171,52 +186,6 @@ public class controllerPkkPanel {
         return "userViews/actions/takeTheExam";
     }
 
-    @PostMapping("takeTheExam")
-    public String answerPost(HttpServletRequest request) {
-        Collection<CourseOfExam> courses = null;
-        HttpSession session = request.getSession();
-        FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
-        CourseOfExam courseOfExam1 = new CourseOfExam();
-        CourseOfExam courseOfExam2 = new CourseOfExam();
-        CourseOfExam courseOfExam3 = new CourseOfExam();
-        AnswerBase answer1 = new AnswerBase();
-        answer1.setQuestion((QuestionBase) session.getAttribute("questionBase1"));
-        answer1.setAnswer(request.getParameter("pierwsze"));
-        session.setAttribute("answer1", answer1);
-        answerRepository.save(answer1);
-        courseOfExam1.setAnswers(answer1);
-        courseOfExam1.setPartcipants((User)session.getAttribute("user"));
-        session.setAttribute("courseOfExam1",courseOfExam1);
-        courseOfExamRepository.save(courseOfExam1);
-        AnswerBase answer2 = new AnswerBase();
-        answer2.setQuestion((QuestionBase)session.getAttribute("questionBase2"));
-        answer2.setAnswer(request.getParameter("drugie"));
-        session.setAttribute("answer2", answer2);
-        answerRepository.save(answer2);
-        courseOfExam2.setAnswers(answer2);
-        courseOfExam2.setPartcipants((User)session.getAttribute("user"));
-        session.setAttribute("courseOfExam2",courseOfExam2);
-        courseOfExamRepository.save(courseOfExam2);
-        AnswerBase answer3 = new AnswerBase();
-        answer3.setQuestion((QuestionBase)session.getAttribute("questionBase3"));
-        answer3.setAnswer(request.getParameter("trzecie"));
-        session.setAttribute("answer3", answer3);
-        answerRepository.save(answer3);
-        courseOfExam3.setAnswers(answer3);
-        courseOfExam3.setPartcipants((User)session.getAttribute("user"));
-        session.setAttribute("courseOfExam3",courseOfExam3);
-        courseOfExamRepository.save(courseOfExam3);
-        courses.add(courseOfExam1);
-        courses.add(courseOfExam2);
-        courses.add(courseOfExam3);
-        TeoreticalApproach approach = new TeoreticalApproach();
-        approach.setCourses(courses); //to do: przemyslec jak pobrac egzamin
-        session.setAttribute("approach", approach); //przemyslec jak zrobic sesje dla kilku osob naraz
-        teoreticalApproachRepository.save(approach);
-
-        return "userViews/actions/takeTheExam";
-    }
-
 
     @GetMapping("finishAndConfirmTheExam")
     public String finishAndConfirmTheExam(HttpServletRequest request) {
@@ -225,13 +194,6 @@ public class controllerPkkPanel {
         session.setAttribute("questionBase1", null);
         session.setAttribute("questionBase2", null);
         session.setAttribute("questionBase3", null);
-        session.setAttribute("answer1", null);
-        session.setAttribute("answer2", null);
-        session.setAttribute("answer3", null);
-        session.setAttribute("courseOfExam1", null);
-        session.setAttribute("courseOfExam2", null);
-        session.setAttribute("courseOfExam3", null);
-        session.setAttribute("approach", null);
         return "userViews/actions/finishAndConfirmTheExam";
     }
 
@@ -242,13 +204,6 @@ public class controllerPkkPanel {
         session.setAttribute("questionBase1", null);
         session.setAttribute("questionBase2", null);
         session.setAttribute("questionBase3", null);
-        session.setAttribute("answer1", null);
-        session.setAttribute("answer2", null);
-        session.setAttribute("answer3", null);
-        session.setAttribute("courseOfExam1", null);
-        session.setAttribute("courseOfExam2", null);
-        session.setAttribute("courseOfExam3", null);
-        session.setAttribute("approach", null);
         return "userViews/actions/finishAndConfirmTheExam";
     }
 
