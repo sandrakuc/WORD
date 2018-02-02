@@ -4,13 +4,10 @@
         <h2>Tworzenie egzaminu teoretycznego</h2>
                      <br>
                <form action="createExamResults" method="POST">
-                  id: <input type="text" name="examId" value="1"> <br>
-                  Data: <input type="text" name="examDate"><br><br>
-                  <p>Godzina egzaminu:</p>
-                  <input type="radio" name="hour" value="9" checked> 9:00<br>
-                  <input type="radio" name="hour" value="12"> 12:00<br>
-                  <input type="radio" name="hour" value="14"> 14:00<br>
-                  <input type="radio" name="hour" value="16"> 16:00<br>
+                  Data rozpoczęcia: <input type="datetime-local" name="teorExamDate" value="2017-06-01T08:30"><br>
+                  Pokój: <input type="text" name="room" value="1">
+                  <br><br>
+                  <p>*Egzaminatora wylosuje losowo system</p>
                   <br>
                    <input name="createExam" type="submit" value="Stworz egzamin">
                </form>

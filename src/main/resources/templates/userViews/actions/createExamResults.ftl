@@ -3,10 +3,9 @@
 <@t.page>
     <h3>Stworzono egzamin</h3>
     <br>
-    //z poprzedniej strony typ i data, egzaminatora losuje program
-    <p><b>Typ:</b></p>
-    <p><b>Data i godzina:</b></p>
-    <p><b>Egzaminator:</b></p>
+    <p><b>Typ: </b> ${examType}</p>
+    <p><b>Data i godzina: </b> ${date?datetime}</p>
+    <p><b>Egzaminator:</b> ${examinerFirstName} ${examinerLastName}</p>
     <br><br>
     <a href="krysiaPanel">Wróć do panelu</a>
 

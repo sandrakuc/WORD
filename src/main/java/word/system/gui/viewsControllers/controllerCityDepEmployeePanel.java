@@ -76,7 +76,7 @@ public class controllerCityDepEmployeePanel{
         drivingLicenseApplication.setAddress(request.getParameter("address"));
         drivingLicenseApplication.setPesel(request.getParameter("pesel"));
         drivingLicenseApplication.setCategory(request.getParameter("DLCategory"));
-        drivingLicenseApplication.setStatus(ApplicationStatus.PODANIE_UTWORZONE);
+        drivingLicenseApplication.setStatus(ApplicationStatus.GOTOWE_W_PWPW);
 
         //mapowanie peselu do id pkk
         String tmp_pesel = request.getParameter("pesel");

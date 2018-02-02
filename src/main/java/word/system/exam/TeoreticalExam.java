@@ -16,8 +16,7 @@ public class TeoreticalExam
     Long id;
 
     protected Date date;
-    protected Date endDate;
-    protected Integer room;
+    protected String room;
     protected TeoreticalExamStatus teoreticalExamStatus;
 
     @ManyToOne
@@ -39,19 +38,12 @@ public class TeoreticalExam
         return date;
     }
 
-    public Date getEndDate() {
-        return endDate;
-    }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public Integer getRoom() {
+    public String getRoom() {
         return room;
     }
 
-    public void setRoom(Integer room) {
+    public void setRoom(String room) {
         this.room = room;
     }
 
@@ -78,6 +70,6 @@ public class TeoreticalExam
 
     @Override
     public String toString() {
-        return "\n " + getId() + "   examinatorObj:" + getExaminer() + "    Daty: " + getDate() + " " + getEndDate()  + "    Pokoj:" + getRoom() + "    StatusEgz:" + getTeoreticalExamStatus();
+        return "\n " + getId() + "   examinatorObj:" + getExaminer() + "    Daty: " + getDate()  + "    Pokoj:" + getRoom() + "    StatusEgz:" + getTeoreticalExamStatus();
     }
 }

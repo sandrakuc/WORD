@@ -14,7 +14,6 @@
     				  <tr>
     				    <th>id egzaminu</th>
     				    <th>Data rozpoczecia</th>
-    					<th>Data zakonczenia</th>
     				    <th>Sala</th>
     			    	<th>Status</th>
     				  </tr>
@@ -22,7 +21,6 @@
                           <tr>
                             <td name="id">${teoreticalExams.getId()}</td>
                             <td>${teoreticalExams.getDate()}</td>
-                            <td>${teoreticalExams.getEndDate()}</td>
                             <td>${teoreticalExams.getRoom()}</td>
                             <td>${teoreticalExams.getTeoreticalExamStatus()}</td>
                           </tr>
