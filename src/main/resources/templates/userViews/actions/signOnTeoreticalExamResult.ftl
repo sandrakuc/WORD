@@ -16,5 +16,6 @@
         <p>Sala: <#if examRoom??> ${examRoom} </#if> </p>
     </#if>
 
+<br>
 <a href="krysiaPanel">Wróć do panelu</a>
 </@t.page>

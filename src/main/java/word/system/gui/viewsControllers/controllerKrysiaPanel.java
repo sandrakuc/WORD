@@ -56,6 +56,12 @@ public class controllerKrysiaPanel {
 
     @PostMapping("signOnTeoreticalExamResult")
     public String PostMSignOnTeoreticalExam(HttpServletRequest request, Model model) {
+        String examIdFromForm = (String)request.getParameter("teoreticalExamId");
+        String peselFromForm = (String)request.getParameter("pesel");
+        Boolean pkkCorrect = false;
+        Boolean examIdCorrect = false;
+//        System.out.println("\nPkk poprz str " + examIdFromForm + " " + peselFromForm);
+
         TeoreticalExamToPkk teoreticalExamToPkk = new TeoreticalExamToPkk();
         teoreticalExamToPkk.setPercResult(-1.0); //zawsze tyle przy nowym podejsciu
         teoreticalExamToPkk.setTextResult("brak"); //zawsze tyle przy nowym podejsciu
@@ -65,14 +71,13 @@ public class controllerKrysiaPanel {
         for (int i=0; i<examRecordsList.size(); i++ )
         {
             String examId = Long.toString( examRecordsList.get(i).getId() );
-            System.out.println("\negz Z bazy " + examId);
-            System.out.println(" Z formularza " + request.getAttribute("teoreticalExamId"));
+//            System.out.println("\negz Z bazy " + examId);
+//            System.out.println(" Z formularza " + examIdFromForm);
 
-            if( examId.equals( request.getAttribute("teoreticalExamId")) ){
+            if( examId.equals(examIdFromForm) ){
                 teoreticalExamToPkk.setTeoreticalExam(examRecordsList.get(i));
-            }
-            else{
-                model.addAttribute("examErrMsg","Nie ma takiego egzaminu");
+                System.out.println(" \n\nZnaleziono pasujace examId");
+                examIdCorrect=true;
             }
         }
 
@@ -81,25 +86,34 @@ public class controllerKrysiaPanel {
         for (int i=0; i<pkkRecordsList.size(); i++ )
         {
             String pkkPesel = pkkRecordsList.get(i).getPesel();
-            System.out.println("\nPkk Z bazy " + pkkPesel);
-            System.out.println(" Z formularza " + request.getAttribute("pesel"));
+//            System.out.println("\nPkk Z bazy " + pkkPesel);
+//            System.out.println(" Z formularza " + peselFromForm);
 
-            if( pkkPesel.equals( request.getAttribute("pesel")) ){
+            if( pkkPesel.equals(peselFromForm)){
                 teoreticalExamToPkk.setUser(pkkRecordsList.get(i));
+                System.out.println(" \n\nZnaleziono pasujace pkk\n\n");
+                pkkCorrect=true;
             }
-            else{
-                model.addAttribute("pkkErrMsg","Nie ma takiego zdajacego");
-            }
+
         }
 
         if(teoreticalExamToPkk.getUser()!=null && teoreticalExamToPkk.getTeoreticalExam()!=null)
         {
             teoreticalExamToPkkRepository.save(teoreticalExamToPkk);
-            model.addAttribute("pkkName",teoreticalExamToPkk.getUser().getLastName());
+            model.addAttribute("pkkName",teoreticalExamToPkk.getUser().getFirstName());
             model.addAttribute("pkkSurname",teoreticalExamToPkk.getUser().getLastName());
             model.addAttribute("examData", teoreticalExamToPkk.getTeoreticalExam().getDate());
             model.addAttribute("examRoom", teoreticalExamToPkk.getTeoreticalExam().getRoom());
         }
+
+        if(pkkCorrect==false && examIdCorrect == false){
+            setPkkErrMsg(model);
+            setExamErrMsg(model);
+        }
+        else if(pkkCorrect==false)
+            setPkkErrMsg(model);
+        else if(examIdCorrect==false)
+            setExamErrMsg(model);
 
         return "userViews/actions/signOnTeoreticalExamResult";
     }
@@ -336,6 +350,16 @@ public class controllerKrysiaPanel {
             }
         }
         return pkkList;
+    }
+
+    public void setPkkErrMsg(Model model)
+    {
+        model.addAttribute("pkkErrMsg","Nie ma takiego PKK");
+    }
+
+    public void setExamErrMsg(Model model)
+    {
+        model.addAttribute("examErrMsg","Nie ma takiego egzaminu");
     }
 
 
