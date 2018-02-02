@@ -11,10 +11,14 @@ import word.system.exam.*;
 import word.system.user.User;
 import word.system.user.UserRepository;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpServletRequest;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
@@ -60,8 +64,8 @@ public class controllerKrysiaPanel {
 
 
     @GetMapping("createTeoreticalExam")
-    public String postMCreateTeoreticalExam(HttpServletRequest request) {
-
+    public String postMCreateTeoreticalExam(HttpServletRequest request, Model model) {
+        model.addAttribute("curTime", getCurTimeForDatatimeForm());
         return "userViews/actions/createTeoreticalExam";
     }
 
@@ -74,10 +78,11 @@ public class controllerKrysiaPanel {
     @RequestMapping("createPracticalExam")
     public String createPracticalExam(HttpServletRequest request) {
 
+
         return "userViews/actions/createPracticalExam";
     }
 
-    @PostMapping("createExamResults")
+    @PostMapping("createTeoreticalExamResult")
     public String createExamResults(HttpServletRequest request, Model model) throws ParseException {
         TeoreticalExam teoreticalExam = new TeoreticalExam();
         String stringDate = request.getParameter("teorExamDate");
@@ -102,7 +107,7 @@ public class controllerKrysiaPanel {
         //x System.out.println("\n\n\n\n"+teoreticalExaminersList.size() + "\n\n\n\n");
 //        System.out.println("\n\n\n\nLista "+teoreticalExaminersList + "\n\n\n\n");
 //        System.out.println("\n\n\n\nWylosowany "+examiner + "\n\n\n\n");
-        return "userViews/actions/createExamResults";
+        return "userViews/actions/createTeoreticalExamResult";
     }
 
 
@@ -136,5 +141,11 @@ public class controllerKrysiaPanel {
         return examiner;
     }
 
+    public String getCurTimeForDatatimeForm(){
+        LocalDate dateNow = LocalDate.now();
+        LocalTime timeNow = LocalTime.now();
+        //System.out.println("\n\n\n\n "+ curDateForForm+ "\n\n\n\n");
+        return  dateNow.toString() + "T" +timeNow.getHour() + ":" +timeNow.getMinute();
+    }
 
 }

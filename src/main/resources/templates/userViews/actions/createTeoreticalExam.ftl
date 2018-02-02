@@ -3,8 +3,8 @@
 <@t.page>
         <h2>Tworzenie egzaminu teoretycznego</h2>
                      <br>
-               <form action="createExamResults" method="POST">
-                  Data rozpoczęcia: <input type="datetime-local" name="teorExamDate" value="2017-06-01T08:30"><br>
+               <form action="createTeoreticalExamResult" method="POST">
+                  Data rozpoczęcia: <input type="datetime-local" name="teorExamDate" value=${curTime}><br>
                   Pokój: <input type="text" name="room" value="1">
                   <br><br>
                   <p>*Egzaminatora wylosuje losowo system</p>
