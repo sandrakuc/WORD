@@ -19,7 +19,7 @@ INSERT INTO word.WORD_USER (ID, EMAIL, FIRST_NAME, LAST_NAME, ADDRESS, PESEL, LO
 -- pojazdy (koniecznie po egzaminnie praktycznym, koniecnie id po kolei)
 INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(1,'VW','czarny', 'Passat', 'TKI-7312', 1.8, 0, 2.0);
 INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(2,'VW','bialy', 'Passat', 'TKI-1234', 1.8, 0, 2.0);
-INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(3,'VW','rozowy', 'Passat', 'TST-28A2', 1.8, 0, 2.0);
+INSERT INTO word_machines(id,brand,colour,model,plate,power,type,weight) VALUES(3,'Motocykl','rozowy', 'Jakis', 'TST-2823A2', 1.8, 1, 0.4);
 
 
 -- egzaminy praktyczne(koniecznie po userach i pojazdach)

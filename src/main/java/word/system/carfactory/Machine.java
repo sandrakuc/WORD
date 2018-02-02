@@ -7,10 +7,7 @@ import  javax.persistence.*;
 @Table(name = "WORD_MACHINES")
 public class Machine {
 
-    public enum Type{
-        CAR,
-        MOTORCYCLE
-    }
+
 
     @Id @GeneratedValue
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
@@ -23,7 +20,7 @@ public class Machine {
     protected String model;
     protected String plate;
     protected String colour;
-    protected Type type;
+    protected MachineType type;
 
     public void setWeight(float weight){
         this.weight = weight;
@@ -49,9 +46,6 @@ public class Machine {
         this.colour = colour;
     }
 
-    public void setType(Type type){
-        this.type = type;
-    }
 
     public float getWeight(){
         return weight;
@@ -77,9 +71,6 @@ public class Machine {
         return colour;
     }
 
-    public Type getType(){
-        return type;
-    }
 
     public Long getId() {
         return id;
@@ -89,8 +80,16 @@ public class Machine {
         this.id = id;
     }
 
+    public MachineType getType() {
+        return type;
+    }
+
+    public void setType(MachineType type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return "" + getId();
+        return "" + getId() + getType();
     }
 }

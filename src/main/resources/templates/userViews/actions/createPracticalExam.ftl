@@ -5,22 +5,16 @@
              <br>
 
 
-            <form action="createExamResults" method="POST">
-              id: <input type="text" name="examId" value="1"> <br>
-              Data: <input type="text" name="examDate"><br><br>
-              <p>Godzina egzaminu:</p>
-              <input type="radio" name="hour" value="9" checked> 9:00<br>
-              <input type="radio" name="hour" value="12"> 12:00<br>
-              <input type="radio" name="hour" value="14"> 14:00<br>
-              <input type="radio" name="hour" value="16"> 16:00<br>
-              <br>
-
-
-
-              <input name="createExam" type="submit" value="Stworz egzamin">
+            <form action="createPracticalExamResult" method="POST">
+                    Data rozpoczęcia: <input type="datetime-local" name="pracExamDate" value=${curTime}><br>
+                    PESEL Zdajacego: <input type="text" name="pesel" value="1"><br>
+                    Kategoria Zdajacego: <input type="text" name="examCategory" value="C"><br>
+                    <br><br>
+                    <p>*Egzaminatora i maszyne wylosuje system</p>
+                    <br>
+                    <input name="createExam" type="submit" value="Stworz egzamin">
            </form>
 
            <br>
-           <!-- @TODO link do zmiany -->
            <a href="krysiaPanel">Wstecz</a>
 </@t.page>

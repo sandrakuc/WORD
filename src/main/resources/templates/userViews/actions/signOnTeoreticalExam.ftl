@@ -27,6 +27,6 @@
         </form>
 
         <br>
-        <a href="cityDepEmployeePanel">Wstecz</a>
+        <a href="krysiaPanel">Wstecz</a>
 
 </@t.page>

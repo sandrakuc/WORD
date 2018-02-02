@@ -10,12 +10,6 @@
     		</form>
             <br>
 
-         <form action="signOnPracticalExam"  method="get">
-               <p><b>Zapisać kursanta na egzamin praktyczny</b></p>
-               <input name="signPracticalOnExam" type="submit" value="Zapisz na egzamin">
-          </form>
-
-            <br>
             <form action="createTeoreticalExam" metod="get"  >
                  <p><b>Utworzyć egzamin teoretyczny</b></p>
                  <input name="createExam" type="submit" value="Utwórz egzamin teoretyczny">
