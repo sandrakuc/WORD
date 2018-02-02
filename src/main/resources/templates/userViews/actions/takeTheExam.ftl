@@ -9,7 +9,7 @@
 			<br> // i bedzie uproszczona wersja, wyswietla sie trzy pytania, bo bym sie zaorala
 			<br><br><br>
 
-            <form action="takeTheExam" method="POST">
+            <form action="finishAndConfirmTheExam" method="POST">
 			<p> ${questionBase1.contents} </p>
 			    <br><input type="radio" name="pierwsze" value="${questionBase1.possibleAnswer1}"> ${questionBase1.possibleAnswer1}
 			    <br><input type="radio" name="pierwsze" value="${questionBase1.possibleAnswer2}"> ${questionBase1.possibleAnswer2}

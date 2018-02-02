@@ -65,6 +65,15 @@ public class controllerPkkPanel {
     @PostMapping("pkkPanel")
     public String GetMPkkPanel(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
+        //zabezpieczenie
+        session.setAttribute("questionBase1",null);
+        session.setAttribute("questionBase2",null);
+        session.setAttribute("questionBase3",null);
+        session.setAttribute("answer1",null);
+        session.setAttribute("answer2",null);
+        session.setAttribute("answer3",null);
+
+
         User sessionUser = (User)session.getAttribute("user");
 
         ///wypisywanie egzaminow praktycznych
@@ -168,35 +177,6 @@ public class controllerPkkPanel {
             model.addAttribute("questionBase2", questionBase2);
             model.addAttribute("questionBase3", questionBase3);
         }
-        if(session.getAttribute("questionBase1")!= null || session.getAttribute("questionBase2")!= null || session.getAttribute("questionBase3") !=null){
-            QuestionBase questionBase1 = (QuestionBase)session.getAttribute("questionBase1");
-            QuestionBase questionBase2 = (QuestionBase)session.getAttribute("questionBase2");
-            QuestionBase questionBase3 = (QuestionBase)session.getAttribute("questionBase3");
-            AnswerBase answer1 = new AnswerBase();
-            answer1.setQuestion(questionBase1);
-            answer1.setAnswer(request.getParameter("pierwsze"));
-            System.out.println("DEBUG: " + answer1.getAnswer());
-            if(answer1.getAnswer() != null)
-                answerRepository.save(answer1);
-            session.setAttribute("answer1", answer1);
-            AnswerBase answer2 = new AnswerBase();
-            answer2.setQuestion(questionBase2);
-            answer2.setAnswer(request.getParameter("drugie"));
-            System.out.println("DEBUG: " + answer2.getAnswer());
-            if(answer2.getAnswer() != null)
-                answerRepository.save(answer2);
-            session.setAttribute("answer2", answer2);
-            AnswerBase answer3 = new AnswerBase();
-            answer3.setQuestion(questionBase3);
-            answer3.setAnswer(request.getParameter("trzecie"));
-            System.out.println("DEBUG: " + answer3.getAnswer());
-            if(answer3.getAnswer() != null)
-                answerRepository.save(answer3);
-            session.setAttribute("answer3", answer3);
-            model.addAttribute("questionBase1", questionBase1);
-            model.addAttribute("questionBase2", questionBase2);
-            model.addAttribute("questionBase3", questionBase3);
-        }
         return "userViews/actions/takeTheExam";
     }
 
@@ -205,19 +185,67 @@ public class controllerPkkPanel {
     public String finishAndConfirmTheExam(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
-        session.setAttribute("questionBase1", null);
-        session.setAttribute("questionBase2", null);
-        session.setAttribute("questionBase3", null);
+        QuestionBase questionBase1 = (QuestionBase)session.getAttribute("questionBase1");
+        QuestionBase questionBase2 = (QuestionBase)session.getAttribute("questionBase2");
+        QuestionBase questionBase3 = (QuestionBase)session.getAttribute("questionBase3");
+        AnswerBase answer1 = new AnswerBase();
+        answer1.setQuestion(questionBase1);
+        answer1.setAnswer(request.getParameter("pierwsze"));
+        System.out.println("DEBUG: " + answer1.getAnswer());
+        if(answer1.getAnswer() != null)
+            answerRepository.save(answer1);
+        session.setAttribute("answer1", answer1);
+        AnswerBase answer2 = new AnswerBase();
+        answer2.setQuestion(questionBase2);
+        answer2.setAnswer(request.getParameter("drugie"));
+        System.out.println("DEBUG: " + answer2.getAnswer());
+        if(answer2.getAnswer() != null)
+            answerRepository.save(answer2);
+        session.setAttribute("answer2", answer2);
+        AnswerBase answer3 = new AnswerBase();
+        answer3.setQuestion(questionBase3);
+        answer3.setAnswer(request.getParameter("trzecie"));
+        System.out.println("DEBUG: " + answer3.getAnswer());
+        if(answer3.getAnswer() != null)
+            answerRepository.save(answer3);
+        session.setAttribute("answer3", answer3);
+        model.addAttribute("questionBase1", questionBase1);
+        model.addAttribute("questionBase2", questionBase2);
+        model.addAttribute("questionBase3", questionBase3);
         return "userViews/actions/finishAndConfirmTheExam";
     }
 
     @PostMapping("finishAndConfirmTheExam")
-    public String finishAndConfirmTheExam2(HttpServletRequest request) {
+    public String finishAndConfirmTheExam2(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
-        session.setAttribute("questionBase1", null);
-        session.setAttribute("questionBase2", null);
-        session.setAttribute("questionBase3", null);
+        QuestionBase questionBase1 = (QuestionBase)session.getAttribute("questionBase1");
+        QuestionBase questionBase2 = (QuestionBase)session.getAttribute("questionBase2");
+        QuestionBase questionBase3 = (QuestionBase)session.getAttribute("questionBase3");
+        AnswerBase answer1 = new AnswerBase();
+        answer1.setQuestion(questionBase1);
+        answer1.setAnswer(request.getParameter("pierwsze"));
+        System.out.println("DEBUG: " + answer1.getAnswer());
+        if(answer1.getAnswer() != null)
+            answerRepository.save(answer1);
+        session.setAttribute("answer1", answer1);
+        AnswerBase answer2 = new AnswerBase();
+        answer2.setQuestion(questionBase2);
+        answer2.setAnswer(request.getParameter("drugie"));
+        System.out.println("DEBUG: " + answer2.getAnswer());
+        if(answer2.getAnswer() != null)
+            answerRepository.save(answer2);
+        session.setAttribute("answer2", answer2);
+        AnswerBase answer3 = new AnswerBase();
+        answer3.setQuestion(questionBase3);
+        answer3.setAnswer(request.getParameter("trzecie"));
+        System.out.println("DEBUG: " + answer3.getAnswer());
+        if(answer3.getAnswer() != null)
+            answerRepository.save(answer3);
+        session.setAttribute("answer3", answer3);
+        model.addAttribute("questionBase1", questionBase1);
+        model.addAttribute("questionBase2", questionBase2);
+        model.addAttribute("questionBase3", questionBase3);
         return "userViews/actions/finishAndConfirmTheExam";
     }
 
