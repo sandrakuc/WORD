@@ -35,6 +35,8 @@ public class controllerKrysiaPanel {
     UserRepository userRepository;
     @Autowired
     MachineRepository machineRepository;
+    @Autowired
+    TeoreticalExamToPkkRepository teoreticalExamToPkkRepository;
 
 
 
@@ -47,11 +49,31 @@ public class controllerKrysiaPanel {
 
     //Krysia actions
 
-    @RequestMapping("getMoney")
-    public String getMoney(HttpServletRequest request) {
+    @GetMapping("signOnTeoreticalExam")
+    public String GetMSignOnTeoreticalExam(HttpServletRequest request, Model model) {
+        return "userViews/actions/signOnTeoreticalExam";
+    }
 
-        return "userViews/actions/getMoney";
-}
+    @PostMapping("signOnTeoreticalExamResult")
+    public String PostMSignOnTeoreticalExam(HttpServletRequest request, Model model) {
+        TeoreticalExamToPkk teoreticalExamToPkk = new TeoreticalExamToPkk();
+        teoreticalExamToPkk.setPercResult(-1.0); //zawsze tyle przy nowym podejsciu
+        teoreticalExamToPkk.setTextResult("brak"); //zawsze tyle przy nowym podejsciu
+
+        //sprawdzanie czy istnieje podany egzamin teoretyczny
+        ArrayList<TeoreticalExamToPkk> records = getTeoreticalExamToPkkRecords();  //pobranie wszystkich rekordow z tabeli
+        for (int i=0; i<records.size(); i++ )
+        {
+            String examId = Long.toString( records.get(i).getTeoreticalExam().getId() );
+            if( examId.equals( request.getAttribute("teoreticalExamId")) )
+            {
+
+            }
+        }
+
+
+        return "userViews/actions/signOnTeoreticalExamResult";
+    }
 
 
 
@@ -124,7 +146,7 @@ public class controllerKrysiaPanel {
         if(tmpUser != null)
         {
             practicExam.setPkk(tmpUser);
-            System.out.println("\n\n\n\n\n" +practicExam);
+           // System.out.println("\n\n\n\n\n" +practicExam);
             practicExamRepository.save(practicExam);
         }
         else {
@@ -142,6 +164,12 @@ public class controllerKrysiaPanel {
 //        System.out.println("\n\n\n\nWylosowany "+examiner + "\n\n\n\n");
         //System.out.println("\n\n\n\nLista pojazdow "+machineList + "\n\n\n\n");
         return "userViews/actions/createPracticalExamResult";
+    }
+
+    @PostMapping("getMoney")
+    public String getMoney(HttpServletRequest request) {
+
+        return "userViews/actions/getMoney";
     }
 
 
@@ -167,6 +195,18 @@ public class controllerKrysiaPanel {
         return teoreticalExaminersList;
     }
 
+    public ArrayList<TeoreticalExamToPkk> getTeoreticalExamToPkkRecords()
+    {
+        Long recordsNumber = teoreticalExamToPkkRepository.count();
+        ArrayList<TeoreticalExamToPkk> recordList = new ArrayList<TeoreticalExamToPkk>();
+
+        for (long i=1; i<=recordsNumber; i++ ) {
+            TeoreticalExamToPkk record  = teoreticalExamToPkkRepository.getById(i);
+            recordList.add(record);
+        }
+        return recordList;
+    }
+
     public ArrayList<Machine> getMachinesFromDB(String examCategory) {
         Long machineRecordsNumber = machineRepository.count();
         ArrayList<Machine> machineList = new ArrayList<Machine>();
@@ -177,14 +217,14 @@ public class controllerKrysiaPanel {
             ///jesli wpisano kategorie A lub pochodne to szukaj motyocykli jesli nie to aut
             if ( examCategory.equals("AM") || examCategory.equals("A1") || examCategory.equals("A2") || examCategory.equals("A"))
             {
-                System.out.println("\n\n\n\n\nWybieram motocykle");
+               // System.out.println("\n\n\n\n\nWybieram motocykle");
                if(machine.getType().equals(MachineType.MOTORCYCLE))
                  machineList.add(machine);
 
             }
             else
             {
-                System.out.println("\n\n\n\n\nWybieram Auta");
+                //System.out.println("\n\n\n\n\nWybieram Auta");
                 if(machine.getType().equals(MachineType.MOTORCYCLE))
                   machineList.add(machine);
 
@@ -256,5 +296,6 @@ public class controllerKrysiaPanel {
         }
         return null;
     }
+
 
 }
