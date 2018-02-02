@@ -11,27 +11,26 @@
 
             <form action="takeTheExam" method="POST">
 			<p> ${questionBase1.contents} </p>
-			    <br><input type="radio" name="pierwsze" value="${questionBase1.possibleAnswer1}"> ${questionBase1.possibleAnswer1}
-			    <br><input type="radio" name="pierwsze" value="${questionBase1.possibleAnswer2}"> ${questionBase1.possibleAnswer2}
-			    <br><input type="radio" name="pierwsze" value="${questionBase1.possibleAnswer3}"> ${questionBase1.possibleAnswer3}
+			    <br><input type="radio" name="pierwsze" value="a"> ${questionBase1.possibleAnswer1}
+			    <br><input type="radio" name="pierwsze" value="b"> ${questionBase1.possibleAnswer2}
+			    <br><input type="radio" name="pierwsze" value="c"> ${questionBase1.possibleAnswer3}
 
 
             <br> <br>
 			<p> ${questionBase2.contents} </p>
-                <br><input type="radio" name="drugie" value="${questionBase2.possibleAnswer1}"> ${questionBase2.possibleAnswer1}
-                <br><input type="radio" name="drugie" value="${questionBase2.possibleAnswer2}"> ${questionBase2.possibleAnswer2}
-                <br><input type="radio" name="drugie" value="${questionBase2.possibleAnswer3}"> ${questionBase2.possibleAnswer3}
+                <br><input type="radio" name="drugie" value="a"> ${questionBase2.possibleAnswer1}
+                <br><input type="radio" name="drugie" value="b"> ${questionBase2.possibleAnswer2}
+                <br><input type="radio" name="drugie" value="c"> ${questionBase2.possibleAnswer3}
 
             <br> <br>
             <p> ${questionBase3.contents} </p>
-                <br><input type="radio" name="trzecie" value="${questionBase3.possibleAnswer1}"> ${questionBase3.possibleAnswer1}
-                <br><input type="radio" name="trzecie" value="${questionBase3.possibleAnswer2}"> ${questionBase3.possibleAnswer2}
-                <br><input type="radio" name="trzecie" value="${questionBase3.possibleAnswer3}"> ${questionBase3.possibleAnswer3}
+                <br><input type="radio" name="trzecie" value="a"> ${questionBase3.possibleAnswer1}
+                <br><input type="radio" name="trzecie" value="b"> ${questionBase3.possibleAnswer2}
+                <br><input type="radio" name="trzecie" value="c"> ${questionBase3.possibleAnswer3}
+
+                <br>
+                <input type="submit" name="save" value="Zapisz i zakończ podejście" />
             </form>
 
-			<br><br><br>
-			<form action="finishAndConfirmTheExam"  method="GET">
-				 <input name="confirm" type="submit" value="Zakończ i zapisz podejście">
-			 </form>
 
 </@t.page>

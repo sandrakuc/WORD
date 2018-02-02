@@ -168,23 +168,26 @@ public class controllerPkkPanel {
             model.addAttribute("questionBase2", questionBase2);
             model.addAttribute("questionBase3", questionBase3);
         }
-        if(session.getAttribute("questionBase1")!= null && session.getAttribute("questionBase2")!= null && session.getAttribute("questionBase3") !=null){
+        if(session.getAttribute("questionBase1")!= null || session.getAttribute("questionBase2")!= null || session.getAttribute("questionBase3") !=null){
             QuestionBase questionBase1 = (QuestionBase)session.getAttribute("questionBase1");
             QuestionBase questionBase2 = (QuestionBase)session.getAttribute("questionBase2");
             QuestionBase questionBase3 = (QuestionBase)session.getAttribute("questionBase3");
             AnswerBase answer1 = new AnswerBase();
             answer1.setQuestion(questionBase1);
             answer1.setAnswer(request.getParameter("pierwsze"));
+            System.out.println("DEBUG: " + answer1.getAnswer());
             answerRepository.save(answer1);
             session.setAttribute("answer1", answer1);
             AnswerBase answer2 = new AnswerBase();
             answer2.setQuestion(questionBase2);
             answer2.setAnswer(request.getParameter("drugie"));
+            System.out.println("DEBUG: " + answer2.getAnswer());
             answerRepository.save(answer2);
             session.setAttribute("answer2", answer2);
             AnswerBase answer3 = new AnswerBase();
             answer3.setQuestion(questionBase3);
             answer3.setAnswer(request.getParameter("trzecie"));
+            System.out.println("DEBUG: " + answer3.getAnswer());
             answerRepository.save(answer3);
             session.setAttribute("answer3", answer3);
             model.addAttribute("questionBase1", questionBase1);
