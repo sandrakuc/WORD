@@ -61,16 +61,45 @@ public class controllerKrysiaPanel {
         teoreticalExamToPkk.setTextResult("brak"); //zawsze tyle przy nowym podejsciu
 
         //sprawdzanie czy istnieje podany egzamin teoretyczny
-        ArrayList<TeoreticalExamToPkk> records = getTeoreticalExamToPkkRecords();  //pobranie wszystkich rekordow z tabeli
-        for (int i=0; i<records.size(); i++ )
+        ArrayList<TeoreticalExam> examRecordsList = getTeoreticalExamRecords();  //pobranie wszystkich rekordow z tabeli
+        for (int i=0; i<examRecordsList.size(); i++ )
         {
-            String examId = Long.toString( records.get(i).getTeoreticalExam().getId() );
-            if( examId.equals( request.getAttribute("teoreticalExamId")) )
-            {
+            String examId = Long.toString( examRecordsList.get(i).getId() );
+            System.out.println("\negz Z bazy " + examId);
+            System.out.println(" Z formularza " + request.getAttribute("teoreticalExamId"));
 
+            if( examId.equals( request.getAttribute("teoreticalExamId")) ){
+                teoreticalExamToPkk.setTeoreticalExam(examRecordsList.get(i));
+            }
+            else{
+                model.addAttribute("examErrMsg","Nie ma takiego egzaminu");
             }
         }
 
+        //sprawdzanie czy istnieje podany pkkId
+        ArrayList<User> pkkRecordsList = getUsersWithPkkRole();
+        for (int i=0; i<pkkRecordsList.size(); i++ )
+        {
+            String pkkPesel = pkkRecordsList.get(i).getPesel();
+            System.out.println("\nPkk Z bazy " + pkkPesel);
+            System.out.println(" Z formularza " + request.getAttribute("pesel"));
+
+            if( pkkPesel.equals( request.getAttribute("pesel")) ){
+                teoreticalExamToPkk.setUser(pkkRecordsList.get(i));
+            }
+            else{
+                model.addAttribute("pkkErrMsg","Nie ma takiego zdajacego");
+            }
+        }
+
+        if(teoreticalExamToPkk.getUser()!=null && teoreticalExamToPkk.getTeoreticalExam()!=null)
+        {
+            teoreticalExamToPkkRepository.save(teoreticalExamToPkk);
+            model.addAttribute("pkkName",teoreticalExamToPkk.getUser().getLastName());
+            model.addAttribute("pkkSurname",teoreticalExamToPkk.getUser().getLastName());
+            model.addAttribute("examData", teoreticalExamToPkk.getTeoreticalExam().getDate());
+            model.addAttribute("examRoom", teoreticalExamToPkk.getTeoreticalExam().getRoom());
+        }
 
         return "userViews/actions/signOnTeoreticalExamResult";
     }
@@ -195,13 +224,13 @@ public class controllerKrysiaPanel {
         return teoreticalExaminersList;
     }
 
-    public ArrayList<TeoreticalExamToPkk> getTeoreticalExamToPkkRecords()
+    public ArrayList<TeoreticalExam> getTeoreticalExamRecords()
     {
-        Long recordsNumber = teoreticalExamToPkkRepository.count();
-        ArrayList<TeoreticalExamToPkk> recordList = new ArrayList<TeoreticalExamToPkk>();
+        Long recordsNumber = teoreticalExamRepository.count();
+        ArrayList<TeoreticalExam> recordList = new ArrayList<TeoreticalExam>();
 
         for (long i=1; i<=recordsNumber; i++ ) {
-            TeoreticalExamToPkk record  = teoreticalExamToPkkRepository.getById(i);
+            TeoreticalExam record  = teoreticalExamRepository.getById(i);
             recordList.add(record);
         }
         return recordList;
@@ -295,6 +324,18 @@ public class controllerKrysiaPanel {
             }
         }
         return null;
+    }
+
+    private ArrayList<User> getUsersWithPkkRole() {
+        Long recordNumber = userRepository.count();
+        ArrayList<User> pkkList = new ArrayList<User>();
+        for (long i=1; i<=recordNumber; i++ ) {
+            User user =  userRepository.getById(i);
+            if(user.getRole().equals(User.Role.PKK)) {
+                pkkList.add(user);
+            }
+        }
+        return pkkList;
     }
 
 
