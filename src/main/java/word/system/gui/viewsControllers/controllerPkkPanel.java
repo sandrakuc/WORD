@@ -176,19 +176,22 @@ public class controllerPkkPanel {
             answer1.setQuestion(questionBase1);
             answer1.setAnswer(request.getParameter("pierwsze"));
             System.out.println("DEBUG: " + answer1.getAnswer());
-            answerRepository.save(answer1);
+            if(answer1.getAnswer() != null)
+                answerRepository.save(answer1);
             session.setAttribute("answer1", answer1);
             AnswerBase answer2 = new AnswerBase();
             answer2.setQuestion(questionBase2);
             answer2.setAnswer(request.getParameter("drugie"));
             System.out.println("DEBUG: " + answer2.getAnswer());
-            answerRepository.save(answer2);
+            if(answer2.getAnswer() != null)
+                answerRepository.save(answer2);
             session.setAttribute("answer2", answer2);
             AnswerBase answer3 = new AnswerBase();
             answer3.setQuestion(questionBase3);
             answer3.setAnswer(request.getParameter("trzecie"));
             System.out.println("DEBUG: " + answer3.getAnswer());
-            answerRepository.save(answer3);
+            if(answer3.getAnswer() != null)
+                answerRepository.save(answer3);
             session.setAttribute("answer3", answer3);
             model.addAttribute("questionBase1", questionBase1);
             model.addAttribute("questionBase2", questionBase2);
@@ -199,7 +202,7 @@ public class controllerPkkPanel {
 
 
     @GetMapping("finishAndConfirmTheExam")
-    public String finishAndConfirmTheExam(HttpServletRequest request) {
+    public String finishAndConfirmTheExam(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
         session.setAttribute("questionBase1", null);
