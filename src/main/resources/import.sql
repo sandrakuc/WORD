@@ -32,8 +32,8 @@ insert into word.WORD_PRACTIC_EXAM(ID, DATE, EXAM_RESULT, PESEL, EXAMINER_ID, MA
 
 
 -- egzaminy teoretyczne (koniecznie po userach)
-INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (1, '2018-01-01 00:00:00', '12', 1, 8);
-INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (2, '2018-01-21 00:00:00', '12', 1, 8);
+INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (1, '2018-01-01 00:00:00', '12', 2, 8);
+INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (2, '2018-01-21 00:00:00', '12', 0, 8);
 INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (3, '2018-02-10 16:00:00', '12', 1, 9);
 INSERT INTO word.WORD_TEORETICAL_EXAM(ID, DATE, ROOM, TEORETICAL_EXAM_STATUS, EXAMINER_ID) VALUES (4, '2018-01-21 00:00:00', '12', 2, 8);
 
@@ -51,11 +51,6 @@ INSERT INTO word.WORD_APPLICATION (ID, NAME, SURNAME, ADDRESS, PESEL, CATEGORY, 
 
 
 -- pytania teoria
-insert into word.WORD_QUESTIONS(ID, CONTENTS, CORRECT_ANSWER, POSSIBLE_ANSWER1, POSSIBLE_ANSWER2, POSSIBLE_ANSWER3,POSSIBLE_ANSWER4)values(1,'Na jakim świetle przejeżdżamy?','Na zielonym','Na czerwonym','Na żółtym','Na zielonym','Jak nikt nie przechodzi to co kogo to obchodzi');
-insert into word.WORD_QUESTIONS(ID, CONTENTS, CORRECT_ANSWER, POSSIBLE_ANSWER1, POSSIBLE_ANSWER2, POSSIBLE_ANSWER3,POSSIBLE_ANSWER4)values(2,'Co oznacza biały trójkąt z ludzikiem na niebieskim tle?','Przejście dla pieszych','Przejście dla pieszych','Bitelsi','Tędy do monopolowca','Uwaga! Kosmici!');
-insert into word.WORD_QUESTIONS(ID, CONTENTS, CORRECT_ANSWER, POSSIBLE_ANSWER1, POSSIBLE_ANSWER2, POSSIBLE_ANSWER3,POSSIBLE_ANSWER4)values(3,'Co oznacza znak z biegnącym jeleniem?','Uwaga na dzikie zwierzęta!','Uwaga! Zdradzani mężowie','Uwaga na dzikie zwierzęta','Strefa Rogasia z Doliny Roztoki','Święty Mikołaj zgubił renifera');
-
-
 insert into word.WORD_QUESTIONS(ID, CONTENTS, CORRECT_ANSWER, POSSIBLE_ANSWER1, POSSIBLE_ANSWER2, POSSIBLE_ANSWER3)values(1,'Jak długo należy ręcznie stabilizować głowę poszkodowanego z podejrzeniem urazu kręgosłupa szyjnego?','Do przejęcia stabilizacji przez członka zespołu ratownictwa medycznego','Aż zacznie nią poruszać','Do przejęcia stabilizacji przez członka zespołu ratownictwa medycznego','Do czasu stwierdzenia ruchomości jego nóg');
 insert into word.WORD_QUESTIONS(ID, CONTENTS, CORRECT_ANSWER, POSSIBLE_ANSWER1, POSSIBLE_ANSWER2, POSSIBLE_ANSWER3)values(2,'Na czym polega właściwe telefoniczne wezwanie pomocy do wypadku drogowego? ','Na upewnieniu się, że operator przyjął całą informację o wypadku','Na poinformowaniu operatora jedynie o miejscu wypadku','Na upewnieniu się, że operator przyjął całą informację o wypadku','Na poinformowaniu operatora jedynie o rodzaju zdarzenia oraz liczbie poszkodowanych osób');
 insert into word.WORD_QUESTIONS(ID, CONTENTS, CORRECT_ANSWER, POSSIBLE_ANSWER1, POSSIBLE_ANSWER2, POSSIBLE_ANSWER3)values(3,'Jesteś świadkiem potrącenia pieszego. Jak powinieneś się zachować? ','Zatrzymać się, wezwać pomoc medyczną i udzielić pierwszej pomocy poszkodowanemu','Nie podejmować działań, gdyż pomocy musi udzielić sprawca wypadku','Wezwać pomoc drogową','Zatrzymać się, wezwać pomoc medyczną i udzielić pierwszej pomocy poszkodowanemu');

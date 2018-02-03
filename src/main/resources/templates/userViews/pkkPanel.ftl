@@ -43,6 +43,7 @@
 			<p><b>Egzaminy teoretyczne:</b></p>
                 <table>
                   <tr>
+                    <th>Id egzaminu </th>
                     <th>Data rozpoczecia</th>
                     <th>Wynik procentowy</th>
                     <th>Rezultat</th>
@@ -50,6 +51,7 @@
 
                   <#list teoreticalExamToPKKList as teoreticalExamToPKKList>
                       <tr>
+                        <td>${teoreticalExamToPKKList.getTeoreticalExam().getId()}</td>
                         <td>${teoreticalExamToPKKList.getTeoreticalExam().getDate()}</td>
                         <td>${teoreticalExamToPKKList.getPercResult()}</td>
                         <td>${teoreticalExamToPKKList.getTextResult()}</td>
@@ -81,8 +83,10 @@
             </table>
 
 			<br><br><br>
-			<form action="takeTheExam" method="GET">
-            	<input name="takeTheExam" type="submit" value="Rozpocznij podejście">
+            <form action="takeTheExam" method="GET">
+                Do którego egzaminu chcesz podejść?
+                <input name="id" type="text">
+                <input name="takeTheExam" type="submit" value="Rozpocznij podejście">
             </form>
 
 			<br><br><br>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import word.system.DrivingLicenseApplication.ApplicationRepository;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 
+import word.system.common.DriveLicenseType;
 import word.system.exam.*;
 
 import word.system.exam.PracticExam;
@@ -52,6 +53,9 @@ public class controllerPkkPanel {
     CourseOfExamRepository courseOfExamRepository;
 
     @Autowired
+    TeoreticalExamRepository teoreticalExamRepository;
+
+    @Autowired
     TeoreticalApproachRepository teoreticalApproachRepository;
 
     //dostęp do tej strony po zalogowaniu jako zdajacy, bedzie tu mogl sprawdzic status wniosku o prawko
@@ -72,6 +76,7 @@ public class controllerPkkPanel {
         session.setAttribute("answer1",null);
         session.setAttribute("answer2",null);
         session.setAttribute("answer3",null);
+        session.setAttribute("teoreticalExam", null);
 
 
         User sessionUser = (User)session.getAttribute("user");
@@ -144,78 +149,46 @@ public class controllerPkkPanel {
     public String takeTheExam(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
-        if(session.getAttribute("questionBase1") == null || session.getAttribute("questionBase2") == null || session.getAttribute("questionBase3")==null) {
-            Random rd = new Random();
-            long id1, id2, id3;
-            do {
-                id1 = (long) rd.nextInt(15) + 1;
-                id2 = (long) rd.nextInt(15) + 1;
-                id3 = (long) rd.nextInt(15) + 1;
-            } while (id1 == id2 || id1 == id3 || id2 == id3);
-            QuestionBase questionBase1 = questionRepository.getById(id1);
-            session.setAttribute("questionBase1", questionBase1);
-            System.out.println(questionBase1.getContents());
-            System.out.println(questionBase1.getPossibleAnswer1());
-            System.out.println(questionBase1.getPossibleAnswer2());
-            System.out.println(questionBase1.getPossibleAnswer3());
-            QuestionBase questionBase2 = questionRepository.getById(id2);
-            session.setAttribute("questionBase2", questionBase2);
-            System.out.println(questionBase2.getContents());
-            System.out.println(questionBase2.getPossibleAnswer1());
-            System.out.println(questionBase2.getPossibleAnswer2());
-            System.out.println(questionBase2.getPossibleAnswer3());
-            QuestionBase questionBase3 = questionRepository.getById(id3);
-            session.setAttribute("questionBase3", questionBase3);
-            System.out.println(questionBase3.getContents());
-            System.out.println(questionBase3.getPossibleAnswer1());
-            System.out.println(questionBase3.getPossibleAnswer2());
-            System.out.println(questionBase3.getPossibleAnswer3());
-            model.addAttribute("questionBase1", questionBase1);
-            model.addAttribute("questionBase2", questionBase2);
-            model.addAttribute("questionBase3", questionBase3);
+        Long examId = Long.valueOf(request.getParameter("id"));
+        TeoreticalExam teoreticalExam = teoreticalExamRepository.getById(examId);
+        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.TRWA)) {
+            session.setAttribute("teoreticalExam", teoreticalExam);
+            if (session.getAttribute("questionBase1") == null || session.getAttribute("questionBase2") == null || session.getAttribute("questionBase3") == null) {
+                Random rd = new Random();
+                long id1, id2, id3;
+                do {
+                    id1 = (long) rd.nextInt(15) + 1;
+                    id2 = (long) rd.nextInt(15) + 1;
+                    id3 = (long) rd.nextInt(15) + 1;
+                } while (id1 == id2 || id1 == id3 || id2 == id3);
+                QuestionBase questionBase1 = questionRepository.getById(id1);
+                session.setAttribute("questionBase1", questionBase1);
+                QuestionBase questionBase2 = questionRepository.getById(id2);
+                session.setAttribute("questionBase2", questionBase2);
+                QuestionBase questionBase3 = questionRepository.getById(id3);
+                session.setAttribute("questionBase3", questionBase3);
+                System.out.println(questionBase3.getContents());
+                model.addAttribute("questionBase1", questionBase1);
+                model.addAttribute("questionBase2", questionBase2);
+                model.addAttribute("questionBase3", questionBase3);
+            }
+        }
+        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.GOTOWY)){
+            return "userViews/actions/examNotStartedYet";
+        }
+        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.ZAKONCZONY)){
+            return "userViews/actions/examBlocked";
         }
         return "userViews/actions/takeTheExam";
-    }
-
-
-    @GetMapping("finishAndConfirmTheExam")
-    public String finishAndConfirmTheExam(HttpServletRequest request, Model model) {
-        HttpSession session = request.getSession();
-        FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
-        QuestionBase questionBase1 = (QuestionBase)session.getAttribute("questionBase1");
-        QuestionBase questionBase2 = (QuestionBase)session.getAttribute("questionBase2");
-        QuestionBase questionBase3 = (QuestionBase)session.getAttribute("questionBase3");
-        AnswerBase answer1 = new AnswerBase();
-        answer1.setQuestion(questionBase1);
-        answer1.setAnswer(request.getParameter("pierwsze"));
-        System.out.println("DEBUG: " + answer1.getAnswer());
-        if(answer1.getAnswer() != null)
-            answerRepository.save(answer1);
-        session.setAttribute("answer1", answer1);
-        AnswerBase answer2 = new AnswerBase();
-        answer2.setQuestion(questionBase2);
-        answer2.setAnswer(request.getParameter("drugie"));
-        System.out.println("DEBUG: " + answer2.getAnswer());
-        if(answer2.getAnswer() != null)
-            answerRepository.save(answer2);
-        session.setAttribute("answer2", answer2);
-        AnswerBase answer3 = new AnswerBase();
-        answer3.setQuestion(questionBase3);
-        answer3.setAnswer(request.getParameter("trzecie"));
-        System.out.println("DEBUG: " + answer3.getAnswer());
-        if(answer3.getAnswer() != null)
-            answerRepository.save(answer3);
-        session.setAttribute("answer3", answer3);
-        model.addAttribute("questionBase1", questionBase1);
-        model.addAttribute("questionBase2", questionBase2);
-        model.addAttribute("questionBase3", questionBase3);
-        return "userViews/actions/finishAndConfirmTheExam";
     }
 
     @PostMapping("finishAndConfirmTheExam")
     public String finishAndConfirmTheExam2(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
+        CourseOfExam courseOfExam1 = new CourseOfExam();
+        CourseOfExam courseOfExam2 = new CourseOfExam();
+        CourseOfExam courseOfExam3 = new CourseOfExam();
         QuestionBase questionBase1 = (QuestionBase)session.getAttribute("questionBase1");
         QuestionBase questionBase2 = (QuestionBase)session.getAttribute("questionBase2");
         QuestionBase questionBase3 = (QuestionBase)session.getAttribute("questionBase3");
@@ -226,6 +199,9 @@ public class controllerPkkPanel {
         if(answer1.getAnswer() != null)
             answerRepository.save(answer1);
         session.setAttribute("answer1", answer1);
+        courseOfExam1.setPartcipants((User)session.getAttribute("user"));
+        courseOfExam1.setAnswers(answer1);
+        courseOfExamRepository.save(courseOfExam1);
         AnswerBase answer2 = new AnswerBase();
         answer2.setQuestion(questionBase2);
         answer2.setAnswer(request.getParameter("drugie"));
@@ -233,6 +209,9 @@ public class controllerPkkPanel {
         if(answer2.getAnswer() != null)
             answerRepository.save(answer2);
         session.setAttribute("answer2", answer2);
+        courseOfExam2.setPartcipants((User)session.getAttribute("user"));
+        courseOfExam2.setAnswers(answer2);
+        courseOfExamRepository.save(courseOfExam2);
         AnswerBase answer3 = new AnswerBase();
         answer3.setQuestion(questionBase3);
         answer3.setAnswer(request.getParameter("trzecie"));
@@ -240,10 +219,31 @@ public class controllerPkkPanel {
         if(answer3.getAnswer() != null)
             answerRepository.save(answer3);
         session.setAttribute("answer3", answer3);
+        courseOfExam3.setPartcipants((User)session.getAttribute("user"));
+        courseOfExam3.setAnswers(answer3);
+        courseOfExamRepository.save(courseOfExam3);
+        ArrayList<CourseOfExam> courses = new ArrayList<>();
+        courses.add(courseOfExam1);
+        courses.add(courseOfExam2);
+        courses.add(courseOfExam3);
+        TeoreticalApproach teoreticalApproach = new TeoreticalApproach();
+        teoreticalApproach.setCourses(courses);
+        teoreticalApproach.setTeoreticalExam((TeoreticalExam) session.getAttribute("teoreticalExam"));
+        teoreticalApproach.setType(DriveLicenseType.B);
+        teoreticalApproachRepository.save(teoreticalApproach);
         model.addAttribute("questionBase1", questionBase1);
         model.addAttribute("questionBase2", questionBase2);
         model.addAttribute("questionBase3", questionBase3);
         return "userViews/actions/finishAndConfirmTheExam";
     }
 
+    @PostMapping("examNotStartedYet")
+    public String examNotStartedYet(HttpServletRequest request) {
+        return "userViews/actions/examNotStartedYet";
+    }
+
+    @PostMapping("examBlocked")
+    public String examBlocked(HttpServletRequest request) {
+        return "userViews/actions/examBlocked";
+    }
 }
