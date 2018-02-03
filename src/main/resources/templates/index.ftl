@@ -20,6 +20,8 @@
           <p><b>Wymagamy od Siebie</b></p>
          <p>Ale i również zaangażowania od Ciebie, byś wykorzystał czas kursu jak najlepiej</p>
 
+        <br><br><br>
+        <p><b>Być może nasza strona nie jest najpiękniejsza ale za to jaka funkcjonalna</b></p>
     <!--TODO polskie znaki mi nie śmigają w pytaniach z teorii -->
 </@t.page>
 
