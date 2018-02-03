@@ -32,7 +32,7 @@
 
                     	<form action="teoreticalExaminerPanel"  method="POST">
                     	    <b>Wpisz id egzaminu:</b>
-                            <input type="text" name="examId" value=""><br><br>
+                            <input type="text" name="examId" value="1"><br><br>
 
                     	    <p><b>Wybierz czynność</b></p>
                     	    <br>

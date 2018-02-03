@@ -22,7 +22,7 @@
 
              <form action="checkDriverLicenseApplication"  method="GET">
                 <p><b>Sprawdz status wniosku o prawo jazdy</b></p><br>
-                 Wprowadz ID wniosku: <input type="text" name="id"><br><br>
+                 Wprowadz ID wniosku: <input type="text" name="id" value="1"><br><br>
                   <input name="checkStatus" type="submit" value="Sprawdz status wniosku">
               </form>
 
