@@ -101,7 +101,7 @@ public class controllerKrysiaPanel {
 
 
 
-        if(teoreticalExamToPkk.getUser()!=null && teoreticalExamToPkk.getTeoreticalExam()!=null && teoreticalExamToPkk.getTeoreticalExam().getTeoreticalExamStatus()!= TeoreticalExamStatus.ZAKONCZONY)
+        if(teoreticalExamToPkk.getUser()!=null && teoreticalExamToPkk.getTeoreticalExam()!=null && teoreticalExamToPkk.getTeoreticalExam().getTeoreticalExamStatus()!= TeoreticalExamStatus.GOTOWY)
         {
             teoreticalExamToPkkRepository.save(teoreticalExamToPkk);
             model.addAttribute("pkkName",teoreticalExamToPkk.getUser().getFirstName());
@@ -118,7 +118,7 @@ public class controllerKrysiaPanel {
             setPkkErrMsg(model);
         else if(examIdCorrect==false)
             setExamErrMsg(model);
-        else if( teoreticalExamToPkk.getTeoreticalExam().getTeoreticalExamStatus()== TeoreticalExamStatus.ZAKONCZONY )
+        else if( teoreticalExamToPkk.getTeoreticalExam().getTeoreticalExamStatus()!= TeoreticalExamStatus.GOTOWY )
             setStatusErrMsq(model);
 
         return "userViews/actions/signOnTeoreticalExamResult";
@@ -370,7 +370,7 @@ public class controllerKrysiaPanel {
         model.addAttribute("examErrMsg","Nie ma takiego egzaminu");
     }
 
-    private void setStatusErrMsq(Model model) { model.addAttribute("examStatusErrMsg","Egzamin jest zamkniety");
+    private void setStatusErrMsq(Model model) { model.addAttribute("examStatusErrMsg","Egzamin jest zamkniety lub właśnie trwa");
     }
 
 
