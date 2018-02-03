@@ -51,6 +51,8 @@ public class controllerKrysiaPanel {
 
     @GetMapping("signOnTeoreticalExam")
     public String GetMSignOnTeoreticalExam(HttpServletRequest request, Model model) {
+        ArrayList<TeoreticalExam> examRecords = getTeoreticalExamRecords();
+        model.addAttribute("examRecords",examRecords);
         return "userViews/actions/signOnTeoreticalExam";
     }
 
@@ -97,7 +99,9 @@ public class controllerKrysiaPanel {
 
         }
 
-        if(teoreticalExamToPkk.getUser()!=null && teoreticalExamToPkk.getTeoreticalExam()!=null)
+
+
+        if(teoreticalExamToPkk.getUser()!=null && teoreticalExamToPkk.getTeoreticalExam()!=null && teoreticalExamToPkk.getTeoreticalExam().getTeoreticalExamStatus()!= TeoreticalExamStatus.ZAKONCZONY)
         {
             teoreticalExamToPkkRepository.save(teoreticalExamToPkk);
             model.addAttribute("pkkName",teoreticalExamToPkk.getUser().getFirstName());
@@ -114,6 +118,8 @@ public class controllerKrysiaPanel {
             setPkkErrMsg(model);
         else if(examIdCorrect==false)
             setExamErrMsg(model);
+        else if( teoreticalExamToPkk.getTeoreticalExam().getTeoreticalExamStatus()== TeoreticalExamStatus.ZAKONCZONY )
+            setStatusErrMsq(model);
 
         return "userViews/actions/signOnTeoreticalExamResult";
     }
@@ -238,6 +244,8 @@ public class controllerKrysiaPanel {
         return teoreticalExaminersList;
     }
 
+
+
     public ArrayList<TeoreticalExam> getTeoreticalExamRecords()
     {
         Long recordsNumber = teoreticalExamRepository.count();
@@ -352,15 +360,19 @@ public class controllerKrysiaPanel {
         return pkkList;
     }
 
-    public void setPkkErrMsg(Model model)
+    private void setPkkErrMsg(Model model)
     {
         model.addAttribute("pkkErrMsg","Nie ma takiego PKK");
     }
 
-    public void setExamErrMsg(Model model)
+    private void setExamErrMsg(Model model)
     {
         model.addAttribute("examErrMsg","Nie ma takiego egzaminu");
     }
+
+    private void setStatusErrMsq(Model model) { model.addAttribute("examStatusErrMsg","Egzamin jest zamkniety");
+    }
+
 
 
 }
