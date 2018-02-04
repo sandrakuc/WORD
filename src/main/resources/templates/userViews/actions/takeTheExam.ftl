@@ -5,8 +5,6 @@
 <h2>Panel Zdającego</h2>
 
 			<p><b>Egzamin teoretyczny</b></p>
-            <br> //Już wkrótce automatyczne sprawdzanie!!!!!!
-			<br> // i bedzie uproszczona wersja, wyswietla sie trzy pytania, bo bym sie zaorala
 			<br><br><br>
 
             <form action="finishAndConfirmTheExam" method="POST">

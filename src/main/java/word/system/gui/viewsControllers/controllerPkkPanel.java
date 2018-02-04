@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Random;
 
 @Controller
@@ -151,7 +152,9 @@ public class controllerPkkPanel {
         FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
         Long examId = Long.valueOf(request.getParameter("id"));
         TeoreticalExam teoreticalExam = teoreticalExamRepository.getById(examId);
-        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.TRWA)) {
+        User user = (User)session.getAttribute("user");
+        TeoreticalExamToPkk teoreticalExamToPkk = teoreticalExamToPkkRepository.getByTeoreticalExamAndUser(teoreticalExam, user);
+        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.TRWA) && teoreticalExamToPkk != null) {
             session.setAttribute("teoreticalExam", teoreticalExam);
             if (session.getAttribute("questionBase1") == null || session.getAttribute("questionBase2") == null || session.getAttribute("questionBase3") == null) {
                 Random rd = new Random();
@@ -173,11 +176,14 @@ public class controllerPkkPanel {
                 model.addAttribute("questionBase3", questionBase3);
             }
         }
-        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.GOTOWY)){
+        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.GOTOWY) && teoreticalExamToPkk != null){
             return "userViews/actions/examNotStartedYet";
         }
-        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.ZAKONCZONY)){
+        if(teoreticalExam.getTeoreticalExamStatus().equals(TeoreticalExamStatus.ZAKONCZONY) && teoreticalExamToPkk != null){
             return "userViews/actions/examBlocked";
+        }
+        if(teoreticalExamToPkk == null){
+            return "userViews/actions/notYoursExam";
         }
         return "userViews/actions/takeTheExam";
     }
@@ -186,6 +192,10 @@ public class controllerPkkPanel {
     public String finishAndConfirmTheExam2(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession();
         FlashMessageManager flashMessageManager = new FlashMessageManager(request.getSession());
+        double i = 0.0;
+        TeoreticalExam teoreticalExam = (TeoreticalExam) session.getAttribute("teoreticalExam");
+        User user = (User)session.getAttribute("user");
+        TeoreticalExamToPkk teoreticalExamToPkk = teoreticalExamToPkkRepository.getByTeoreticalExamAndUser(teoreticalExam,user);
         CourseOfExam courseOfExam1 = new CourseOfExam();
         CourseOfExam courseOfExam2 = new CourseOfExam();
         CourseOfExam courseOfExam3 = new CourseOfExam();
@@ -198,6 +208,8 @@ public class controllerPkkPanel {
         System.out.println("DEBUG: " + answer1.getAnswer());
         if(answer1.getAnswer() != null)
             answerRepository.save(answer1);
+        if(answer1.getAnswer().equals(questionBase1.getCorrectAnswer()))
+            i+=1.0;
         session.setAttribute("answer1", answer1);
         courseOfExam1.setPartcipants((User)session.getAttribute("user"));
         courseOfExam1.setAnswers(answer1);
@@ -208,6 +220,8 @@ public class controllerPkkPanel {
         System.out.println("DEBUG: " + answer2.getAnswer());
         if(answer2.getAnswer() != null)
             answerRepository.save(answer2);
+        if(answer2.getAnswer().equals(questionBase2.getCorrectAnswer()))
+            i+=1.0;
         session.setAttribute("answer2", answer2);
         courseOfExam2.setPartcipants((User)session.getAttribute("user"));
         courseOfExam2.setAnswers(answer2);
@@ -218,17 +232,31 @@ public class controllerPkkPanel {
         System.out.println("DEBUG: " + answer3.getAnswer());
         if(answer3.getAnswer() != null)
             answerRepository.save(answer3);
+        if(answer3.getAnswer().equals(questionBase3.getCorrectAnswer()))
+            i+=1.0;
         session.setAttribute("answer3", answer3);
         courseOfExam3.setPartcipants((User)session.getAttribute("user"));
         courseOfExam3.setAnswers(answer3);
         courseOfExamRepository.save(courseOfExam3);
+        teoreticalExam.setTeoreticalExamStatus(TeoreticalExamStatus.ZAKONCZONY);
+        teoreticalExamRepository.save(teoreticalExam);
+        double result = (i/3)*100;
+        System.out.println("DEBUG: " + result);
+        String textResult;
+        if(result < 66.0)
+            textResult = "NIEZDANE";
+        else
+            textResult = "ZDANE";
+        teoreticalExamToPkk.setPercResult(result);
+        teoreticalExamToPkk.setTextResult(textResult);
+        teoreticalExamToPkkRepository.save(teoreticalExamToPkk);
         ArrayList<CourseOfExam> courses = new ArrayList<>();
         courses.add(courseOfExam1);
         courses.add(courseOfExam2);
         courses.add(courseOfExam3);
         TeoreticalApproach teoreticalApproach = new TeoreticalApproach();
         teoreticalApproach.setCourses(courses);
-        teoreticalApproach.setTeoreticalExam((TeoreticalExam) session.getAttribute("teoreticalExam"));
+        teoreticalApproach.setTeoreticalExam(teoreticalExam);
         teoreticalApproach.setType(DriveLicenseType.B);
         teoreticalApproachRepository.save(teoreticalApproach);
         model.addAttribute("questionBase1", questionBase1);
@@ -245,5 +273,10 @@ public class controllerPkkPanel {
     @PostMapping("examBlocked")
     public String examBlocked(HttpServletRequest request) {
         return "userViews/actions/examBlocked";
+    }
+
+    @PostMapping("notYoursExam")
+    public String notYoursExam(HttpServletRequest request) {
+        return "userViews/actions/notYoursExam";
     }
 }

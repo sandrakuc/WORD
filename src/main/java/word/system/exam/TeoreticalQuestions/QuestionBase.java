@@ -61,4 +61,7 @@ public class QuestionBase {
         return possibleAnswer3;
     }
 
+    public Long getId() {
+        return id;
+    }
 }

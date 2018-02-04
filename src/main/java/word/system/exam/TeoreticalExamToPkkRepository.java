@@ -8,4 +8,5 @@ public interface TeoreticalExamToPkkRepository extends CrudRepository<Teoretical
     TeoreticalExamToPkk getById(Long id);
     TeoreticalExamToPkk getByUser(User user);
     TeoreticalExamToPkk getByTeoreticalExam(TeoreticalExam teoreticalExam);
+    TeoreticalExamToPkk getByTeoreticalExamAndUser(TeoreticalExam teoreticalExam, User user);
 }

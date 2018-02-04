@@ -4,7 +4,7 @@
 
 <h2>Panel Zdającego</h2>
 
-				<p><b>Podejście zapisane</b></p>
+				<p><b>Nie masz dostępu do tego egzaminu</b></p>
                 <br>
                 <a href="logout">Wyloguj sie</a>
 
