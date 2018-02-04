@@ -13,7 +13,7 @@
    				<tr>
    					<th>id egzaminu</th>
    					<th>Data rozpoczęcia</th>
-   					<th>Numer auta</th>
+   					<th>Numer tablicy auta</th>
    					<th>PESEL zdającego</th>
    					<th>Wynik egzaminu</th>
    				</tr>
@@ -22,7 +22,7 @@
                     <tr>
                         <td name="id">${practicExamsList.getId()}</td>
                         <td>${practicExamsList.getDate()}</td>
-                        <td>${practicExamsList.getMachine()}</td>
+                        <td>${practicExamsList.getMachine().getPlate()}</td>
                         <td>${practicExamsList.getPesel()}</td>
                         <td>${practicExamsList.getExamResult()}</td>
                     </tr>
@@ -35,7 +35,7 @@
 
    			<form action="practicalExaminerPanel"  method="POST">
    				<p><b>Wpisz id egzaminu:</b></p>
-   				<input type="text" name="examId" value=""><br><br>
+   				<input type="text" name="examId" value="1"><br><br>
 
    				<p><b>Wybierz wynik egzaminu</b></p>
    				<input type="radio" name="examResult" value="positive" checked> Pozytywny<br>
