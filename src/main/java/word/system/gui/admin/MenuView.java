@@ -17,6 +17,15 @@ public class MenuView extends HorizontalLayout implements View {
         addMenuItem("machine");
         addMenuItem("answer");
         addMenuItem("drivingLicenseApplication");
+        addMenuItem("courseOfExam");
+        addMenuItem("practicApproach");
+        addMenuItem("practicExam");
+        addMenuItem("question");
+        addMenuItem("teoreticalApproach");
+        addMenuItem("teoreticalExam");
+
+
+
     }
 
     protected void addMenuItem(String view) {
