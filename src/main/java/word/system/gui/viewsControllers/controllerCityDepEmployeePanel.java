@@ -1,7 +1,6 @@
 package word.system.gui.viewsControllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,11 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import word.system.DrivingLicenseApplication.ApplicationStatus;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
-import word.system.common.DriveLicenseType;
-import word.system.gui.FlashMessageManager;
 import word.system.user.User;
 import word.system.user.UserRepository;
-import word.system.DrivingLicenseApplication.ApplicationRepository;
+import word.system.DrivingLicenseApplication.DrivingLicenseApplicationRepository;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,7 +22,7 @@ public class controllerCityDepEmployeePanel{
     UserRepository userRepository;
 
     @Autowired
-    ApplicationRepository applicationRepository;
+    DrivingLicenseApplicationRepository drivingLicenseApplicationRepository;
 
 
 
@@ -83,7 +80,7 @@ public class controllerCityDepEmployeePanel{
         if(mapPeselToPkkId(tmp_pesel, drivingLicenseApplication)!=null)
         {
             System.out.println("\n\n\n\n\n" +drivingLicenseApplication);
-            applicationRepository.save(drivingLicenseApplication);
+            drivingLicenseApplicationRepository.save(drivingLicenseApplication);
             message="Dodano wniosek dla usera o id = " + drivingLicenseApplication.getUser().getId();
             applicationApply=true;
         }
@@ -107,7 +104,7 @@ public class controllerCityDepEmployeePanel{
         Long applicationId = Long.parseLong(request.getParameter("id"));
         //System.out.println("\n\n\n\n"+ applicationId + "\n\n\n\n");
 
-        DrivingLicenseApplication drivingLicenseApplication = applicationRepository.getById(applicationId);
+        DrivingLicenseApplication drivingLicenseApplication = drivingLicenseApplicationRepository.getById(applicationId);
         System.out.println("\n\n\n" + drivingLicenseApplication + "\n\n\n\n");
 
         if(drivingLicenseApplication!=null){

@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import word.system.DrivingLicenseApplication.ApplicationRepository;
+import word.system.DrivingLicenseApplication.DrivingLicenseApplicationRepository;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 
 import word.system.common.DriveLicenseType;
@@ -29,8 +29,6 @@ import word.system.user.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.Random;
 
 @Controller
@@ -45,7 +43,7 @@ public class controllerPkkPanel {
     TeoreticalExamToPkkRepository teoreticalExamToPkkRepository;
 
     @Autowired
-    ApplicationRepository applicationRepository;
+    DrivingLicenseApplicationRepository drivingLicenseApplicationRepository;
 
     @Autowired
     AnswerRepository answerRepository;
@@ -127,11 +125,11 @@ public class controllerPkkPanel {
         System.out.println("\n\n\n\n\n" + teoreticalExamToPKKList + "\n\n\n\n\n");
 
         ///wypisywanie wnioskow
-        Long applicationRecorsNumber = applicationRepository.count();
+        Long applicationRecorsNumber = drivingLicenseApplicationRepository.count();
         ArrayList<DrivingLicenseApplication> pkkApplicationsList = new ArrayList<DrivingLicenseApplication>();
 
         for (long i=1; i<=applicationRecorsNumber; i++ ) {
-            DrivingLicenseApplication drivingLicenseApplication = applicationRepository.getById(i);
+            DrivingLicenseApplication drivingLicenseApplication = drivingLicenseApplicationRepository.getById(i);
 
             if (drivingLicenseApplication.getUser().equals(sessionUser)) {
                 pkkApplicationsList.add(drivingLicenseApplication);
