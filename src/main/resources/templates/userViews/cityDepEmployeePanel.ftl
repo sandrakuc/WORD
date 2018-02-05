@@ -25,8 +25,13 @@
                  Wprowadz ID wniosku: <input type="text" name="id" value="1"><br><br>
                   <input name="checkStatus" type="submit" value="Sprawdz status wniosku">
               </form>
-
     			 <br>
+
+            <form action="changeDriverLicenseApplicationStatus"  method="GET">
+    		       <p><b>Zmien status wniosku</b></p><br>
+                    Wprowadz ID wniosku: <input type="text" name="id" value="1"><br><br>
+                   <input name="changeStatus" type="submit" value="Zmien status">
+              </form><br>
      			
      			<form action="logout"  method="POST">
      				 <input name="logout" type="submit" value="Wyloguj się">

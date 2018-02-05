@@ -1,11 +1,13 @@
 package word.system.gui.viewsControllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import word.system.DrivingLicenseApplication.ApplicationStatus;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplication;
 import word.system.user.User;
@@ -13,6 +15,7 @@ import word.system.user.UserRepository;
 import word.system.DrivingLicenseApplication.DrivingLicenseApplicationRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -154,5 +157,40 @@ public class controllerCityDepEmployeePanel{
         return "userViews/actions/createPkk";
     }
 
+    @GetMapping("changeDriverLicenseApplicationStatus")
+    public String getChangeDriverLicenseApplicationStatus(HttpServletRequest request, Model model) {
+        Long getId =  Long.parseLong(request.getParameter("id"));
+        request.getSession().setAttribute("DrivingLicenseApplicationId",getId);
+
+        DrivingLicenseApplication drivingLicenseApplication = new DrivingLicenseApplication();
+        drivingLicenseApplication = drivingLicenseApplicationRepository.getById(getId);
+        if (drivingLicenseApplication==null)
+        {
+            model.addAttribute("msg","Nie ma wniosku o takim id");
+        }
+        else
+        {
+            model.addAttribute("id",getId);
+            model.addAttribute("drivingLicenseApplicationStatus",drivingLicenseApplication.getStatus());
+        }
+        return "userViews/actions/changeDriverLicenseApplicationStatus";
+    }
+
+    @PostMapping("changeDriverLicenseApplicationStatus")
+    public String postChangeDriverLicenseApplicationStatus(HttpServletRequest request, Model model) {
+        Long id = (Long)request.getSession().getAttribute("DrivingLicenseApplicationId");
+        DrivingLicenseApplication drivingLicenseApplication = new DrivingLicenseApplication();
+        drivingLicenseApplication = drivingLicenseApplicationRepository.getById(id);
+
+        drivingLicenseApplication.setStatus( ApplicationStatus.valueOf(request.getParameter("statusBox")) );
+
+        System.out.println("\n\n"+drivingLicenseApplication+ "\n\n");
+        drivingLicenseApplicationRepository.save(drivingLicenseApplication);
+
+        model.addAttribute("msg","Zmieniono status na\n" + drivingLicenseApplication.getStatus());
+
+
+        return "userViews/actions/changeDriverLicenseApplicationStatus";
+    }
 
 }
