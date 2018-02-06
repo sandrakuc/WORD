@@ -184,7 +184,7 @@ public class controllerCityDepEmployeePanel{
 
         drivingLicenseApplication.setStatus( ApplicationStatus.valueOf(request.getParameter("statusBox")) );
 
-        System.out.println("\n\n"+drivingLicenseApplication+ "\n\n");
+//        System.out.println("\n\n"+drivingLicenseApplication+ "\n\n");
         drivingLicenseApplicationRepository.save(drivingLicenseApplication);
 
         model.addAttribute("msg","Zmieniono status na\n" + drivingLicenseApplication.getStatus());

@@ -21,11 +21,6 @@
                   <input name="createPracticalExam" type="submit" value="Utwórz egzamin praktyczny">
                </form>
 
-               	<br>
-                 <form action="getMoney"  method="get">
-                   	<p><b>Zaksiegować wpłate od zdającego</b></p>
-                   	<input name="getMoney" type="submit" value="Przyjmij wpłate">
-                  </form>
 
     		 <br>
     			<form action="logout"  method="POST">
